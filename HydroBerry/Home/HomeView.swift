@@ -10,7 +10,8 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var viewChoice = 0
+    @State private var selection = 0
+    
     init() {
         
         UITabBar.appearance().barTintColor = UIColor.white
@@ -19,38 +20,76 @@ struct HomeView: View {
     }
     
     var body: some View {
-        NavigationView {
+        
             ZStack {
-                
                 VStack {
-
                     
-                    TabView {
+                    TabView(selection: $selection) {
                         bodyView
                             .tabItem {
-                                Image(systemName: "house.fill")
+                                if selection == 0 {
+                                    Image("ic_home_active")
+                                } else {
+                                    Image("ic_home")
+                                }
                                 Text("Home")
-                            }
+                            }.tag(0)
 
                         GrowthView()
                             .tabItem {
-                                Image(systemName: "leaf")
-                                Text("Choose system")
-                            }
+                                if selection == 1 {
+                                    Image("ic_leaf_active")
+                                } else {
+                                    Image("ic_leaf")
+                                }
+                                Text("Crescita")
+                            }.tag(1)
 
                         Text("ProfileView()")
                             .tabItem {
-                                Image(systemName: "person.fill")
-                                Text("Profile")
-                            }
+                                if selection == 2 {
+                                    Image("ic_profilo_active")
+                                } else {
+                                    Image("ic_profilo")
+                                }
+                                Text("Profilo")
+                            }.tag(2)
                     }
-                    //non penso servirà quando avrò le icone
                     .accentColor(Color(red: 21/255, green: 132/255, blue: 103/255))
                 }
-            
-            }
         }
     }
+    
+    private var bodyView: some View {
+        VStack{
+            Spacer()
+        ZStack{
+            HStack{
+                Spacer()
+                VStack{
+                Image("Pomodoro")
+                    .resizable()
+                    .frame(width:345, height: 345)
+                    .padding(.top,-100)
+                Spacer()
+                }
+                }
+            HStack{
+                titleView.padding()
+            }
+                    VStack {
+                        //Spacer()
+                        //ScrollView {
+                            //Spacer()
+                            griglia
+                        //}.frame()
+                }
+        }
+        }
+        
+    }
+    
+    
     private var titleView: some View {
         VStack {
             HStack{
@@ -67,38 +106,9 @@ struct HomeView: View {
             }.padding(.horizontal,5)
             
             Spacer()
-        }.padding(.top,-50)
-    }
-        
-    
-    private var bodyView: some View {
-        ZStack{
-            HStack{
-                
-                Spacer()
-                VStack{
-                Image("Pomodoro")
-                    .resizable()
-                    .frame(width:345, height: 345)
-                    .padding(.top,-100)
-                Spacer()
-                }
-                }
-            HStack{
-                titleView.padding()
-            }
-                    VStack {
-                        Spacer()
-                        ScrollView {
-                            Spacer()
-                            griglia
-                    }
-                }
         }
     }
-
-
-
+    
     private var griglia: some View {
         LazyVGrid(columns:
             [GridItem(.flexible(minimum: 40, maximum: 400)), GridItem(.flexible(minimum: 40, maximum: 400))]) {
@@ -107,7 +117,7 @@ struct HomeView: View {
             pHCard.padding(7)
             eCCard.padding(7)
         }.padding(16)
-        .padding(.top, 60)
+        .padding(.top, 120)
     }
 
     private var temperatureCard: some View {

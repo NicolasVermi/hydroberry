@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,20 @@
 		8D12FF8425A85999006C30CE /* HydroBerryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12FF8325A85999006C30CE /* HydroBerryTests.swift */; };
 		8D12FF8F25A8599A006C30CE /* HydroBerryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12FF8E25A8599A006C30CE /* HydroBerryUITests.swift */; };
 		8D52EA2C25A9F73D00132694 /* GrowthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D52EA2B25A9F73D00132694 /* GrowthView.swift */; };
+		8D53719725AB1B4C00446982 /* provaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D53719625AB1B4C00446982 /* provaView.swift */; };
+		8D5371A025AB5CED00446982 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D53719F25AB5CED00446982 /* InformationView.swift */; };
+		8D5371A825AB60DD00446982 /* InformationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5371A725AB60DD00446982 /* InformationCardView.swift */; };
+		8D5371AE25AB66CE00446982 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5371AD25AB66CE00446982 /* SwiftUIView.swift */; };
+		8D6A4E7A25ADE6250090E0C6 /* AddCropStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E7925ADE6250090E0C6 /* AddCropStep2View.swift */; };
+		8D6A4E7F25ADEA460090E0C6 /* GrowStepCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E7E25ADEA460090E0C6 /* GrowStepCardView.swift */; };
+		8D70B55B25AC802900AC8377 /* SystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B55A25AC802900AC8377 /* SystemView.swift */; };
+		8D70B56325AC8BBD00AC8377 /* AuthCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B56225AC8BBD00AC8377 /* AuthCardView.swift */; };
+		8D70B56925AC92AD00AC8377 /* AddCropStep1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B56825AC92AD00AC8377 /* AddCropStep1View.swift */; };
+		8D70B57125AC92FD00AC8377 /* CropCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B57025AC92FD00AC8377 /* CropCardView.swift */; };
+		8D70B57725ACAAA200AC8377 /* DuckMaUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8D70B57625ACAAA200AC8377 /* DuckMaUI */; };
+		8D70B58125ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B58025ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift */; };
+		8D70B58A25ACAF8800AC8377 /* PagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B58925ACAF8800AC8377 /* PagerView.swift */; };
+		8D70B59525ACB01600AC8377 /* FullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B59425ACB01600AC8377 /* FullImageViewController.swift */; };
 		8DABC9C625A85B2A0064B141 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9C525A85B2A0064B141 /* SplashScreenView.swift */; };
 		8DABC9CC25A868020064B141 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9CB25A868020064B141 /* DetailsView.swift */; };
 		8DABC9D125A86A8A0064B141 /* CardMinMaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9D025A86A8A0064B141 /* CardMinMaxView.swift */; };
@@ -56,6 +70,19 @@
 		8D12FF8E25A8599A006C30CE /* HydroBerryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydroBerryUITests.swift; sourceTree = "<group>"; };
 		8D12FF9025A8599A006C30CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D52EA2B25A9F73D00132694 /* GrowthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowthView.swift; sourceTree = "<group>"; };
+		8D53719625AB1B4C00446982 /* provaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = provaView.swift; sourceTree = "<group>"; };
+		8D53719F25AB5CED00446982 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		8D5371A725AB60DD00446982 /* InformationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCardView.swift; sourceTree = "<group>"; };
+		8D5371AD25AB66CE00446982 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		8D6A4E7925ADE6250090E0C6 /* AddCropStep2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCropStep2View.swift; sourceTree = "<group>"; };
+		8D6A4E7E25ADEA460090E0C6 /* GrowStepCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowStepCardView.swift; sourceTree = "<group>"; };
+		8D70B55A25AC802900AC8377 /* SystemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemView.swift; sourceTree = "<group>"; };
+		8D70B56225AC8BBD00AC8377 /* AuthCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCardView.swift; sourceTree = "<group>"; };
+		8D70B56825AC92AD00AC8377 /* AddCropStep1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCropStep1View.swift; sourceTree = "<group>"; };
+		8D70B57025AC92FD00AC8377 /* CropCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropCardView.swift; sourceTree = "<group>"; };
+		8D70B58025ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewRepresentable+UIViewPreview.swift"; sourceTree = "<group>"; };
+		8D70B58925ACAF8800AC8377 /* PagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerView.swift; sourceTree = "<group>"; };
+		8D70B59425ACB01600AC8377 /* FullImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewController.swift; sourceTree = "<group>"; };
 		8DABC9C525A85B2A0064B141 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		8DABC9CB25A868020064B141 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		8DABC9D025A86A8A0064B141 /* CardMinMaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMinMaxView.swift; sourceTree = "<group>"; };
@@ -72,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D70B57725ACAAA200AC8377 /* DuckMaUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,17 +143,23 @@
 		8D12FF7025A85998006C30CE /* HydroBerry */ = {
 			isa = PBXGroup;
 			children = (
+				8D70B56725AC928500AC8377 /* AddCrop */,
+				8D12FF7525A85999006C30CE /* Assets.xcassets */,
+				8D12FF7325A85998006C30CE /* ContentView.swift */,
+				8DABC9CA25A867BF0064B141 /* Details */,
+				8D70B57F25ACAEDA00AC8377 /* Extension */,
+				8D70B58825ACAF7200AC8377 /* Generic */,
 				8D52EA2A25A9F6E300132694 /* Growth */,
 				8DABC9F025A89DED0064B141 /* Home */,
-				8DABC9D525A8948E0064B141 /* Onboarding */,
 				8D12FF7125A85998006C30CE /* HydroBerryApp.swift */,
-				8DABC9CA25A867BF0064B141 /* Details */,
-				8DABC9C425A85AE80064B141 /* Splash Screen */,
-				8D12FF7325A85998006C30CE /* ContentView.swift */,
-				8DABC9E825A8980B0064B141 /* TermsAndPrivacyView.swift */,
-				8D12FF7525A85999006C30CE /* Assets.xcassets */,
 				8D12FF7A25A85999006C30CE /* Info.plist */,
+				8DABC9D525A8948E0064B141 /* Onboarding */,
+				8D53719E25AB5CC100446982 /* PlantInformation */,
 				8D12FF7725A85999006C30CE /* Preview Content */,
+				8DABC9C425A85AE80064B141 /* Splash Screen */,
+				8D70B55925AC800400AC8377 /* System View */,
+				8DABC9E825A8980B0064B141 /* TermsAndPrivacyView.swift */,
+				8D5371AC25AB66AA00446982 /* Zprove */,
 			);
 			path = HydroBerry;
 			sourceTree = "<group>";
@@ -162,6 +196,61 @@
 				8D52EA2B25A9F73D00132694 /* GrowthView.swift */,
 			);
 			path = Growth;
+			sourceTree = "<group>";
+		};
+		8D53719E25AB5CC100446982 /* PlantInformation */ = {
+			isa = PBXGroup;
+			children = (
+				8D53719F25AB5CED00446982 /* InformationView.swift */,
+				8D5371A725AB60DD00446982 /* InformationCardView.swift */,
+			);
+			path = PlantInformation;
+			sourceTree = "<group>";
+		};
+		8D5371AC25AB66AA00446982 /* Zprove */ = {
+			isa = PBXGroup;
+			children = (
+				8D53719625AB1B4C00446982 /* provaView.swift */,
+				8D5371AD25AB66CE00446982 /* SwiftUIView.swift */,
+			);
+			path = Zprove;
+			sourceTree = "<group>";
+		};
+		8D70B55925AC800400AC8377 /* System View */ = {
+			isa = PBXGroup;
+			children = (
+				8D70B55A25AC802900AC8377 /* SystemView.swift */,
+				8D70B56225AC8BBD00AC8377 /* AuthCardView.swift */,
+			);
+			path = "System View";
+			sourceTree = "<group>";
+		};
+		8D70B56725AC928500AC8377 /* AddCrop */ = {
+			isa = PBXGroup;
+			children = (
+				8D70B57025AC92FD00AC8377 /* CropCardView.swift */,
+				8D6A4E7E25ADEA460090E0C6 /* GrowStepCardView.swift */,
+				8D70B56825AC92AD00AC8377 /* AddCropStep1View.swift */,
+				8D6A4E7925ADE6250090E0C6 /* AddCropStep2View.swift */,
+			);
+			path = AddCrop;
+			sourceTree = "<group>";
+		};
+		8D70B57F25ACAEDA00AC8377 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8D70B58025ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		8D70B58825ACAF7200AC8377 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				8D70B58925ACAF8800AC8377 /* PagerView.swift */,
+				8D70B59425ACB01600AC8377 /* FullImageViewController.swift */,
+			);
+			path = Generic;
 			sourceTree = "<group>";
 		};
 		8DABC9C425A85AE80064B141 /* Splash Screen */ = {
@@ -216,6 +305,9 @@
 			dependencies = (
 			);
 			name = HydroBerry;
+			packageProductDependencies = (
+				8D70B57625ACAAA200AC8377 /* DuckMaUI */,
+			);
 			productName = HydroBerry;
 			productReference = 8D12FF6E25A85998006C30CE /* HydroBerry.app */;
 			productType = "com.apple.product-type.application";
@@ -287,6 +379,9 @@
 				Base,
 			);
 			mainGroup = 8D12FF6525A85998006C30CE;
+			packageReferences = (
+				8D70B57525ACAAA200AC8377 /* XCRemoteSwiftPackageReference "ios-design-system" */,
+			);
 			productRefGroup = 8D12FF6F25A85998006C30CE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -330,14 +425,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DABC9F725A89E8D0064B141 /* CardHomeView.swift in Sources */,
+				8D70B58125ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift in Sources */,
 				8D52EA2C25A9F73D00132694 /* GrowthView.swift in Sources */,
+				8D6A4E7F25ADEA460090E0C6 /* GrowStepCardView.swift in Sources */,
+				8D5371AE25AB66CE00446982 /* SwiftUIView.swift in Sources */,
 				8D12FF7425A85998006C30CE /* ContentView.swift in Sources */,
+				8D70B56925AC92AD00AC8377 /* AddCropStep1View.swift in Sources */,
+				8D5371A825AB60DD00446982 /* InformationCardView.swift in Sources */,
+				8D6A4E7A25ADE6250090E0C6 /* AddCropStep2View.swift in Sources */,
 				8DABC9CC25A868020064B141 /* DetailsView.swift in Sources */,
 				8D12FF7225A85998006C30CE /* HydroBerryApp.swift in Sources */,
 				8DABC9F225A89E060064B141 /* HomeView.swift in Sources */,
+				8D70B56325AC8BBD00AC8377 /* AuthCardView.swift in Sources */,
 				8DABC9E925A8980B0064B141 /* TermsAndPrivacyView.swift in Sources */,
+				8D70B58A25ACAF8800AC8377 /* PagerView.swift in Sources */,
+				8D5371A025AB5CED00446982 /* InformationView.swift in Sources */,
 				8DABC9D725A894E10064B141 /* OnboardingView.swift in Sources */,
+				8D53719725AB1B4C00446982 /* provaView.swift in Sources */,
+				8D70B59525ACB01600AC8377 /* FullImageViewController.swift in Sources */,
+				8D70B57125AC92FD00AC8377 /* CropCardView.swift in Sources */,
 				8DABC9E425A895710064B141 /* OnboardingStyle.swift in Sources */,
+				8D70B55B25AC802900AC8377 /* SystemView.swift in Sources */,
 				8DABC9DF25A8954B0064B141 /* OnboardingItem.swift in Sources */,
 				8DABC9C625A85B2A0064B141 /* SplashScreenView.swift in Sources */,
 				8DABC9D125A86A8A0064B141 /* CardMinMaxView.swift in Sources */,
@@ -654,6 +762,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8D70B57525ACAAA200AC8377 /* XCRemoteSwiftPackageReference "ios-design-system" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:duckma/ios-design-system.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8D70B57625ACAAA200AC8377 /* DuckMaUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D70B57525ACAAA200AC8377 /* XCRemoteSwiftPackageReference "ios-design-system" */;
+			productName = DuckMaUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8D12FF6625A85998006C30CE /* Project object */;
 }

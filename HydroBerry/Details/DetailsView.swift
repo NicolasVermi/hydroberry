@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DetailsView: View {
     @State var pickerSelection = 0
+    @Environment(\.presentationMode) var presentationMode
+
 
     var barValues: [[CGFloat]] =
         //  [[1],[1],[1],[1]]
@@ -17,22 +19,24 @@ struct DetailsView: View {
             [10, 20, 50, 100, 120, 90, 180],
             [200, 110, 30, 170, 50, 100, 100, 100, 200, 80, 90, 50, 100, 100, 100, 200, 80, 90, 50, 100, 100, 100, 200, 80, 90, 0, 0, 0, 0, 0],
             [5, 150, 50, 100, 200, 110, 30, 170, 50, 0, 0, 0],
-            
-            
-            
         ]
-    var body: some View {
-        ZStack {
-            VStack(alignment: .leading) {
-                HStack{
-                    Spacer()
-                    Text("Dettaglio")
-                    Spacer()
-                }
-                
-                Spacer()
-                ScrollView {
+    
+    
+    var body: some View {    
                     VStack{
+                        ZStack{
+                            Text("Temperatura")
+                                .font(Font.system(size:17, weight: .semibold))
+                                .multilineTextAlignment(.center)
+  
+                            Image(systemName: "chevron.left").foregroundColor(Color(red: 117/255, green: 117/255, blue: 117/255))
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    self.presentationMode.wrappedValue.dismiss()
+                                }
+                                .padding(.leading,-175)
+                        }.frame(maxHeight:50)
+                        Spacer()
                     Picker(selection: $pickerSelection, label: Text("Stats")) {
                         Text("G").tag(0)
                         Text("S").tag(1)
@@ -40,30 +44,24 @@ struct DetailsView: View {
                         Text("A").tag(3)
 
                     }.pickerStyle(SegmentedPickerStyle())
-                    .padding(.horizontal, 10).padding(.top, 40)
-                        graphicPart.padding(.bottom, 35).padding(.top, 25)
-                    Spacer()
+                    .padding(.horizontal, 10)
                     
+                        graphicPart.padding(.bottom, 35).padding(.top, 25)
+
                     ZStack{
                         RoundedRectangle(cornerRadius: 37)
                             .foregroundColor(Color(red: 247/255, green: 247/255, blue: 247/255))
-                            .frame(height:800)
-                            
+                            .frame(height:300)
+        
                     VStack {
-                        
                         maxCard.padding(.horizontal,8).padding(.vertical, 5)
                         minCard.padding(.horizontal,8).padding(.vertical, 5)
                         recommendedValueCard.padding(.horizontal,8).padding(.vertical, 5)
                         Spacer()
                     }.padding(.top,33)
-                        
                     }
-                        
                     }
-                    
-                }
-            }
-        }
+
     }
 
     private var maxCard: some View {
@@ -99,6 +97,7 @@ struct DetailsView: View {
     }
     
 }
+
 struct BarView: View {
     var value: CGFloat
     var cornerRadius: CGFloat
@@ -115,6 +114,8 @@ struct BarView: View {
         }
     }
 }
+
+
 struct DetailsView_Previews: PreviewProvider {
     static var previews: some View {
         DetailsView()

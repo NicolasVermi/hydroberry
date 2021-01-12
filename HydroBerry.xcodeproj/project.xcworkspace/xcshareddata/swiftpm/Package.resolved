@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "DuckMaUI",
+        "repositoryURL": "git@github.com:duckma/ios-design-system.git",
+        "state": {
+          "branch": "master",
+          "revision": "ec6f9646bb6d342472e4c7a3cc6856c0ab5ea1e9",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

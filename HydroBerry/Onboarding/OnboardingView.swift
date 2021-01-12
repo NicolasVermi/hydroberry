@@ -5,9 +5,10 @@
 //  Created by Nicolas Vermi on 08/01/21.
 //
 
-/*
+
 import DuckMaUI
 import SwiftUI
+
 
 struct OnboardingView: View {
   let style: OnboardingStyle
@@ -19,36 +20,37 @@ struct OnboardingView: View {
     image: Image?
   ) -> some View {
     VStack(alignment: .leading) {
-      Spacer().frame(height: 24)
+      Spacer().frame(height: 60)
 
       if image != nil {
-        image!.resizable()
-          .aspectRatio(3 / 2, contentMode: .fit)
-          .padding([.leading, .trailing], 16)
+        image!
+            //.resizable()
+            .frame(maxWidth: 228, maxHeight: 252)
+          .padding([.leading, .trailing], 60)
       } else {
         RoundedRectangle(cornerRadius: 8)
           .foregroundColor(Color(ColorTheme.current.primary.dark))
           .aspectRatio(3 / 2, contentMode: .fit)
-          .padding([.leading, .trailing], 16)
+          .padding([.leading, .trailing], 25)
       }
 
-      Spacer().frame(height: 24)
+      Spacer().frame(height: 50)
 
       Text(title)
         .fixedSize(horizontal: false, vertical: true)
-        .font(Font(FontTheme.current.bold.title1))
-        .foregroundColor(Color(ColorTheme.current.black))
-        .padding([.leading, .trailing], 16)
+        .font(Font.system(size:22, weight: .bold))
+        .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
+        .padding([.leading, .trailing], 32)
+        .padding(.top, 40)
 
-      Spacer().frame(height: 8)
+      Spacer().frame(height: 15)
 
       Text(description)
         .fixedSize(horizontal: false, vertical: true)
-        .font(Font(FontTheme.current.regular.body))
-        .foregroundColor(Color(ColorTheme.current.black))
-        .padding([.leading, .trailing], 16)
+        .font(Font.system(size:16, weight: .regular))
+        .foregroundColor(Color(red:130/255, green: 136/255, blue:148/255))
+        .padding([.leading, .trailing], 32)
 
-      Spacer()
     }
   }
 
@@ -56,42 +58,17 @@ struct OnboardingView: View {
     Button(action: action) {
       UIViewPreview(horizontalHugging: .defaultLow) {
         let button = FullButton()
-        button.setTitle(L10n.onboardingSkip, for: .normal)
+        button.setTitle("Salta", for: .normal)
         button.titleLabel?.font = FontTheme.current.semibold.subhead
         button.cornerRadius = .medium
+        button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 1)
+        
         return button
       }
     }
-    .padding([.leading, .trailing], 16)
+    .padding([.leading, .trailing], 32)
   }
 
-  private func registerLogin(
-    registerAction: @escaping () -> Void,
-    loginAction: @escaping () -> Void
-  ) -> some View {
-    VStack {
-      Button(action: registerAction) {
-        UIViewPreview(horizontalHugging: .defaultLow) {
-          let button = FullButton()
-          button.setTitle(L10n.onboardingSignup, for: .normal)
-          button.titleLabel?.font = FontTheme.current.semibold.subhead
-          button.cornerRadius = .medium
-          return button
-        }
-      }
-
-      Spacer().frame(height: 24)
-
-      Button(action: loginAction) {
-        Text("onboarding_login")
-          .foregroundColor(Color(ColorTheme.current.secondary.dark))
-          .fixedSize(horizontal: false, vertical: true)
-          .font(.init(FontTheme.current.semibold.footnote))
-          .multilineTextAlignment(.center)
-      }
-    }
-    .padding([.leading, .trailing], 16)
-  }
 
   var body: some View {
     VStack {
@@ -103,34 +80,25 @@ struct OnboardingView: View {
         )
       }
 
-      Spacer()
+      
 
       self.style.skipAction.map(self.skipButton(_:))
-      self.style.registerLoginAction.map { register, login in
-        self.registerLogin(registerAction: register, loginAction: login)
+        .padding(.vertical, 40)
       }
-
       Spacer().frame(height: 24)
     }
   }
-}
+
 
 struct OnboardingView_Previews: PreviewProvider {
   static let mocks = [
-    OnboardingItem(title: "Test 1", description: "Descrizione 1"),
-    OnboardingItem(title: "Test 2", description: "Descrizione 2"),
-    OnboardingItem(title: "Test 3", description: "Descrizione 3"),
-    OnboardingItem(title: "Test 4", description: "Descrizione 4"),
+    OnboardingItem(title: "Inserisci la tua pianta", description: "Crea una nuova coltivazione in pochi semplici passi e inserisci tutti i dati della cella idroponica utilizzata", image: Image("img_step1")),
+    OnboardingItem(title: "Monitora i valori della cella idroponica", description: "Tieni sotto controllo i valori di temperatura, umidità, ph e conducibilità elettrica (EC) relativi alla cella idroponica", image: Image("img_step2")),
+    OnboardingItem(title: "Monitora i progressi", description: "Controlla la crescita della pianta nel tempo, mostrando quanti giorni sono passati dalla sua nascita e quanto manca al raccoglimento dei suoi frutti.", image: Image("img_step3")),
   ]
   static var previews: some View {
-    Group {
       OnboardingView(style: .skip {}, items: OnboardingView_Previews.mocks)
-
-      OnboardingView(
-        style: .registerLogin(register: {}, login: {}),
-        items: OnboardingView_Previews.mocks
-      )
     }
   }
-}
-*/
+
+

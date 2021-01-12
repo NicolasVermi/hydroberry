@@ -6,7 +6,7 @@
 //  Copyright © 2020 DuckMa srl. All rights reserved.
 //
 
-/*
+
 import DuckMaUI
 import SwiftUI
 
@@ -20,22 +20,22 @@ struct TermsAndPrivacyView: View {
       Group {
         Spacer()
 
-        Image(uiImage: Asset.termsPrivacy.image)
+        Image("Group")
 
         Spacer().frame(height: 32)
       }
 
       Group {
-        Text(L10n.authPrivacyTitle)
-          .foregroundColor(Color(ColorTheme.current.primary.dark))
+        Text("Prima di accedere...")
+            .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
           .fixedSize(horizontal: false, vertical: true)
           .font(.init(FontTheme.current.bold.title1))
           .multilineTextAlignment(.leading)
 
         Spacer().frame(height: 10)
 
-        Text(L10n.authPrivacyDesc)
-          .foregroundColor(Color(ColorTheme.current.secondary.dark))
+        Text("Accetta i termini e condizioni e la privacy policy per poter visualizzare i nostri contenuti")
+            .foregroundColor(Color(red:130/255, green: 136/255, blue:148/255))
           .fixedSize(horizontal: false, vertical: true)
           .font(.init(FontTheme.current.semibold.headline))
           .multilineTextAlignment(.leading)
@@ -45,14 +45,14 @@ struct TermsAndPrivacyView: View {
 
       VStack {
         Button(action: self.showTerms) {
-          TermPrivacyRowView(title: L10n.authPrivacyReadTos)
+          TermPrivacyRowView(title: "Leggi termini e condizioni")
             .foregroundColor(Color(ColorTheme.current.primary.dark))
         }
 
         Spacer().frame(height: 5)
 
         Button(action: self.showPrivacyPolicy) {
-          TermPrivacyRowView(title: L10n.authPrivacyReadPrivacy)
+          TermPrivacyRowView(title: "Leggi privacy policy")
             .foregroundColor(Color(ColorTheme.current.primary.dark))
         }
       }
@@ -65,6 +65,7 @@ struct TermsAndPrivacyView: View {
           button.setTitle("Accetta", for: .normal)
           button.titleLabel?.font = FontTheme.current.semibold.subhead
           button.cornerRadius = .medium
+          button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 1)
           return button
         }
       }
@@ -86,10 +87,8 @@ private struct TermPrivacyRowView: View {
           .fixedSize(horizontal: false, vertical: true)
           .font(.init(FontTheme.current.regular.headline))
           .multilineTextAlignment(.leading)
-
         Spacer()
-
-        Image(uiImage: Asset.angleRight24.image)
+        Image(systemName: "chevron.right")
       }
 
       Divider()
@@ -105,4 +104,4 @@ private struct TermPrivacyRowView: View {
     }
   }
 #endif
-*/
+
