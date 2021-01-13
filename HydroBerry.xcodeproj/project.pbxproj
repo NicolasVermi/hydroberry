@@ -18,8 +18,11 @@
 		8D5371A025AB5CED00446982 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D53719F25AB5CED00446982 /* InformationView.swift */; };
 		8D5371A825AB60DD00446982 /* InformationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5371A725AB60DD00446982 /* InformationCardView.swift */; };
 		8D5371AE25AB66CE00446982 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5371AD25AB66CE00446982 /* SwiftUIView.swift */; };
+		8D55191625AEE42B002490C7 /* AddCropStep3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55191525AEE42B002490C7 /* AddCropStep3View.swift */; };
 		8D6A4E7A25ADE6250090E0C6 /* AddCropStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E7925ADE6250090E0C6 /* AddCropStep2View.swift */; };
 		8D6A4E7F25ADEA460090E0C6 /* GrowStepCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E7E25ADEA460090E0C6 /* GrowStepCardView.swift */; };
+		8D6A4E8725AE015B0090E0C6 /* prova2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E8625AE015B0090E0C6 /* prova2View.swift */; };
+		8D6A4E8C25AE078D0090E0C6 /* UIViewRepresentable+CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E8B25AE078D0090E0C6 /* UIViewRepresentable+CustomTextField.swift */; };
 		8D70B55B25AC802900AC8377 /* SystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B55A25AC802900AC8377 /* SystemView.swift */; };
 		8D70B56325AC8BBD00AC8377 /* AuthCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B56225AC8BBD00AC8377 /* AuthCardView.swift */; };
 		8D70B56925AC92AD00AC8377 /* AddCropStep1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B56825AC92AD00AC8377 /* AddCropStep1View.swift */; };
@@ -74,8 +77,11 @@
 		8D53719F25AB5CED00446982 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		8D5371A725AB60DD00446982 /* InformationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCardView.swift; sourceTree = "<group>"; };
 		8D5371AD25AB66CE00446982 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		8D55191525AEE42B002490C7 /* AddCropStep3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCropStep3View.swift; sourceTree = "<group>"; };
 		8D6A4E7925ADE6250090E0C6 /* AddCropStep2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCropStep2View.swift; sourceTree = "<group>"; };
 		8D6A4E7E25ADEA460090E0C6 /* GrowStepCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowStepCardView.swift; sourceTree = "<group>"; };
+		8D6A4E8625AE015B0090E0C6 /* prova2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prova2View.swift; sourceTree = "<group>"; };
+		8D6A4E8B25AE078D0090E0C6 /* UIViewRepresentable+CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewRepresentable+CustomTextField.swift"; sourceTree = "<group>"; };
 		8D70B55A25AC802900AC8377 /* SystemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemView.swift; sourceTree = "<group>"; };
 		8D70B56225AC8BBD00AC8377 /* AuthCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCardView.swift; sourceTree = "<group>"; };
 		8D70B56825AC92AD00AC8377 /* AddCropStep1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCropStep1View.swift; sourceTree = "<group>"; };
@@ -212,6 +218,7 @@
 			children = (
 				8D53719625AB1B4C00446982 /* provaView.swift */,
 				8D5371AD25AB66CE00446982 /* SwiftUIView.swift */,
+				8D6A4E8625AE015B0090E0C6 /* prova2View.swift */,
 			);
 			path = Zprove;
 			sourceTree = "<group>";
@@ -232,6 +239,7 @@
 				8D6A4E7E25ADEA460090E0C6 /* GrowStepCardView.swift */,
 				8D70B56825AC92AD00AC8377 /* AddCropStep1View.swift */,
 				8D6A4E7925ADE6250090E0C6 /* AddCropStep2View.swift */,
+				8D55191525AEE42B002490C7 /* AddCropStep3View.swift */,
 			);
 			path = AddCrop;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				8D70B58025ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift */,
+				8D6A4E8B25AE078D0090E0C6 /* UIViewRepresentable+CustomTextField.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -440,10 +449,13 @@
 				8DABC9E925A8980B0064B141 /* TermsAndPrivacyView.swift in Sources */,
 				8D70B58A25ACAF8800AC8377 /* PagerView.swift in Sources */,
 				8D5371A025AB5CED00446982 /* InformationView.swift in Sources */,
+				8D55191625AEE42B002490C7 /* AddCropStep3View.swift in Sources */,
+				8D6A4E8C25AE078D0090E0C6 /* UIViewRepresentable+CustomTextField.swift in Sources */,
 				8DABC9D725A894E10064B141 /* OnboardingView.swift in Sources */,
 				8D53719725AB1B4C00446982 /* provaView.swift in Sources */,
 				8D70B59525ACB01600AC8377 /* FullImageViewController.swift in Sources */,
 				8D70B57125AC92FD00AC8377 /* CropCardView.swift in Sources */,
+				8D6A4E8725AE015B0090E0C6 /* prova2View.swift in Sources */,
 				8DABC9E425A895710064B141 /* OnboardingStyle.swift in Sources */,
 				8D70B55B25AC802900AC8377 /* SystemView.swift in Sources */,
 				8DABC9DF25A8954B0064B141 /* OnboardingItem.swift in Sources */,

@@ -6,25 +6,51 @@
 //
 
 import SwiftUI
+import DuckMaUI
 
 struct AddCropStep2View: View {
     @Environment(\.presentationMode) var presentationMode
-
+    @State var showingStep3 = false
     @State var selected1:Bool = false
     @State var selected2:Bool = false
     @State var selected3:Bool = false
+    @State var systemName:String
     
-    
-    
+    var nameField: some View {
+        CustomTextField(verticalHugging: .defaultHigh, horizontalHugging: .defaultLow, text: $systemName) {
+        let textField = DuckTextField()
+        textField.placeholder = "Inserisci nome"
+        textField.backgroundStyle = .color(ColorTheme.current.gray.p20)
+        textField.cornerRadius = .large
+        textField.autocorrectionType = .no
+        textField.returnKeyType = .done
+        return textField
+      }
+    }
     
     var body: some View {
         VStack{
         titleBar
+            Text("step 2")
+                .font(Font.system(size:12, weight: .regular))
+                .foregroundColor(Color(red: 130/255, green: 136/255, blue: 148/255))
+                .padding(10)
+            HStack{
+                Text("Inserisci il nome della cella idroponica")
+                    .font(Font.system(size:28, weight: .bold))
+                    .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
+                    .padding(.horizontal,16)
+                    .padding(.vertical)
+                Spacer()
+            }
             Spacer()
+            nameField.padding()
         plantList
+            Spacer()
         }
     }
     
+
     
     private var titleBar: some View{
         HStack{
@@ -32,7 +58,7 @@ struct AddCropStep2View: View {
                 .contentShape(Rectangle())
                 .onTapGesture {
                     self.presentationMode.wrappedValue.dismiss()
-                }.padding(.horizontal,15)
+                }.padding(.horizontal, 20).padding(.trailing, 10)
             Spacer()
             
             Text("Aggiungi raccolto")
@@ -40,11 +66,16 @@ struct AddCropStep2View: View {
                 .multilineTextAlignment(.center)
 
             Spacer()
-            
+            Button(action: {
+                self.showingStep3.toggle()
+            }) {
             Text("Fine")
                 .padding(17)
                 .font(Font.system(size:17, weight: .semibold))
                 .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
+            }.sheet(isPresented: $showingStep3) {
+                AddCropStep3View()
+            }
         }
     }
     
@@ -53,6 +84,13 @@ struct AddCropStep2View: View {
     private var plantList:some View{
 
         VStack{
+            HStack{
+                Text("Livello di Crescita")
+                    .font(Font.system(size:17, weight: .bold))
+                    .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
+                    .padding()
+                Spacer()
+            }
             
             if selected1{
                 GrowStepCardView(stepName: "Seme", stepImageName: "ic_semi_bianchi", stringColor: .white, rectColor: Color(red: 21/255, green: 132/255, blue: 103/255))
@@ -104,6 +142,6 @@ struct AddCropStep2View: View {
 
 struct AddCropStep2View_Previews: PreviewProvider {
     static var previews: some View {
-        AddCropStep2View()
+        AddCropStep2View( systemName: "")
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddCropStep1View: View {
     @Environment(\.presentationMode) var presentationMode
+    @State var showingStep2 = false
     @State var selected1:Bool = false
     @State var selected2:Bool = false
     @State var selected3:Bool = false
@@ -50,11 +51,20 @@ struct AddCropStep1View: View {
                 .multilineTextAlignment(.center)
 
             Spacer()
+            Button(action: {
+                self.showingStep2.toggle()
+            }) {
+                
+                Text("Avanti")
+                    .padding(17)
+                    .font(Font.system(size:17, weight: .semibold))
+                    .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
+                
+                
+            }.sheet(isPresented: $showingStep2) {
+                AddCropStep2View(systemName: "")
+            }
             
-            Text("Avanti")
-                .padding(17)
-                .font(Font.system(size:17, weight: .semibold))
-                .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
         }
     }
     
