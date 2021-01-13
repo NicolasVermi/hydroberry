@@ -10,11 +10,10 @@ import SwiftUI
 struct AddCropStep3View: View {
     @Environment(\.presentationMode) var presentationMode
     @State var goHome:Bool = false
+    @State var showingInfo = false
     
     var body: some View {
-        if goHome{
-            HomeView()
-        }else{
+        
             VStack{
                 titleBar
                 Spacer()
@@ -23,7 +22,6 @@ struct AddCropStep3View: View {
                 bottomPart
                 Spacer()
             }
-        }
         
         
         
@@ -32,13 +30,10 @@ struct AddCropStep3View: View {
     private var titleBar: some View{
         HStack{
             Spacer()
-            
             Text("Aggiungi raccolto")
                 .font(Font.system(size:17, weight: .semibold))
-                
             Spacer()
-            
-        }
+        }.padding()
     }
     
     private var centralPart: some View{
@@ -53,26 +48,42 @@ struct AddCropStep3View: View {
     }
     
     private var bottomPart: some View{
+        
         VStack{
             Button(action: { goHome = true }, label: {
+                ZStack{
                 Rectangle()
                     .frame(height: 58, alignment: .center)
                     .font(Font.system(size:15, weight: .semibold))
                     .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
                     .cornerRadius(4)
-                    .overlay(
-                        Text("Torna alla home")
-                            .foregroundColor(.white)
-                    )
+                    
+                    Text("Torna alla home")
+                           .foregroundColor(.white)
+                        .onTapGesture {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+          
+                }
                 
             }).padding(.horizontal, 32)
+            Button(action: {
+                self.showingInfo.toggle()
+            }) {
+                
+                Text("Leggi informazioni della pianta")
+                    .font(Font.system(size:17, weight: .regular))
+                    .foregroundColor(Color(red: 1, green: 163/255, blue: 108/255))
+                
+                
+            }.sheet(isPresented: $showingInfo) {
+                InformationView()
+            }
             
-            Text("Leggi informazioni della pianta")
-                .font(Font.system(size:17, weight: .regular))
-                .foregroundColor(Color(red: 1, green: 163/255, blue: 108/255))
+                
                 .padding(32)
         }
-    }
+        }
 }
 
 struct AddCropStep3View_Previews: PreviewProvider {

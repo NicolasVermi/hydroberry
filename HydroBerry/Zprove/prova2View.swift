@@ -16,8 +16,7 @@ struct prova2View: View {
         }) {
             
             Text("Show Information")
-            
-            
+
         }.sheet(isPresented: $showingDetail) {
             AddCropStep1View()
         }

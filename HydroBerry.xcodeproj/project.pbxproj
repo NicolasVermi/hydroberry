@@ -19,6 +19,13 @@
 		8D5371A825AB60DD00446982 /* InformationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5371A725AB60DD00446982 /* InformationCardView.swift */; };
 		8D5371AE25AB66CE00446982 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5371AD25AB66CE00446982 /* SwiftUIView.swift */; };
 		8D55191625AEE42B002490C7 /* AddCropStep3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55191525AEE42B002490C7 /* AddCropStep3View.swift */; };
+		8D55192F25AF0C59002490C7 /* RegistrationStep1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55192E25AF0C59002490C7 /* RegistrationStep1View.swift */; };
+		8D55193425AF0F2D002490C7 /* RegistrationStep1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55193325AF0F2D002490C7 /* RegistrationStep1ViewModel.swift */; };
+		8D55193925AF10FB002490C7 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55193825AF10FB002490C7 /* PasswordValidator.swift */; };
+		8D55193E25AF111E002490C7 /* PasswordMeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55193D25AF111E002490C7 /* PasswordMeterView.swift */; };
+		8D55194325AF1174002490C7 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55194225AF1174002490C7 /* String.swift */; };
+		8D55194925AF29D7002490C7 /* RegistrationStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55194725AF29D6002490C7 /* RegistrationStep2View.swift */; };
+		8D55194A25AF29D7002490C7 /* RegistrationStep2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55194825AF29D7002490C7 /* RegistrationStep2ViewModel.swift */; };
 		8D6A4E7A25ADE6250090E0C6 /* AddCropStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E7925ADE6250090E0C6 /* AddCropStep2View.swift */; };
 		8D6A4E7F25ADEA460090E0C6 /* GrowStepCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E7E25ADEA460090E0C6 /* GrowStepCardView.swift */; };
 		8D6A4E8725AE015B0090E0C6 /* prova2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E8625AE015B0090E0C6 /* prova2View.swift */; };
@@ -78,6 +85,13 @@
 		8D5371A725AB60DD00446982 /* InformationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCardView.swift; sourceTree = "<group>"; };
 		8D5371AD25AB66CE00446982 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		8D55191525AEE42B002490C7 /* AddCropStep3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCropStep3View.swift; sourceTree = "<group>"; };
+		8D55192E25AF0C59002490C7 /* RegistrationStep1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationStep1View.swift; sourceTree = "<group>"; };
+		8D55193325AF0F2D002490C7 /* RegistrationStep1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationStep1ViewModel.swift; sourceTree = "<group>"; };
+		8D55193825AF10FB002490C7 /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
+		8D55193D25AF111E002490C7 /* PasswordMeterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordMeterView.swift; sourceTree = "<group>"; };
+		8D55194225AF1174002490C7 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		8D55194725AF29D6002490C7 /* RegistrationStep2View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationStep2View.swift; sourceTree = "<group>"; };
+		8D55194825AF29D7002490C7 /* RegistrationStep2ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationStep2ViewModel.swift; sourceTree = "<group>"; };
 		8D6A4E7925ADE6250090E0C6 /* AddCropStep2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCropStep2View.swift; sourceTree = "<group>"; };
 		8D6A4E7E25ADEA460090E0C6 /* GrowStepCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowStepCardView.swift; sourceTree = "<group>"; };
 		8D6A4E8625AE015B0090E0C6 /* prova2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prova2View.swift; sourceTree = "<group>"; };
@@ -149,6 +163,7 @@
 		8D12FF7025A85998006C30CE /* HydroBerry */ = {
 			isa = PBXGroup;
 			children = (
+				8D55191A25AF09D5002490C7 /* Registration */,
 				8D70B56725AC928500AC8377 /* AddCrop */,
 				8D12FF7525A85999006C30CE /* Assets.xcassets */,
 				8D12FF7325A85998006C30CE /* ContentView.swift */,
@@ -223,6 +238,19 @@
 			path = Zprove;
 			sourceTree = "<group>";
 		};
+		8D55191A25AF09D5002490C7 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				8D55192E25AF0C59002490C7 /* RegistrationStep1View.swift */,
+				8D55193325AF0F2D002490C7 /* RegistrationStep1ViewModel.swift */,
+				8D55194725AF29D6002490C7 /* RegistrationStep2View.swift */,
+				8D55194825AF29D7002490C7 /* RegistrationStep2ViewModel.swift */,
+				8D55193825AF10FB002490C7 /* PasswordValidator.swift */,
+				8D55193D25AF111E002490C7 /* PasswordMeterView.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
 		8D70B55925AC800400AC8377 /* System View */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +275,7 @@
 		8D70B57F25ACAEDA00AC8377 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				8D55194225AF1174002490C7 /* String.swift */,
 				8D70B58025ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift */,
 				8D6A4E8B25AE078D0090E0C6 /* UIViewRepresentable+CustomTextField.swift */,
 			);
@@ -433,15 +462,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D55193425AF0F2D002490C7 /* RegistrationStep1ViewModel.swift in Sources */,
 				8DABC9F725A89E8D0064B141 /* CardHomeView.swift in Sources */,
 				8D70B58125ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift in Sources */,
 				8D52EA2C25A9F73D00132694 /* GrowthView.swift in Sources */,
+				8D55194A25AF29D7002490C7 /* RegistrationStep2ViewModel.swift in Sources */,
 				8D6A4E7F25ADEA460090E0C6 /* GrowStepCardView.swift in Sources */,
 				8D5371AE25AB66CE00446982 /* SwiftUIView.swift in Sources */,
+				8D55192F25AF0C59002490C7 /* RegistrationStep1View.swift in Sources */,
 				8D12FF7425A85998006C30CE /* ContentView.swift in Sources */,
 				8D70B56925AC92AD00AC8377 /* AddCropStep1View.swift in Sources */,
+				8D55193925AF10FB002490C7 /* PasswordValidator.swift in Sources */,
 				8D5371A825AB60DD00446982 /* InformationCardView.swift in Sources */,
 				8D6A4E7A25ADE6250090E0C6 /* AddCropStep2View.swift in Sources */,
+				8D55194325AF1174002490C7 /* String.swift in Sources */,
 				8DABC9CC25A868020064B141 /* DetailsView.swift in Sources */,
 				8D12FF7225A85998006C30CE /* HydroBerryApp.swift in Sources */,
 				8DABC9F225A89E060064B141 /* HomeView.swift in Sources */,
@@ -459,6 +493,8 @@
 				8DABC9E425A895710064B141 /* OnboardingStyle.swift in Sources */,
 				8D70B55B25AC802900AC8377 /* SystemView.swift in Sources */,
 				8DABC9DF25A8954B0064B141 /* OnboardingItem.swift in Sources */,
+				8D55194925AF29D7002490C7 /* RegistrationStep2View.swift in Sources */,
+				8D55193E25AF111E002490C7 /* PasswordMeterView.swift in Sources */,
 				8DABC9C625A85B2A0064B141 /* SplashScreenView.swift in Sources */,
 				8DABC9D125A86A8A0064B141 /* CardMinMaxView.swift in Sources */,
 			);

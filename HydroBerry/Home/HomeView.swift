@@ -57,7 +57,7 @@ struct HomeView: View {
                     }
                     .accentColor(Color(red: 21/255, green: 132/255, blue: 103/255))
                 }
-        }
+            }
     }
     
     private var bodyView: some View {

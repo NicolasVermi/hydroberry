@@ -16,6 +16,11 @@ struct AddCropStep1View: View {
     @State var selected4:Bool = false
     
     var body: some View {
+        if showingStep2{
+            AddCropStep2View()
+        }
+        else{
+        
         VStack{
             titleBar
             Text("step 1")
@@ -32,10 +37,11 @@ struct AddCropStep1View: View {
             }
             plantList
             Spacer()
-        }
+        }}
     }
     
     private var titleBar: some View{
+        
         HStack{
             Text("Annulla")
                 .padding(17)
@@ -61,9 +67,8 @@ struct AddCropStep1View: View {
                     .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
                 
                 
-            }.sheet(isPresented: $showingStep2) {
-                AddCropStep2View(systemName: "")
             }
+
             
         }
     }

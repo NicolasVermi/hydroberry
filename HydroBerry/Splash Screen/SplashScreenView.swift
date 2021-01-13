@@ -14,9 +14,9 @@ struct SplashScreenView: View {
     
     var body: some View {
         if showLogin{
-          //HomeView()
+          HomeView()
             //provaView()
-            OnboardingView(style: .skip {}, items: OnboardingView_Previews.mocks)
+            //OnboardingView(style: .skip {}, items: OnboardingView_Previews.mocks)
         }else{
             VStack{
                 Spacer()

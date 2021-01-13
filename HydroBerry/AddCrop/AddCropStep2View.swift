@@ -10,11 +10,12 @@ import DuckMaUI
 
 struct AddCropStep2View: View {
     @Environment(\.presentationMode) var presentationMode
+    @State var showingStep1 = false
     @State var showingStep3 = false
     @State var selected1:Bool = false
     @State var selected2:Bool = false
     @State var selected3:Bool = false
-    @State var systemName:String
+    @State var systemName: String = ""
     
     var nameField: some View {
         CustomTextField(verticalHugging: .defaultHigh, horizontalHugging: .defaultLow, text: $systemName) {
@@ -29,6 +30,11 @@ struct AddCropStep2View: View {
     }
     
     var body: some View {
+        if showingStep3{
+            AddCropStep3View()
+        }
+        else{
+            if showingStep1{AddCropStep1View()}else{
         VStack{
         titleBar
             Text("step 2")
@@ -48,17 +54,19 @@ struct AddCropStep2View: View {
         plantList
             Spacer()
         }
-    }
-    
+            }
+        }}
 
     
     private var titleBar: some View{
         HStack{
+            Button(action: {
+                self.showingStep1.toggle();
+            }) {
             Image(systemName: "chevron.left").foregroundColor(Color(red: 117/255, green: 117/255, blue: 117/255))
                 .contentShape(Rectangle())
-                .onTapGesture {
-                    self.presentationMode.wrappedValue.dismiss()
-                }.padding(.horizontal, 20).padding(.trailing, 10)
+                .padding(.horizontal, 20).padding(.trailing, 10)
+            }
             Spacer()
             
             Text("Aggiungi raccolto")
@@ -67,19 +75,18 @@ struct AddCropStep2View: View {
 
             Spacer()
             Button(action: {
-                self.showingStep3.toggle()
+                self.showingStep3.toggle();
             }) {
             Text("Fine")
                 .padding(17)
                 .font(Font.system(size:17, weight: .semibold))
                 .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
-            }.sheet(isPresented: $showingStep3) {
-                AddCropStep3View()
             }
+            
         }
     }
     
-    
+
     
     private var plantList:some View{
 
@@ -142,6 +149,6 @@ struct AddCropStep2View: View {
 
 struct AddCropStep2View_Previews: PreviewProvider {
     static var previews: some View {
-        AddCropStep2View( systemName: "")
+        AddCropStep2View()
     }
 }
