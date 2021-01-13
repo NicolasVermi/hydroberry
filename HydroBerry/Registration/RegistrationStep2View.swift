@@ -21,7 +21,7 @@ struct RegistrationStep2View: View {
             Spacer()
             Image("logoDark")
             Spacer()
-        }
+        }.padding(.top, 30)
       
         
       Spacer()
@@ -104,7 +104,7 @@ struct RegistrationStep2View: View {
 
   var registration: some View {
     VStack(alignment: .leading) {
-      Spacer()
+      
       head
 
       Spacer()
@@ -152,7 +152,7 @@ struct RegistrationStep2View: View {
   }*/
 }
 
-#if DEBUG
+#if DEBUGF
   struct RegistrationStep2View_Previews: PreviewProvider {
     static var previews: some View {
       RegistrationStep2View(viewModel: .mock)

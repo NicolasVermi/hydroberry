@@ -47,6 +47,8 @@
 		8DABC9E925A8980B0064B141 /* TermsAndPrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9E825A8980B0064B141 /* TermsAndPrivacyView.swift */; };
 		8DABC9F225A89E060064B141 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9F125A89E060064B141 /* HomeView.swift */; };
 		8DABC9F725A89E8D0064B141 /* CardHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9F625A89E8D0064B141 /* CardHomeView.swift */; };
+		8DB0B6CE25AF467D0083AC57 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0B6CD25AF467D0083AC57 /* LoginView.swift */; };
+		8DB0B6D625AF46A00083AC57 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0B6D525AF46A00083AC57 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +114,8 @@
 		8DABC9E825A8980B0064B141 /* TermsAndPrivacyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAndPrivacyView.swift; sourceTree = "<group>"; };
 		8DABC9F125A89E060064B141 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8DABC9F625A89E8D0064B141 /* CardHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHomeView.swift; sourceTree = "<group>"; };
+		8DB0B6CD25AF467D0083AC57 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		8DB0B6D525AF46A00083AC57 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,7 @@
 		8D12FF7025A85998006C30CE /* HydroBerry */ = {
 			isa = PBXGroup;
 			children = (
+				8DB0B6CC25AF46690083AC57 /* Login */,
 				8D55191A25AF09D5002490C7 /* Registration */,
 				8D70B56725AC928500AC8377 /* AddCrop */,
 				8D12FF7525A85999006C30CE /* Assets.xcassets */,
@@ -325,6 +330,15 @@
 				8DABC9F625A89E8D0064B141 /* CardHomeView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		8DB0B6CC25AF46690083AC57 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8DB0B6CD25AF467D0083AC57 /* LoginView.swift */,
+				8DB0B6D525AF46A00083AC57 /* LoginViewModel.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -491,7 +505,9 @@
 				8D70B57125AC92FD00AC8377 /* CropCardView.swift in Sources */,
 				8D6A4E8725AE015B0090E0C6 /* prova2View.swift in Sources */,
 				8DABC9E425A895710064B141 /* OnboardingStyle.swift in Sources */,
+				8DB0B6D625AF46A00083AC57 /* LoginViewModel.swift in Sources */,
 				8D70B55B25AC802900AC8377 /* SystemView.swift in Sources */,
+				8DB0B6CE25AF467D0083AC57 /* LoginView.swift in Sources */,
 				8DABC9DF25A8954B0064B141 /* OnboardingItem.swift in Sources */,
 				8D55194925AF29D7002490C7 /* RegistrationStep2View.swift in Sources */,
 				8D55193E25AF111E002490C7 /* PasswordMeterView.swift in Sources */,

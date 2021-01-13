@@ -121,24 +121,29 @@ struct RegistrationStep1View: View {
     }
     
     
-    private var head: some View{
-        VStack(alignment:.leading){
-            HStack{
-                Spacer()
-                Image("logoDark")
-                Spacer()
-            }.padding(20)
-            VStack(alignment:.leading){
-                Text("Registrazione")
-                    .font(Font.system(size:20, weight: .bold))
-                    .foregroundColor(Color(red: 1, green: 163/255, blue: 108/255))
-                    .padding(.vertical)
-                Text("step 1")
-                    .font(Font.system(size:12, weight: .regular))
-                    .foregroundColor(Color(red: 130/255, green: 136/255, blue: 148/255))
-            }.padding(.horizontal, 30)
-            
-        }
+    var head: some View {
+      Group {
+          HStack{
+              Spacer()
+              Image("logoDark")
+              Spacer()
+          }.padding(.top, 30)
+        
+          
+        Spacer()
+          .frame(maxHeight: 74)
+          Text("Registrazione")
+              .font(Font.system(size:20, weight: .bold))
+              .foregroundColor(Color(red: 1, green: 163/255, blue: 108/255))
+              
+          .padding([.leading, .trailing], 16)
+        Spacer()
+          .frame(maxHeight: 30)
+        Text("step2")
+          .font(Font.system(size:12, weight: .regular))
+          .foregroundColor(Color(red: 130/255, green: 136/255, blue: 148/255))
+          .padding([.leading, .trailing], 16)
+      }
     }
     //mariorossi@gmail.com
     
@@ -146,6 +151,7 @@ struct RegistrationStep1View: View {
     var registration: some View {
       VStack(alignment: .leading) {
         head
+        Spacer()
         Group {
           inputFields
           passwordStrenght

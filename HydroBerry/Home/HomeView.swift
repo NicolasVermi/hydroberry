@@ -14,16 +14,15 @@ struct HomeView: View {
     
     init() {
         
-        UITabBar.appearance().barTintColor = UIColor.white
-        UITabBar.appearance().shadowImage = UIImage()
-        UITabBar.appearance().backgroundImage = UIImage()
+       UITabBar.appearance().barTintColor = UIColor.white
+       UITabBar.appearance().shadowImage = UIImage()
+       UITabBar.appearance().backgroundImage = UIImage()
     }
     
     var body: some View {
-        
             ZStack {
                 VStack {
-                    
+
                     TabView(selection: $selection) {
                         bodyView
                             .tabItem {
@@ -139,7 +138,7 @@ struct HomeView: View {
     
 }
 
-struct home_Previews: PreviewProvider {
+struct Home_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
     }
