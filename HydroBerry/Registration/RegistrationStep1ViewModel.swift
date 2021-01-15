@@ -43,16 +43,16 @@ final class RegistrationStep1ViewModel: ObservableObject {
     cancellable?.cancel()
     error = nil
 
-    /*guard email.isNotEmptyUserInput, email.isValidEmail else {
+    guard email.isNotEmptyUserInput, email.isValidEmail else {
       error = .missingEmail
       return
-    }*/
+    }
 
-    /*let validator = PasswordValidator(for: password)
+    let validator = PasswordValidator(for: password)
     guard validator.valid else {
       error = .password
       return
-    }*/
+    }
 
     guard acceptedPolicy else {
       error = .mustAcceptPolicy

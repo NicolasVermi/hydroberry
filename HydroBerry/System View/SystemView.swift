@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import DuckMaUI
 
 struct SystemView: View {
     @State var showingInfo = false
+    @State var email = ""
 
     @Environment(\.presentationMode) var presentationMode
 
@@ -23,8 +25,22 @@ struct SystemView: View {
                             .padding(.vertical, 20)
                         mailPart
                         Spacer()
-                    }
+        }.navigationBarHidden(true)
         
+    }
+    
+    var emailView: some View {
+      CustomTextField(verticalHugging: .defaultHigh, horizontalHugging: .defaultLow, text: $email) {
+        let textField = DuckTextField()
+        textField.placeholder = "Inserisci mail"
+        textField.backgroundStyle = .color(ColorTheme.current.gray.p20)
+        textField.cornerRadius = .large
+        textField.keyboardType = .emailAddress
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
+        textField.returnKeyType = .done
+        return textField
+      }
     }
     
     private var titleBar: some View{
@@ -90,9 +106,21 @@ struct SystemView: View {
                 .font(Font.system(size:17, weight: .semibold))
                 .padding(.horizontal, 16)
             HStack{
-                Text("Textfield DuckmaUI")
+                emailView
                 Spacer()
-                Text("Button DuckmaUI")
+                Button(action: {}) {
+                    UIViewPreview(horizontalHugging: .defaultHigh) {
+                        let button = FullButton()
+                        button.setTitle("Invia", for: .normal)
+                    button.titleLabel?.font = FontTheme.current.semibold.subhead
+                        button.cornerRadius = .medium
+                    button.themeColor = .init(red: 1, green: 1, blue: 1, alpha: 0)
+                    return button
+                  }
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 15)
+                    .background(Color(red: 21/255, green: 132/255, blue: 103/255))
+                }.cornerRadius(5)
             }.padding(.vertical)
             .padding(.horizontal)
         }

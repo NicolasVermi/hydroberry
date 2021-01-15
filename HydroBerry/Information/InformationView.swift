@@ -17,18 +17,18 @@ struct InformationView: View {
                         Spacer()
                         Text("Informazioni")
                             .font(Font.system(size:17, weight: .semibold))
-                            
                         Spacer()
-                    }
+                    }.padding(.vertical)
+                    
                     HStack{
                         Spacer()
                         ZStack{
                         Circle()
                             .frame(width: 30, height: 30)
                             .foregroundColor(Color(red: 237/255, green: 237/255, blue: 237/255))
-                            Text("X")
+                            Image(systemName: "plus")
+                                .rotationEffect(.init(degrees: 45))
                                 .foregroundColor(.gray)
-                                .font(Font.system(size:16, weight: .semibold))
                                 
                     }.padding(.trailing, 16)
                     }.onTapGesture {

@@ -20,7 +20,6 @@ struct AddCropStep1View: View {
             AddCropStep2View()
         }
         else{
-        
         VStack{
             titleBar
             Text("step 1")

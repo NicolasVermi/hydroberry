@@ -54,12 +54,12 @@ struct AddCropStep3View: View {
                 ZStack{
                 Rectangle()
                     .frame(height: 58, alignment: .center)
-                    .font(Font.system(size:15, weight: .semibold))
                     .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
                     .cornerRadius(4)
                     
-                    Text("Torna alla home")
-                           .foregroundColor(.white)
+                    Text("Torna al profilo")
+                        .font(Font.system(size:15, weight: .semibold))
+                        .foregroundColor(.white)
                         .onTapGesture {
                             self.presentationMode.wrappedValue.dismiss()
                         }

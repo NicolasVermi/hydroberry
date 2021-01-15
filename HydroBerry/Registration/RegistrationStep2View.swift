@@ -122,8 +122,9 @@ struct RegistrationStep2View: View {
           button.cornerRadius = .medium
             button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 1)
           return button
-        }
-      }
+        }.padding(.vertical, 5)
+        .background(Color(red: 21/255, green: 132/255, blue: 103/255))
+      }.cornerRadius(5)
       .padding([.leading, .trailing], 16)
 
 

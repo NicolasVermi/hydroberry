@@ -61,11 +61,13 @@ struct OnboardingView: View {
         button.setTitle("Salta", for: .normal)
         button.titleLabel?.font = FontTheme.current.semibold.subhead
         button.cornerRadius = .medium
-        button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 1)
+        button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 0)
         
         return button
       }
-    }
+      .padding(.vertical, 5)
+      .background(Color(red: 21/255, green: 132/255, blue: 103/255))
+    }.cornerRadius(5)
     .padding([.leading, .trailing], 32)
   }
 

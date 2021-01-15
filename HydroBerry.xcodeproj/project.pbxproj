@@ -42,6 +42,8 @@
 		8D7BC5C725B07B8100060817 /* ForgotPasswordStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5C625B07B8100060817 /* ForgotPasswordStep2View.swift */; };
 		8D7BC5CC25B07B8D00060817 /* ForgotPasswordStep3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5CB25B07B8D00060817 /* ForgotPasswordStep3View.swift */; };
 		8D7BC5D425B081BE00060817 /* RegistrationStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5D325B081BE00060817 /* RegistrationStep2View.swift */; };
+		8D7BC5DD25B1B44200060817 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5DC25B1B44200060817 /* EditProfileView.swift */; };
+		8D7BC5E525B1C92B00060817 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5E425B1C92B00060817 /* EditProfileViewModel.swift */; };
 		8DABC9C625A85B2A0064B141 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9C525A85B2A0064B141 /* SplashScreenView.swift */; };
 		8DABC9CC25A868020064B141 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9CB25A868020064B141 /* DetailsView.swift */; };
 		8DABC9D125A86A8A0064B141 /* CardMinMaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9D025A86A8A0064B141 /* CardMinMaxView.swift */; };
@@ -115,6 +117,8 @@
 		8D7BC5C625B07B8100060817 /* ForgotPasswordStep2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordStep2View.swift; sourceTree = "<group>"; };
 		8D7BC5CB25B07B8D00060817 /* ForgotPasswordStep3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordStep3View.swift; sourceTree = "<group>"; };
 		8D7BC5D325B081BE00060817 /* RegistrationStep2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationStep2View.swift; sourceTree = "<group>"; };
+		8D7BC5DC25B1B44200060817 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		8D7BC5E425B1C92B00060817 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		8DABC9C525A85B2A0064B141 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		8DABC9CB25A868020064B141 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		8DABC9D025A86A8A0064B141 /* CardMinMaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMinMaxView.swift; sourceTree = "<group>"; };
@@ -193,7 +197,7 @@
 				8D12FF7A25A85999006C30CE /* Info.plist */,
 				8DB0B6CC25AF46690083AC57 /* Login */,
 				8DABC9D525A8948E0064B141 /* Onboarding */,
-				8D53719E25AB5CC100446982 /* PlantInformation */,
+				8D53719E25AB5CC100446982 /* Information */,
 				8D12FF7725A85999006C30CE /* Preview Content */,
 				8D55191A25AF09D5002490C7 /* Registration */,
 				8DABC9C425A85AE80064B141 /* Splash Screen */,
@@ -238,13 +242,13 @@
 			path = Growth;
 			sourceTree = "<group>";
 		};
-		8D53719E25AB5CC100446982 /* PlantInformation */ = {
+		8D53719E25AB5CC100446982 /* Information */ = {
 			isa = PBXGroup;
 			children = (
 				8D53719F25AB5CED00446982 /* InformationView.swift */,
 				8D5371A725AB60DD00446982 /* InformationCardView.swift */,
 			);
-			path = PlantInformation;
+			path = Information;
 			sourceTree = "<group>";
 		};
 		8D5371AC25AB66AA00446982 /* Zprove */ = {
@@ -371,6 +375,8 @@
 				8DB0B71225AF4D3D0083AC57 /* ProfileView.swift */,
 				8DB0B71725AF556A0083AC57 /* NewSystemCardView.swift */,
 				8D7BC5B825B0390000060817 /* SystemCardView.swift */,
+				8D7BC5DC25B1B44200060817 /* EditProfileView.swift */,
+				8D7BC5E425B1C92B00060817 /* EditProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -524,6 +530,7 @@
 				8D70B56925AC92AD00AC8377 /* AddCropStep1View.swift in Sources */,
 				8D55193925AF10FB002490C7 /* PasswordValidator.swift in Sources */,
 				8D5371A825AB60DD00446982 /* InformationCardView.swift in Sources */,
+				8D7BC5DD25B1B44200060817 /* EditProfileView.swift in Sources */,
 				8D6A4E7A25ADE6250090E0C6 /* AddCropStep2View.swift in Sources */,
 				8D55194325AF1174002490C7 /* String.swift in Sources */,
 				8DABC9CC25A868020064B141 /* DetailsView.swift in Sources */,
@@ -551,6 +558,7 @@
 				8DB0B6CE25AF467D0083AC57 /* LoginView.swift in Sources */,
 				8DABC9DF25A8954B0064B141 /* OnboardingItem.swift in Sources */,
 				8D55193E25AF111E002490C7 /* PasswordMeterView.swift in Sources */,
+				8D7BC5E525B1C92B00060817 /* EditProfileViewModel.swift in Sources */,
 				8DABC9C625A85B2A0064B141 /* SplashScreenView.swift in Sources */,
 				8DABC9D125A86A8A0064B141 /* CardMinMaxView.swift in Sources */,
 			);

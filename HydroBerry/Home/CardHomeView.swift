@@ -63,7 +63,7 @@ struct CardHomeView: View {
                                     }.padding(.vertical, 35)
                                 }
                             }}}.sheet(isPresented: $showingDetail) {
-                                DetailsView()
+                                DetailsView(titolo: namedLabel)
                 
             }
             }

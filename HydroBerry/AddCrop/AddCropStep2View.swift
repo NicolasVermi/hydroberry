@@ -34,35 +34,36 @@ struct AddCropStep2View: View {
             AddCropStep3View()
         }
         else{
-            if showingStep1{AddCropStep1View()}else{
-        VStack{
-        titleBar
-            Text("step 2")
-                .font(Font.system(size:12, weight: .regular))
-                .foregroundColor(Color(red: 130/255, green: 136/255, blue: 148/255))
-                .padding(10)
-            HStack{
-                Text("Inserisci il nome della cella idroponica")
-                    .font(Font.system(size:28, weight: .bold))
-                    .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
-                    .padding(.horizontal,16)
-                    .padding(.vertical)
-                Spacer()
+            if showingStep1{AddCropStep1View()
+                
+            } else {
+                VStack{
+                titleBar
+                    Text("step 2")
+                        .font(Font.system(size:12, weight: .regular))
+                        .foregroundColor(Color(red: 130/255, green: 136/255, blue: 148/255))
+                        .padding(10)
+                    HStack{
+                        Text("Inserisci il nome della cella idroponica")
+                            .font(Font.system(size:28, weight: .bold))
+                            .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
+                            .padding(.horizontal,16)
+                            .padding(.vertical)
+                        Spacer()
+                    }
+                    Spacer()
+                    nameField.padding()
+                    plantList
+                    Spacer()
+                }
             }
-            Spacer()
-            nameField.padding()
-        plantList
-            Spacer()
         }
-            }
-        }}
+    }
 
     
     private var titleBar: some View{
         HStack{
-            Button(action: {
-                self.showingStep1.toggle();
-            }) {
+            Button(action: { self.showingStep1.toggle() }) {
             Image(systemName: "chevron.left").foregroundColor(Color(red: 117/255, green: 117/255, blue: 117/255))
                 .contentShape(Rectangle())
                 .padding(.horizontal, 20).padding(.trailing, 10)
@@ -82,7 +83,6 @@ struct AddCropStep2View: View {
                 .font(Font.system(size:17, weight: .semibold))
                 .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
             }
-            
         }
     }
     
@@ -126,7 +126,10 @@ struct AddCropStep2View: View {
                     selected2 = true
                     selected3 = false
                     
-                })}
+                }
+                )
+                
+            }
 
             
             if selected3{

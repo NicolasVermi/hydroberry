@@ -11,20 +11,26 @@ import DuckMaUI
 struct ProfileView: View {
     let showTerms: () -> Void
     let showPrivacyPolicy: () -> Void
+    @State var showingEditProfile = false
+    @State var showingAddCrop = false
     
     var body: some View {
-        VStack{
-            HStack{
-                Text("Profilo").multilineTextAlignment(.leading)
-                    .font(Font.system(size:34, weight: .bold))
+        NavigationView{
+            VStack{
+                HStack{
+                    Text("Profilo").multilineTextAlignment(.leading)
+                        .font(Font.system(size:34, weight: .bold))
+                    Spacer()
+                }
+                .padding(.bottom,28)
+                systemPart
                 Spacer()
-            }
-            .padding(.bottom,28)
-            systemPart
-            Spacer()
-            termsPart
-            Spacer()
-        }.padding()
+                termsPart
+                Spacer()
+            }.padding()
+            //.padding(.top, -80)
+        
+        }
         
     }
     
@@ -37,8 +43,21 @@ struct ProfileView: View {
             }
             ScrollView(.horizontal){
                 HStack{
-                    NewSystemCardView()
-                    SystemCardView()
+                    Button(action: {
+                        self.showingAddCrop.toggle()
+                    }) {
+                        
+                        NewSystemCardView()
+
+                    }.sheet(isPresented: $showingAddCrop) {
+                        AddCropStep1View()
+                    }
+
+                    
+                    NavigationLink(destination: SystemView()) {
+                        SystemCardView()
+                    }.navigationBarHidden(true)
+                    
                     SystemCardView()
                     SystemCardView()
                 }
@@ -52,10 +71,12 @@ struct ProfileView: View {
     private var termsPart: some View{
         VStack {
             
-            Button(action: self.showPrivacyPolicy) {
+            Button(action: {self.showingEditProfile.toggle()}) {
               TermPrivacyRowView(title: "Modifica dati personali")
                 .foregroundColor(Color(ColorTheme.current.primary.dark))
                   
+            }.sheet(isPresented: $showingEditProfile) {
+                EditProfileView(lastName: "LastName", firstName: "FirstName", email: "email@gmail.com")
             }
             
             Spacer().frame(height: 5)
