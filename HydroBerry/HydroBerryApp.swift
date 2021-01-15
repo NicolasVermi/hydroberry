@@ -11,7 +11,8 @@ import SwiftUI
 struct HydroBerryApp: App {
     var body: some Scene {
         WindowGroup {
-            SplashScreenView()
+            //SplashScreenView()
+            HomeView()
         }
     }
 }

@@ -139,7 +139,7 @@ struct RegistrationStep1View: View {
           .padding([.leading, .trailing], 16)
         Spacer()
           .frame(maxHeight: 30)
-        Text("step2")
+        Text("step1")
           .font(Font.system(size:12, weight: .regular))
           .foregroundColor(Color(red: 130/255, green: 136/255, blue: 148/255))
           .padding([.leading, .trailing], 16)

@@ -75,7 +75,7 @@ struct LoginView: View {
         VStack(alignment: .leading) {
           emailView
             .border(Color.red, width: 1)
-          Text("error_email_field")
+          Text("Mail non corretta")
             .foregroundColor(Color(ColorTheme.current.danger.p100))
         }
       } else {
@@ -88,7 +88,7 @@ struct LoginView: View {
         VStack(alignment: .leading) {
           passwordView
             .border(Color.red, width: 1)
-          Text("error_mandatory_field")
+          Text("Password non corretta")
             .foregroundColor(Color(ColorTheme.current.danger.p100))
         }
       } else {

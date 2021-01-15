@@ -44,7 +44,7 @@ struct HomeView: View {
                                 Text("Crescita")
                             }.tag(1)
 
-                        Text("ProfileView()")
+                        ProfileView(showTerms: {}, showPrivacyPolicy: {})
                             .tabItem {
                                 if selection == 2 {
                                     Image("ic_profilo_active")
@@ -92,7 +92,7 @@ struct HomeView: View {
     private var titleView: some View {
         VStack {
             HStack{
-                Text("HOME").multilineTextAlignment(.leading)
+                Text("Home").multilineTextAlignment(.leading)
                     .font(Font.system(size:34, weight: .bold))
                 Spacer()
             }.padding(.horizontal,5).padding(.bottom,8)

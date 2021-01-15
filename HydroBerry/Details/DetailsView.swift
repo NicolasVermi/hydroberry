@@ -9,18 +9,31 @@ import SwiftUI
 
 struct DetailsView: View {
     @State var pickerSelection = 0
+    @State var indice = 0
+    
     @Environment(\.presentationMode) var presentationMode
 
 
-    var barValues: [[CGFloat]] =
+    var barValues: [[Int]] =
         //  [[1],[1],[1],[1]]
         [
-            [10, 20, 50, 100, 120, 90, 180, 10, 20, 50, 100, 120, 90, 180, 10, 20, 50, 100, 120, 90, 180, 20, 30, 40],
-            [10, 20, 50, 100, 120, 90, 180],
-            [200, 110, 30, 170, 50, 100, 100, 100, 200, 80, 90, 50, 100, 100, 100, 200, 80, 90, 50, 100, 100, 100, 200, 80, 90, 0, 0, 0, 0, 0],
-            [5, 150, 50, 100, 200, 110, 30, 170, 50, 0, 0, 0],
+            [22,21,22,22,22,21,21,23,22,21,22,22,22,21,21,23,22,21,22,22,22,21,21,23],
+            [22,21,22,22,22,21,21],
+            [22,21,22,22,22,21,21,23,22,21,22,22,22,21,21,23,22,21,22,22,22,21,21,23,22,21,22,22,22,21],
+            [22,21,22,22,22,21,21,24,22],
         ]
     
+    var dimensions: [CGFloat] = [18,40,18,18]
+    var axeXValues: [[String]] =
+        [["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"],
+         ["Lun","Mar","Mer","Gio","Ven","Sab","Dom"],
+         ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],
+         ["1","2","3","4","5","6","7","8","9","10","11","12"]]
+    
+    public var axeXValuesHours: [String] = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"]
+    
+    @State var numero: Int = 0
+    @State var dato: Int = 0
     
     var body: some View {    
                     VStack{
@@ -77,43 +90,119 @@ struct DetailsView: View {
     private var recommendedValueCard: some View {
         CardMinMaxView(generalLabel: "consigliata",measure: "22.9", symbol: "°C", measureName: "Temperatura", color: Color(red: 21/255, green: 132/255, blue: 103/255))
     }
+
+    private var graphicPart: some View {
+        ScrollView(.horizontal) {
+            HStack(alignment: .center) {
+
+                ForEach(barValues[pickerSelection], id: \.self) {
+                    data in
+                    VStack(alignment: .leading) {
+                        BarView(value: CGFloat(data), cornerRadius: 20).frame(width:dimensions[pickerSelection])
+                    }
+                }
+                
+            }
+            .padding(.top, 24).animation(.default)
+            
+            HStack(alignment: .center) {
+                ForEach(axeXValues[pickerSelection], id: \.self) {
+                    data in
+                    Text(String(data))
+                        .font(.footnote)
+                        .lineLimit(nil)
+                        .frame(width:dimensions[pickerSelection])
+                }
+                
+            }.animation(.default)
+        }
+        .padding(.horizontal, 20)
+    }
+   /*
     private var graphicPart: some View {
         ScrollView(.horizontal) {
             HStack(alignment: .center, spacing: 10) {
+
                 ForEach(barValues[pickerSelection], id: \.self) {
                     data in
-
+                    
                     VStack {
-                        BarView(value: data, cornerRadius: 20)
-                        Text(pickerSelection.description)
+                        
+                        BarView(value: CGFloat(data), cornerRadius: 20, etichetta: String(axeXValues[pickerSelection][2]))
+                        
+                        //BarView(value: CGFloat(data), cornerRadius: 20, etichetta: String(axeXValuesHours[3]))
+                        
                     }
                 }
             }
-
             .padding(.top, 24).animation(.default)
         }
-
         .padding(.horizontal, 20)
     }
+    */
+/*
+private var graphicPart: some View {
+    ScrollView(.horizontal) {
+            barraFunc(valori: barValues[pickerSelection],valori2: axeXValuesHours)
+        }
+        .padding(.top, 24)
+    .animation(.default)
     
 }
+    
+    func barraFunc(valori: [Int], valori2: [String]) -> some View {
+    var numero = 0
+    for _ in Range(0...valori.count){
+
+        numero = numero + 1
+        altra(valori: valori, valori2: valori2, numero: numero)
+    }
+    return
+}
+  */
+    
+    
+    
+}
+/*
+struct altra: View {
+    var valori: [Int]
+    var valori2: [String]
+    var numero: Int
+
+    var body: some View {
+    
+    HStack(alignment: .center, spacing: 10) {
+        Text("")
+        BarView(value: CGFloat(valori[numero]), cornerRadius: 20, etichetta: String(valori[numero]))
+    }
+        
+    }
+}*/
 
 struct BarView: View {
     var value: CGFloat
     var cornerRadius: CGFloat
+    //var etichetta: String
 
     var body: some View {
         VStack {
             ZStack(alignment: .bottom) {
                 RoundedRectangle(cornerRadius: cornerRadius)
                     .frame(width: 15, height: 200).foregroundColor(.white)
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .frame(width: 15, height: value).foregroundColor(Color(red: 1, green: 163/255, blue: 108/255))
+                VStack{
+                    Text(String(Int(value))).font(.footnote)
 
+                    RoundedRectangle(cornerRadius: cornerRadius)
+                        .frame(width: 15, height: value*5).foregroundColor(Color(red: 1, green: 163/255, blue: 108/255))
+                    
+                }
             }.padding(.bottom, 8)
+           // Text(etichetta)
         }
     }
 }
+
 
 
 struct DetailsView_Previews: PreviewProvider {

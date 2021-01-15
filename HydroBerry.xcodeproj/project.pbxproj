@@ -24,7 +24,6 @@
 		8D55193925AF10FB002490C7 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55193825AF10FB002490C7 /* PasswordValidator.swift */; };
 		8D55193E25AF111E002490C7 /* PasswordMeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55193D25AF111E002490C7 /* PasswordMeterView.swift */; };
 		8D55194325AF1174002490C7 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55194225AF1174002490C7 /* String.swift */; };
-		8D55194925AF29D7002490C7 /* RegistrationStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55194725AF29D6002490C7 /* RegistrationStep2View.swift */; };
 		8D55194A25AF29D7002490C7 /* RegistrationStep2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55194825AF29D7002490C7 /* RegistrationStep2ViewModel.swift */; };
 		8D6A4E7A25ADE6250090E0C6 /* AddCropStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E7925ADE6250090E0C6 /* AddCropStep2View.swift */; };
 		8D6A4E7F25ADEA460090E0C6 /* GrowStepCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E7E25ADEA460090E0C6 /* GrowStepCardView.swift */; };
@@ -38,6 +37,11 @@
 		8D70B58125ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B58025ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift */; };
 		8D70B58A25ACAF8800AC8377 /* PagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B58925ACAF8800AC8377 /* PagerView.swift */; };
 		8D70B59525ACB01600AC8377 /* FullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B59425ACB01600AC8377 /* FullImageViewController.swift */; };
+		8D7BC5B925B0390000060817 /* SystemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5B825B0390000060817 /* SystemCardView.swift */; };
+		8D7BC5C225B07B7300060817 /* ForgotPasswordStep1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5C125B07B7300060817 /* ForgotPasswordStep1View.swift */; };
+		8D7BC5C725B07B8100060817 /* ForgotPasswordStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5C625B07B8100060817 /* ForgotPasswordStep2View.swift */; };
+		8D7BC5CC25B07B8D00060817 /* ForgotPasswordStep3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5CB25B07B8D00060817 /* ForgotPasswordStep3View.swift */; };
+		8D7BC5D425B081BE00060817 /* RegistrationStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5D325B081BE00060817 /* RegistrationStep2View.swift */; };
 		8DABC9C625A85B2A0064B141 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9C525A85B2A0064B141 /* SplashScreenView.swift */; };
 		8DABC9CC25A868020064B141 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9CB25A868020064B141 /* DetailsView.swift */; };
 		8DABC9D125A86A8A0064B141 /* CardMinMaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9D025A86A8A0064B141 /* CardMinMaxView.swift */; };
@@ -49,6 +53,8 @@
 		8DABC9F725A89E8D0064B141 /* CardHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9F625A89E8D0064B141 /* CardHomeView.swift */; };
 		8DB0B6CE25AF467D0083AC57 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0B6CD25AF467D0083AC57 /* LoginView.swift */; };
 		8DB0B6D625AF46A00083AC57 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0B6D525AF46A00083AC57 /* LoginViewModel.swift */; };
+		8DB0B71325AF4D3D0083AC57 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0B71225AF4D3D0083AC57 /* ProfileView.swift */; };
+		8DB0B71825AF556A0083AC57 /* NewSystemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0B71725AF556A0083AC57 /* NewSystemCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +98,6 @@
 		8D55193825AF10FB002490C7 /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
 		8D55193D25AF111E002490C7 /* PasswordMeterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordMeterView.swift; sourceTree = "<group>"; };
 		8D55194225AF1174002490C7 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		8D55194725AF29D6002490C7 /* RegistrationStep2View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationStep2View.swift; sourceTree = "<group>"; };
 		8D55194825AF29D7002490C7 /* RegistrationStep2ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationStep2ViewModel.swift; sourceTree = "<group>"; };
 		8D6A4E7925ADE6250090E0C6 /* AddCropStep2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCropStep2View.swift; sourceTree = "<group>"; };
 		8D6A4E7E25ADEA460090E0C6 /* GrowStepCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowStepCardView.swift; sourceTree = "<group>"; };
@@ -105,6 +110,11 @@
 		8D70B58025ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewRepresentable+UIViewPreview.swift"; sourceTree = "<group>"; };
 		8D70B58925ACAF8800AC8377 /* PagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerView.swift; sourceTree = "<group>"; };
 		8D70B59425ACB01600AC8377 /* FullImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewController.swift; sourceTree = "<group>"; };
+		8D7BC5B825B0390000060817 /* SystemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCardView.swift; sourceTree = "<group>"; };
+		8D7BC5C125B07B7300060817 /* ForgotPasswordStep1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordStep1View.swift; sourceTree = "<group>"; };
+		8D7BC5C625B07B8100060817 /* ForgotPasswordStep2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordStep2View.swift; sourceTree = "<group>"; };
+		8D7BC5CB25B07B8D00060817 /* ForgotPasswordStep3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordStep3View.swift; sourceTree = "<group>"; };
+		8D7BC5D325B081BE00060817 /* RegistrationStep2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationStep2View.swift; sourceTree = "<group>"; };
 		8DABC9C525A85B2A0064B141 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		8DABC9CB25A868020064B141 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		8DABC9D025A86A8A0064B141 /* CardMinMaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMinMaxView.swift; sourceTree = "<group>"; };
@@ -116,6 +126,8 @@
 		8DABC9F625A89E8D0064B141 /* CardHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHomeView.swift; sourceTree = "<group>"; };
 		8DB0B6CD25AF467D0083AC57 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		8DB0B6D525AF46A00083AC57 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		8DB0B71225AF4D3D0083AC57 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		8DB0B71725AF556A0083AC57 /* NewSystemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSystemCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,8 +179,8 @@
 		8D12FF7025A85998006C30CE /* HydroBerry */ = {
 			isa = PBXGroup;
 			children = (
-				8DB0B6CC25AF46690083AC57 /* Login */,
-				8D55191A25AF09D5002490C7 /* Registration */,
+				8D7BC5C025B07B3B00060817 /* ForgotPassword */,
+				8DB0B6DA25AF4AC50083AC57 /* Profile */,
 				8D70B56725AC928500AC8377 /* AddCrop */,
 				8D12FF7525A85999006C30CE /* Assets.xcassets */,
 				8D12FF7325A85998006C30CE /* ContentView.swift */,
@@ -179,9 +191,11 @@
 				8DABC9F025A89DED0064B141 /* Home */,
 				8D12FF7125A85998006C30CE /* HydroBerryApp.swift */,
 				8D12FF7A25A85999006C30CE /* Info.plist */,
+				8DB0B6CC25AF46690083AC57 /* Login */,
 				8DABC9D525A8948E0064B141 /* Onboarding */,
 				8D53719E25AB5CC100446982 /* PlantInformation */,
 				8D12FF7725A85999006C30CE /* Preview Content */,
+				8D55191A25AF09D5002490C7 /* Registration */,
 				8DABC9C425A85AE80064B141 /* Splash Screen */,
 				8D70B55925AC800400AC8377 /* System View */,
 				8DABC9E825A8980B0064B141 /* TermsAndPrivacyView.swift */,
@@ -248,10 +262,10 @@
 			children = (
 				8D55192E25AF0C59002490C7 /* RegistrationStep1View.swift */,
 				8D55193325AF0F2D002490C7 /* RegistrationStep1ViewModel.swift */,
-				8D55194725AF29D6002490C7 /* RegistrationStep2View.swift */,
 				8D55194825AF29D7002490C7 /* RegistrationStep2ViewModel.swift */,
 				8D55193825AF10FB002490C7 /* PasswordValidator.swift */,
 				8D55193D25AF111E002490C7 /* PasswordMeterView.swift */,
+				8D7BC5D325B081BE00060817 /* RegistrationStep2View.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -294,6 +308,16 @@
 				8D70B59425ACB01600AC8377 /* FullImageViewController.swift */,
 			);
 			path = Generic;
+			sourceTree = "<group>";
+		};
+		8D7BC5C025B07B3B00060817 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				8D7BC5C125B07B7300060817 /* ForgotPasswordStep1View.swift */,
+				8D7BC5C625B07B8100060817 /* ForgotPasswordStep2View.swift */,
+				8D7BC5CB25B07B8D00060817 /* ForgotPasswordStep3View.swift */,
+			);
+			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
 		8DABC9C425A85AE80064B141 /* Splash Screen */ = {
@@ -339,6 +363,16 @@
 				8DB0B6D525AF46A00083AC57 /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		8DB0B6DA25AF4AC50083AC57 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				8DB0B71225AF4D3D0083AC57 /* ProfileView.swift */,
+				8DB0B71725AF556A0083AC57 /* NewSystemCardView.swift */,
+				8D7BC5B825B0390000060817 /* SystemCardView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -485,6 +519,8 @@
 				8D5371AE25AB66CE00446982 /* SwiftUIView.swift in Sources */,
 				8D55192F25AF0C59002490C7 /* RegistrationStep1View.swift in Sources */,
 				8D12FF7425A85998006C30CE /* ContentView.swift in Sources */,
+				8D7BC5C725B07B8100060817 /* ForgotPasswordStep2View.swift in Sources */,
+				8D7BC5D425B081BE00060817 /* RegistrationStep2View.swift in Sources */,
 				8D70B56925AC92AD00AC8377 /* AddCropStep1View.swift in Sources */,
 				8D55193925AF10FB002490C7 /* PasswordValidator.swift in Sources */,
 				8D5371A825AB60DD00446982 /* InformationCardView.swift in Sources */,
@@ -492,7 +528,9 @@
 				8D55194325AF1174002490C7 /* String.swift in Sources */,
 				8DABC9CC25A868020064B141 /* DetailsView.swift in Sources */,
 				8D12FF7225A85998006C30CE /* HydroBerryApp.swift in Sources */,
+				8DB0B71325AF4D3D0083AC57 /* ProfileView.swift in Sources */,
 				8DABC9F225A89E060064B141 /* HomeView.swift in Sources */,
+				8D7BC5CC25B07B8D00060817 /* ForgotPasswordStep3View.swift in Sources */,
 				8D70B56325AC8BBD00AC8377 /* AuthCardView.swift in Sources */,
 				8DABC9E925A8980B0064B141 /* TermsAndPrivacyView.swift in Sources */,
 				8D70B58A25ACAF8800AC8377 /* PagerView.swift in Sources */,
@@ -501,15 +539,17 @@
 				8D6A4E8C25AE078D0090E0C6 /* UIViewRepresentable+CustomTextField.swift in Sources */,
 				8DABC9D725A894E10064B141 /* OnboardingView.swift in Sources */,
 				8D53719725AB1B4C00446982 /* provaView.swift in Sources */,
+				8DB0B71825AF556A0083AC57 /* NewSystemCardView.swift in Sources */,
+				8D7BC5C225B07B7300060817 /* ForgotPasswordStep1View.swift in Sources */,
 				8D70B59525ACB01600AC8377 /* FullImageViewController.swift in Sources */,
 				8D70B57125AC92FD00AC8377 /* CropCardView.swift in Sources */,
 				8D6A4E8725AE015B0090E0C6 /* prova2View.swift in Sources */,
 				8DABC9E425A895710064B141 /* OnboardingStyle.swift in Sources */,
 				8DB0B6D625AF46A00083AC57 /* LoginViewModel.swift in Sources */,
 				8D70B55B25AC802900AC8377 /* SystemView.swift in Sources */,
+				8D7BC5B925B0390000060817 /* SystemCardView.swift in Sources */,
 				8DB0B6CE25AF467D0083AC57 /* LoginView.swift in Sources */,
 				8DABC9DF25A8954B0064B141 /* OnboardingItem.swift in Sources */,
-				8D55194925AF29D7002490C7 /* RegistrationStep2View.swift in Sources */,
 				8D55193E25AF111E002490C7 /* PasswordMeterView.swift in Sources */,
 				8DABC9C625A85B2A0064B141 /* SplashScreenView.swift in Sources */,
 				8DABC9D125A86A8A0064B141 /* CardMinMaxView.swift in Sources */,
