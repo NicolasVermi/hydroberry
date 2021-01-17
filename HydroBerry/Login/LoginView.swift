@@ -14,6 +14,7 @@ struct LoginView: View {
   @ObservedObject var viewModel: LoginViewModel
   let showForgotPassword: () -> Void
   let showRegistration: () -> Void
+    
 
   @State private var email = ""
   @State private var password = ""
@@ -100,6 +101,7 @@ struct LoginView: View {
   }
 
   var loginView: some View {
+    NavigationView{
     VStack(alignment: .leading) {
       Spacer()
       head
@@ -108,17 +110,21 @@ struct LoginView: View {
         .frame(height: 30)
 
         inputFields
-
-      Button(action: { self.showForgotPassword() }) {
-        Text("Hai dimenticato la password?")
-          .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
-          .font(.init(FontTheme.current.semibold.caption1))
-          .padding([.leading, .trailing], 16)
-      }
+        
+        NavigationLink(destination: ForgotPasswordStep1View(viewModel: LoginViewModel())) {
+            
+              Text("Hai dimenticato la password?")
+                .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
+                .font(.init(FontTheme.current.semibold.caption1))
+                .padding([.leading, .trailing], 16)
+            
+        }.navigationBarHidden(true)
+      
+        
 
       Spacer()
 
-      Button(action: { self.login() }) {
+        NavigationLink(destination: HomeView()) {
         UIViewPreview(horizontalHugging: .defaultLow) {
           let button = FullButton()
           button.setTitle("Login", for: .normal)
@@ -134,18 +140,20 @@ struct LoginView: View {
 
       HStack {
         Spacer()
-        Button(action: { self.showRegistration() }) {
+        NavigationLink(destination: RegistrationStep1View(viewModel: RegistrationStep1ViewModel(showPrivacy: {}, showTerms: {}, nextStep: {_,_ in }, showLogin: {}))) {
           Text("Registrati")
             .foregroundColor(Color(ColorTheme.current.secondary.dark))
             .font(.init(FontTheme.current.semibold.footnote))
             .multilineTextAlignment(.center)
-        }
+        }.navigationBarHidden(true)
         Spacer()
       }
 
       Spacer()
     }.padding(.horizontal,16)
-  }
+    .navigationBarHidden(true)
+  }.navigationBarHidden(true)
+}
 
   var body: some View {
     //LoadingView(isShowing: $viewModel.isLoading) {
@@ -161,6 +169,7 @@ struct LoginView: View {
         //.keyboardAdaptive()
         //.dismissOnTap()
     //}
+  
   }
 
   private func login() {

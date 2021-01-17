@@ -11,9 +11,20 @@ import DuckMaUI
 struct ForgotPasswordStep1View: View {
     @State private var email = ""
     @ObservedObject var viewModel: LoginViewModel
+    @Environment(\.presentationMode) var presentationMode
+
     
     var body: some View {
+        NavigationView{
         VStack(alignment:.leading){
+            HStack{
+                Image(systemName: "chevron.left").foregroundColor(Color(red: 117/255, green: 117/255, blue: 117/255))
+                    .contentShape(Rectangle())
+            .onTapGesture {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+                Spacer()
+            }
             Text("Recupera la password")
                 .font(Font.system(size:34, weight: .bold))
                 .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
@@ -22,7 +33,8 @@ struct ForgotPasswordStep1View: View {
             
             inputFields
             Spacer()
-            Button(action: {}) {
+            NavigationLink(destination: ForgotPasswordStep2View(viewModel: LoginViewModel())){
+            
               UIViewPreview(horizontalHugging: .defaultLow) {
                 let button = FullButton()
                 button.setTitle("Recupera password", for: .normal)
@@ -30,10 +42,13 @@ struct ForgotPasswordStep1View: View {
                   button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 1)
                 button.cornerRadius = .medium
                 return button
-              }
-            }.padding(16)
+              
+            }.padding(16)}
             Spacer()
         }.padding(16)
+        .navigationBarHidden(true)
+        }.navigationBarHidden(true)
+        
     }
     
     var inputFields: some View {

@@ -11,29 +11,41 @@ import DuckMaUI
 struct ForgotPasswordStep2View: View {
     @State private var code = ""
     @ObservedObject var viewModel: LoginViewModel
-    
+    @Environment(\.presentationMode) var presentationMode
+
     var body: some View {
-        VStack(alignment:.leading){
-            Text("Inserisci il codice che ti è stato inviato via mail")
-                .font(Font.system(size:34, weight: .bold))
-                .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
-                .padding(16)
-                .padding(.vertical, 40)
-            
-            inputFields
-            Spacer()
-            Button(action: {}) {
-              UIViewPreview(horizontalHugging: .defaultLow) {
-                let button = FullButton()
-                button.setTitle("Avanti", for: .normal)
-                button.titleLabel?.font = FontTheme.current.semibold.subhead
-                  button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 1)
-                button.cornerRadius = .medium
-                return button
-              }
+        NavigationView{
+            VStack(alignment:.leading){
+                HStack{
+                    Image(systemName: "chevron.left").foregroundColor(Color(red: 117/255, green: 117/255, blue: 117/255))
+                        .contentShape(Rectangle())
+                .onTapGesture {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+                    Spacer()
+                }
+                Text("Inserisci il codice che ti è stato inviato via mail")
+                    .font(Font.system(size:34, weight: .bold))
+                    .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
+                    .padding(16)
+                    .padding(.vertical, 40)
+                
+                inputFields
+                Spacer()
+                NavigationLink(destination: ForgotPasswordStep3View(viewModel: viewModel)){
+                  UIViewPreview(horizontalHugging: .defaultLow) {
+                    let button = FullButton()
+                    button.setTitle("Avanti", for: .normal)
+                    button.titleLabel?.font = FontTheme.current.semibold.subhead
+                      button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 1)
+                    button.cornerRadius = .medium
+                    return button
+                  }
+                }.padding(16)
+                Spacer()
             }.padding(16)
-            Spacer()
-        }.padding(16)
+            .navigationBarHidden(true)
+        }.navigationBarHidden(true)
     }
     
     var inputFields: some View {

@@ -14,7 +14,11 @@ struct SplashScreenView: View {
     
     var body: some View {
         if showLogin{
-          HomeView()
+            LoginView(
+              viewModel: LoginViewModel(),
+              showForgotPassword: {},
+              showRegistration: {})
+            
             //provaView()
             //OnboardingView(style: .skip {}, items: OnboardingView_Previews.mocks)
         }else{
@@ -32,6 +36,7 @@ struct SplashScreenView: View {
             .edgesIgnoringSafeArea(.all)}
 
     }
+    
     
     private func delayText() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {

@@ -145,7 +145,6 @@ struct RegistrationStep1View: View {
           .padding([.leading, .trailing], 16)
       }
     }
-    //mariorossi@gmail.com
     
     
     var registration: some View {
@@ -157,8 +156,6 @@ struct RegistrationStep1View: View {
           passwordStrenght
         }
         .padding([.leading, .trailing], 16)
-        
-
         Spacer()
         
             Button(action: { showStep2 = true }) {
@@ -167,7 +164,7 @@ struct RegistrationStep1View: View {
                 button.setTitle("Avanti", for: .normal)
                 button.titleLabel?.font = FontTheme.current.semibold.subhead
                 button.cornerRadius = .medium
-                button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 1)
+                button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 0)
                 return button
               }.padding(.vertical, 5)
               .background(Color(red: 21/255, green: 132/255, blue: 103/255))
@@ -180,7 +177,7 @@ struct RegistrationStep1View: View {
 
         HStack {
           Spacer()
-          Button(action: { self.viewModel.showLogin() }) {
+            NavigationLink(destination: LoginView(viewModel: LoginViewModel(), showForgotPassword: {}, showRegistration: {})) {
             Text("Login")
               .foregroundColor(Color(ColorTheme.current.secondary.dark))
               .fixedSize(horizontal: false, vertical: true)
@@ -191,7 +188,7 @@ struct RegistrationStep1View: View {
         }
 
         Spacer()
-      }
+      }.navigationBarHidden(true)
       //.horizantalPaddingMultiplying([.leading, .trailing], 16)
       //.keyboardAdaptive()
       //.dismissOnTap()

@@ -11,30 +11,44 @@ import DuckMaUI
 struct ForgotPasswordStep3View: View {
     @State private var password = ""
     @ObservedObject var viewModel: LoginViewModel
+    @Environment(\.presentationMode) var presentationMode
+
     
     var body: some View {
-        VStack(alignment:.leading){
-            Text("Inserisci la nuova password")
-                .font(Font.system(size:34, weight: .bold))
-                .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
-                .padding(16)
-                .padding(.vertical, 40)
-            
-            inputFields
-            passwordStrenght
-            Spacer()
-            Button(action: {}) {
-              UIViewPreview(horizontalHugging: .defaultLow) {
-                let button = FullButton()
-                button.setTitle("Reimposta password", for: .normal)
-                button.titleLabel?.font = FontTheme.current.semibold.subhead
-                  button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 1)
-                button.cornerRadius = .medium
-                return button
-              }
+        NavigationView{
+            VStack(alignment:.leading){
+                HStack{
+                    Image(systemName: "chevron.left").foregroundColor(Color(red: 117/255, green: 117/255, blue: 117/255))
+                        .contentShape(Rectangle())
+                .onTapGesture {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+                    Spacer()
+                }
+                Text("Inserisci la nuova password")
+                    .font(Font.system(size:34, weight: .bold))
+                    .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
+                    .padding(16)
+                    .padding(.vertical, 40)
+                
+                inputFields
+                passwordStrenght
+                Spacer()
+                NavigationLink(destination: LoginView(viewModel: viewModel, showForgotPassword: {}, showRegistration: {})) {
+                  UIViewPreview(horizontalHugging: .defaultLow) {
+                    let button = FullButton()
+                    button.setTitle("Reimposta password", for: .normal)
+                    button.titleLabel?.font = FontTheme.current.semibold.subhead
+                      button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 1)
+                    button.cornerRadius = .medium
+                    return button
+                  }
+                }.padding(16)
+                Spacer()
             }.padding(16)
-            Spacer()
-        }.padding(16)
+            .navigationBarHidden(true)
+        }.navigationBarHidden(true)
+            
     }
     
     var inputFields: some View {

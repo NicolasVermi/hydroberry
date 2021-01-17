@@ -12,6 +12,8 @@ import SwiftUI
 struct RegistrationStep2View: View {
   @State private var firstName = ""
   @State private var lastName = ""
+  @Environment(\.presentationMode) var presentationMode
+
 
   @ObservedObject var viewModel: RegistrationStep2ViewModel
 
@@ -104,7 +106,11 @@ struct RegistrationStep2View: View {
 
   var registration: some View {
     VStack(alignment: .leading) {
-      
+        HStack{
+            NavigationLink(destination: RegistrationStep1View(viewModel: RegistrationStep1ViewModel(showPrivacy: {}, showTerms: {}, nextStep: {_,_ in }, showLogin: {}))){
+            Image(systemName: "chevron.left").foregroundColor(Color(red: 117/255, green: 117/255, blue: 117/255))
+                .contentShape(Rectangle())
+            }}
       head
 
       Spacer()
@@ -114,13 +120,13 @@ struct RegistrationStep2View: View {
 
       Spacer()
 
-      Button(action: {}) {
+        NavigationLink(destination: LoginView(viewModel: LoginViewModel(), showForgotPassword:{}, showRegistration: {})){
         UIViewPreview(horizontalHugging: .defaultLow) {
           let button = FullButton()
           button.setTitle("Registrati", for: .normal)
           button.titleLabel?.font = FontTheme.current.semibold.subhead
           button.cornerRadius = .medium
-            button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 1)
+            button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 0)
           return button
         }.padding(.vertical, 5)
         .background(Color(red: 21/255, green: 132/255, blue: 103/255))
@@ -135,6 +141,7 @@ struct RegistrationStep2View: View {
   }
 
   var body: some View {
+    NavigationView{
     //LoadingView(isShowing: $viewModel.isLoading){
       self.registration
         .alert(isPresented: self.$viewModel.showErrorAlert) {
@@ -145,6 +152,8 @@ struct RegistrationStep2View: View {
           )
         }.padding()
     //}
+        .navigationBarHidden(true)
+    }.navigationBarHidden(true)
   }
 /*
   private func signup() {

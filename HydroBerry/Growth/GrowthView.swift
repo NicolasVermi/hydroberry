@@ -17,7 +17,7 @@ struct GrowthView: View {
             imageView.padding(.bottom, 80)
             Spacer()
             
-        }
+        }.navigationBarHidden(true)
     }
     
     

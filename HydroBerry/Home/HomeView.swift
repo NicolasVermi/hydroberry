@@ -55,8 +55,8 @@ struct HomeView: View {
                             }.tag(2)
                     }
                     .accentColor(Color(red: 21/255, green: 132/255, blue: 103/255))
-                }
-            }
+                }.navigationBarHidden(true)
+            }.navigationBarHidden(true)
     }
     
     private var bodyView: some View {
@@ -84,7 +84,7 @@ struct HomeView: View {
                         //}.frame()
                 }
         }
-        }
+        }.navigationBarHidden(true)
         
     }
     

@@ -134,9 +134,7 @@ struct EditProfileView: View {
                     .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
                 
                 
-            }
-
-            
+            }    
         }
     }
     

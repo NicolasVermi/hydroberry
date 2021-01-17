@@ -22,7 +22,7 @@ struct ProfileView: View {
                         .font(Font.system(size:34, weight: .bold))
                     Spacer()
                 }
-                .padding(.bottom,28)
+                .padding(.bottom,20)
                 systemPart
                 Spacer()
                 termsPart
@@ -30,13 +30,18 @@ struct ProfileView: View {
             }.padding()
             //.padding(.top, -80)
         
-        }
+        }.navigationBarHidden(true)
         
     }
     
     
     private var systemPart: some View{
         VStack{
+            HStack{
+                Text("Mario Rossi")
+                    .font(Font.system(size:22, weight: .semibold))
+                Spacer()
+            }.padding(.bottom,10)
             HStack{
                 Text("Sistemi:")
                 Spacer()
