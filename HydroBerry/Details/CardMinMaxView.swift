@@ -35,15 +35,11 @@ struct CardMinMaxView: View {
                                 .foregroundColor(color)
                                 .padding(.trailing, 10)
                             
-                        }
+                        }.padding(.horizontal, 5)
+                        .padding(.leading, 5)
                         
 )
     }
 }
 
-// struct ButtonView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CardMinMaxView(image: "String", mesure: "24.9", symbol: "St", namedLabel: "namedLabel")
-//    }
-// }
 

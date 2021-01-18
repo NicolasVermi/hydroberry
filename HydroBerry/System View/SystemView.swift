@@ -96,9 +96,7 @@ struct SystemView: View {
             ).padding(.horizontal, 15)
             .padding(.vertical, 30)
     }
-    
-    
-    
+
     
     private var authorizePart: some View{
         VStack{

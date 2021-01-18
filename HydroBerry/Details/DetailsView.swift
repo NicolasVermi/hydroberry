@@ -15,22 +15,27 @@ struct DetailsView: View {
 
 
     var barValues: [[Int]] =
-        //  [[1],[1],[1],[1]]
+
         [
             [22,21,22,22,22,21,21,23,22,21,22,22,22,21,21,23,22,21,22,22,22,21,21,23],
             [22,21,22,22,22,21,21],
             [22,21,22,22,22,21,21,23,22,21,22,22,22,21,21,23,22,21,22,22,22,21,21,23,22,21,22,22,22,21],
             [22,21,22,22,22,21,21,24,22],
         ]
+    
     var titlesPart2: [String] = ["giornaliero", "settimanale", "mensile", "annuale"]
+    
     var dimensions: [CGFloat] = [18,40,18,18]
+    var generalLableMax: [String] = ["massima rilevata", "massimo rilevato"]
+    var generalLableMin: [String] = ["minima rilevata", "minimo rilevato"]
+    var generalLableCons: [String] = ["consigliata", "consigliato"]
+    
     var axeXValues: [[String]] =
         [["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"],
          ["Lun","Mar","Mer","Gio","Ven","Sab","Dom"],
          ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],
          ["1","2","3","4","5","6","7","8","9","10","11","12"]]
     
-    public var axeXValuesHours: [String] = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"]
     
     @State var numero: Int = 0
     @State var dato: Int = 0
@@ -79,19 +84,57 @@ struct DetailsView: View {
                     }
 
     }
+    
+    func choseGeneralLable(misura: String) -> [String] {
+        var lable: [String] = ["","",""]
+        if misura == "pH"{
+            lable[0] = generalLableMax[1]
+            lable[1] = generalLableMin[1]
+            lable[2] = generalLableCons[1]
+        }else{
+            lable[0] = generalLableMax[0]
+            lable[1] = generalLableMin[0]
+            lable[2] = generalLableCons[0]
+        }
+        return lable
+    }
+    
+    func choseSymbol(misura: String) -> String {
+        var lable: String = ""
+        switch misura {
+
+        case "Temperatura":
+           lable = " °C"
+
+        case "Umidità":
+           lable = " %"
+            
+        case "pH":
+           lable = " pH"
+        
+        case "EC":
+           lable = " mS/cm"
+
+        default:
+           lable = ""
+        }
+
+        return lable
+    }
+    
 
     private var maxCard: some View {
-        CardMinMaxView(generalLabel: "massima rilevata",measure: "24.9", symbol: "°C", measureName: "Temperatura", color: Color(red: 158/255, green: 51/255, blue: 26/255))
+        CardMinMaxView(generalLabel: choseGeneralLable(misura: titolo)[0],measure: "24.9", symbol: choseSymbol(misura: titolo), measureName: titolo, color: Color(red: 158/255, green: 51/255, blue: 26/255))
             .padding(-2.0)
             
     }
 
     private var minCard: some View {
-        CardMinMaxView(generalLabel: "minima rilevata",measure: "21.9", symbol: "°C", measureName: "Temperatura", color: Color(red: 108/255, green: 223/255, blue: 239/255))
+        CardMinMaxView(generalLabel: choseGeneralLable(misura: titolo)[1],measure: "21.9", symbol: choseSymbol(misura: titolo), measureName: titolo, color: Color(red: 108/255, green: 223/255, blue: 239/255))
     }
     
     private var recommendedValueCard: some View {
-        CardMinMaxView(generalLabel: "consigliata",measure: "22-25", symbol: "°C", measureName: "Temperatura", color: Color(red: 21/255, green: 132/255, blue: 103/255))
+        CardMinMaxView(generalLabel: choseGeneralLable(misura: titolo)[2],measure: "22-25", symbol: choseSymbol(misura: titolo), measureName: titolo, color: Color(red: 21/255, green: 132/255, blue: 103/255))
     }
 
     private var graphicPart: some View {
@@ -127,67 +170,8 @@ struct DetailsView: View {
             }
             .padding(.horizontal, 20)
         }
-       /*
-        private var graphicPart: some View {
-            ScrollView(.horizontal) {
-                HStack(alignment: .center, spacing: 10) {
-
-                    ForEach(barValues[pickerSelection], id: \.self) {
-                        data in
-                        
-                        VStack {
-                            
-                            BarView(value: CGFloat(data), cornerRadius: 20, etichetta: String(axeXValues[pickerSelection][2]))
-                            
-                            //BarView(value: CGFloat(data), cornerRadius: 20, etichetta: String(axeXValuesHours[3]))
-                            
-                        }
-                    }
-                }
-                .padding(.top, 24).animation(.default)
-            }
-            .padding(.horizontal, 20)
-        }
-        */
-    /*
-    private var graphicPart: some View {
-        ScrollView(.horizontal) {
-                barraFunc(valori: barValues[pickerSelection],valori2: axeXValuesHours)
-            }
-            .padding(.top, 24)
-        .animation(.default)
-        
     }
-        
-        func barraFunc(valori: [Int], valori2: [String]) -> some View {
-        var numero = 0
-        for _ in Range(0...valori.count){
 
-            numero = numero + 1
-            altra(valori: valori, valori2: valori2, numero: numero)
-        }
-        return
-    }
-      */
-        
-        
-        
-    }
-    /*
-    struct altra: View {
-        var valori: [Int]
-        var valori2: [String]
-        var numero: Int
-
-        var body: some View {
-        
-        HStack(alignment: .center, spacing: 10) {
-            Text("")
-            BarView(value: CGFloat(valori[numero]), cornerRadius: 20, etichetta: String(valori[numero]))
-        }
-            
-        }
-    }*/
 
     struct BarView: View {
         var value: CGFloat

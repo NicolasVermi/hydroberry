@@ -56,13 +56,14 @@ struct PasswordMeterView: View {
     valid: KeyPath<PasswordValidator, Bool>
   ) -> some View {
     HStack {
-      Image("checkmark")
-        .renderingMode(.template)
-        .foregroundColor(
-          validator[keyPath: valid]
-            ? Color(ColorTheme.current.success.p100)
-            : Color(ColorTheme.current.gray.p100)
-        )
+
+        if validator[keyPath: valid]{
+            Image("ic_check_active")
+            
+        }
+            else{
+                Image("ic_check")
+            }
       text
     }
   }
