@@ -54,6 +54,7 @@ struct ProfileView: View {
                             Spacer()
                         }
                         .padding(.bottom,20)
+                        
                         systemPart
                         Spacer()
                         termsPart
@@ -103,7 +104,7 @@ struct ProfileView: View {
                         .foregroundColor(Color(ColorTheme.current.primary.dark))
                           
                     }.sheet(isPresented: $showingEditProfile) {
-                        EditProfileView(lastName: Name, firstName: Name, email: "email@gmail.com")
+                        EditProfileView(lastName: Name, firstName: Name, email: Auth.auth().currentUser?.email ?? "nessuno")
                     }
                     
                     Spacer().frame(height: 5)

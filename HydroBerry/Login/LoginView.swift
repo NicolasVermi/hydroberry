@@ -14,8 +14,6 @@ struct LoginView: View {
   @ObservedObject var viewModel: LoginViewModel
   let showForgotPassword: () -> Void
   let showRegistration: () -> Void
-  
-    
 
   @State private var email = ""
   @State private var password = ""
@@ -141,7 +139,7 @@ struct LoginView: View {
 
       HStack {
         Spacer()
-        NavigationLink(destination: RegistrationStep1View(viewModel: RegistrationStep1ViewModel(showPrivacy: {}, showTerms: {}, nextStep: {_,_ in }, showLogin: {}))) {
+        NavigationLink(destination: RegistrationStep1View(viewModel: RegistrationStep1ViewModel())) {
           Text("Registrati")
             .foregroundColor(Color(ColorTheme.current.secondary.dark))
             .font(.init(FontTheme.current.semibold.footnote))

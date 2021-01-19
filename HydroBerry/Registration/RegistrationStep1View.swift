@@ -4,6 +4,8 @@
 //
 //  Created by Nicolas Vermi on 13/01/21.
 //
+//  Modified by Nicolas Vermi on 12/01/2021
+
 
 import SwiftUI
 import DuckMaUI
@@ -199,12 +201,7 @@ struct RegistrationStep1View: View {
 struct RegistrationStep1View_Previews: PreviewProvider {
     static var previews: some View {
       RegistrationStep1View(
-        viewModel: .init(
-          showPrivacy: {},
-          showTerms: {},
-          nextStep: { _, _ in },
-          showLogin: {}
-        )
+        viewModel: .init()
       )
     }
 }

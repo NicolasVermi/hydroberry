@@ -5,6 +5,7 @@
 //  Created by Mattia Valzelli on 08/04/2020.
 //  Copyright © 2020 DuckMa srl. All rights reserved.
 //
+// Modified by Nicolas Vermi on 12/01/2021
 
 import DuckMaUI
 import SwiftUI
@@ -13,6 +14,7 @@ struct RegistrationStep2View: View {
   @State private var firstName = ""
   @State private var lastName = ""
   @State private var showLogin = false
+  @State private var showStep1 = false
 
   @Environment(\.presentationMode) var presentationMode
 
@@ -27,7 +29,6 @@ struct RegistrationStep2View: View {
             Spacer()
         }.padding(.top, 30)
       
-        
       Spacer()
         .frame(maxHeight: 74)
         Text("Registrazione")
@@ -107,13 +108,15 @@ struct RegistrationStep2View: View {
   }
 
   var registration: some View {
-    
+
         VStack(alignment: .leading) {
             HStack{
-                NavigationLink(destination: RegistrationStep1View(viewModel: RegistrationStep1ViewModel(showPrivacy: {}, showTerms: {}, nextStep: {_,_ in }, showLogin: {}))){
+                
                 Image(systemName: "chevron.left").foregroundColor(Color(red: 117/255, green: 117/255, blue: 117/255))
                     .contentShape(Rectangle())
-                }}
+            }.onTapGesture {
+                showStep1 = true
+            }
           head
 
           Spacer()
@@ -141,23 +144,29 @@ struct RegistrationStep2View: View {
   }
 
   var body: some View {
-    if showLogin{
-        LoginView(viewModel: LoginViewModel(), showForgotPassword: {}, showRegistration: {})
+    if showStep1{
+        RegistrationStep1View(viewModel: RegistrationStep1ViewModel())
+    }else{
+    
+    if viewModel.success{
+        HomeView()
+
     }else
     {
     NavigationView{
     //LoadingView(isShowing: $viewModel.isLoading){
       self.registration
-        .alert(isPresented: self.$viewModel.showErrorAlert) {
+        .alert(isPresented: (self.$viewModel.showAlert)) {
           Alert(
             title: Text(""),
-            message: Text("error_generic"),
+            message: Text(viewModel.errorType),
             dismissButton: .default(Text("ok"))
           )
         }.padding()
     //}
         .navigationBarHidden(true)
     }.navigationBarHidden(true)
+    }
     }
   }
 
@@ -176,11 +185,8 @@ struct RegistrationStep2View: View {
 
   extension RegistrationStep2ViewModel {
     static let mock = RegistrationStep2ViewModel(
-      //api: MockRegistrationService(),
       email: "m@d.com",
       password: "testing0"
-      //showLogin: {},
-      //onRegistration: {}
     )
   }
 #endif

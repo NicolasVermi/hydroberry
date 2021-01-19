@@ -5,6 +5,7 @@
 //  Created by Mattia Valzelli on 08/04/2020.
 //  Copyright © 2020 DuckMa srl. All rights reserved.
 //
+//  Modified by Nicolas Vermi on 12/01/2021
 
 import Combine
 import Foundation
@@ -23,18 +24,16 @@ final class RegistrationStep2ViewModel: ObservableObject {
 
   @Published var isLoading = false
   @Published var error: RegistrationStep2Error?
-  @Published var showErrorAlert = false
+  @Published var errorType = ""
+  @Published var success = false
+  @Published var showAlert = false
 
   init(
     email: String,
     password: String
-    //showLogin: @escaping () -> Void,
-    //onRegistration: @escaping () -> Void
   ) {
     self.email = email
     self.password = password
-    //self.showLogin = showLogin
-    //self.onRegistration = onRegistration
   }
 
   func signup(firstName: String, lastName: String) {
@@ -56,22 +55,33 @@ final class RegistrationStep2ViewModel: ObservableObject {
       if let error = error as? NSError {
         switch AuthErrorCode(rawValue: error.code) {
         case .operationNotAllowed:
-            print("operationNotAllowew")
-          // Error: The given sign-in provider is disabled for this Firebase project. Enable it in the Firebase console, under the sign-in method tab of the Auth section.
+            print("operationNotAllowed")
+            self.errorType = "Operazione non disponibile"
+            self.showAlert = true
         case .emailAlreadyInUse:
             print("emailAlreadyInUse")
+            self.errorType = "Email già in uso"
+            self.showAlert = true
           // Error: The email address is already in use by another account.
         case .invalidEmail:
             print("invalidMail")
+            self.errorType = "Email non valida"
+            self.showAlert = true
           // Error: The email address is badly formatted.
         case .weakPassword:
             print("weakPassword")
+            self.errorType = "Password debole"
+            self.showAlert = true
           // Error: The password must be 6 characters long or more.
         default:
+            self.errorType = "Error: \(error.localizedDescription)"
             print("Error: \(error.localizedDescription)")
+            self.showAlert = true
         }
       } else {
         print("User signs up successfully")
+        self.success = true
+        self.showAlert = false
         let newUserInfo = Auth.auth().currentUser
         let email = newUserInfo?.email
       }
