@@ -13,6 +13,7 @@ import SwiftUI
 struct OnboardingView: View {
   let style: OnboardingStyle
   let items: [OnboardingItem]
+  @State private var showPrivacy = false
 
   private func pageView(
     title: String,
@@ -55,7 +56,7 @@ struct OnboardingView: View {
   }
 
   private func skipButton(_ action: @escaping () -> Void) -> some View {
-    Button(action: action) {
+    Button(action: {showPrivacy = true}){
       UIViewPreview(horizontalHugging: .defaultLow) {
         let button = FullButton()
         button.setTitle("Salta", for: .normal)
@@ -73,23 +74,27 @@ struct OnboardingView: View {
 
 
   var body: some View {
-    VStack {
-      if !self.items.isEmpty {
-        PagerView(
-          self.items.map { item in
-            self.pageView(title: item.title, description: item.description, image: item.image)
+    if showPrivacy {
+        TermsAndPrivacyView(accept: {})
+    }else{
+        VStack {
+          if !self.items.isEmpty {
+            PagerView(
+              self.items.map { item in
+                self.pageView(title: item.title, description: item.description, image: item.image)
+              }
+            )
           }
-        )
-      }
-
-      
-
-      self.style.skipAction.map(self.skipButton(_:))
-        .padding(.vertical, 40)
-      }
-      Spacer().frame(height: 24)
+          self.style.skipAction.map(self.skipButton(_:))
+            .padding(.vertical, 40)
+          
+          Spacer().frame(height: 24)
+        }
+        
     }
-  }
+    
+    }
+}
 
 
 struct OnboardingView_Previews: PreviewProvider {

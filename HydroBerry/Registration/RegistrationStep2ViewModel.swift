@@ -8,14 +8,17 @@
 
 import Combine
 import Foundation
+import UIKit
+import FirebaseAnalytics
+import FirebaseAuth
+
 
 final class RegistrationStep2ViewModel: ObservableObject {
-  
   private let email: String
   private let password: String
-  //let showLogin: () -> Void
-  //private let onRegistration: () -> Void
 
+
+    
   private var cancellable: AnyCancellable?
 
   @Published var isLoading = false
@@ -37,6 +40,7 @@ final class RegistrationStep2ViewModel: ObservableObject {
   func signup(firstName: String, lastName: String) {
     cancellable?.cancel()
     error = nil
+    
 
     guard firstName.isNotEmptyUserInput else {
       error = .missingFirstName
@@ -48,28 +52,31 @@ final class RegistrationStep2ViewModel: ObservableObject {
       return
     }
 
-    /*
-    cancellable = api.signup(
-      email: email, password: password, firstName: firstName, lastName: lastName
-    )
-    .receive(on: DispatchQueue.main)
-    .handleEvents(
-      receiveSubscription: { [weak self] _ in self?.isLoading = true },
-      receiveCompletion: { [weak self] completion in
-        self?.isLoading = false
-        if case .failure = completion {
-          self?.error = .generic
-          self?.showErrorAlert = true
-        } else {
-          self?.onRegistration()
+    Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+      if let error = error as? NSError {
+        switch AuthErrorCode(rawValue: error.code) {
+        case .operationNotAllowed:
+            print("operationNotAllowew")
+          // Error: The given sign-in provider is disabled for this Firebase project. Enable it in the Firebase console, under the sign-in method tab of the Auth section.
+        case .emailAlreadyInUse:
+            print("emailAlreadyInUse")
+          // Error: The email address is already in use by another account.
+        case .invalidEmail:
+            print("invalidMail")
+          // Error: The email address is badly formatted.
+        case .weakPassword:
+            print("weakPassword")
+          // Error: The password must be 6 characters long or more.
+        default:
+            print("Error: \(error.localizedDescription)")
         }
-      },
-      receiveCancel: { [weak self] in self?.isLoading = false }
-    )
-    .sink(
-      receiveCompletion: { _ in },
-      receiveValue: { _ in }
-    )*/
+      } else {
+        print("User signs up successfully")
+        let newUserInfo = Auth.auth().currentUser
+        let email = newUserInfo?.email
+      }
+    }
+
   }
 }
 

@@ -8,23 +8,19 @@
 
 import Combine
 import Foundation
+import FirebaseAnalytics
+import FirebaseAuth
 
 final class LoginViewModel: ObservableObject {
-  //private let api: MechaLoginService
-  //private let onLogin: () -> Void
 
   private var cancellable: Cancellable?
-
+  @Published var success: Bool = false
   @Published var isLoading: Bool = false
   @Published var error: LoginViewError?
   @Published var showErrorAlert = false
+  @Published var errorType = ""
 
-  init(
-    //api: MechaLoginService, onLogin: @escaping () -> Void
-  ) {
-    //self.api = api
-    //self.onLogin = onLogin
-  }
+  init() {}
 
   func submit(email: String, password: String) {
     cancellable?.cancel()
@@ -38,23 +34,42 @@ final class LoginViewModel: ObservableObject {
       error = .missingPassword
       return
     }
-
- /*   cancellable = api.login(email: email, password: password)
-      .receive(on: DispatchQueue.main)
-      .handleEvents(
-        receiveSubscription: { [weak self] _ in self?.isLoading = true },
-        receiveCompletion: { [weak self] completion in
-          self?.isLoading = false
-          if case .failure = completion {
-            self?.showErrorAlert = true
-            self?.error = .generic
-          } else if self?.error == nil {
-            self?.onLogin()
-          }
-        },
-        receiveCancel: { [weak self] in self?.isLoading = false }
-      )
-      .sink(receiveCompletion: { _ in }, receiveValue: { _ in })*/
+    
+    //let email = "example@gmail.com"
+    //let password = "testtest"
+    
+    Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+      if let error = error as? NSError {
+        switch AuthErrorCode(rawValue: error.code) {
+        case .operationNotAllowed:
+            print("operationNotAllowed")
+            self.showErrorAlert = true
+            self.errorType = "Operazione non permessa"
+        case .userDisabled:
+            print("userDisabled")
+            self.showErrorAlert = true
+            self.errorType = "Utente disabilitato"
+        case .wrongPassword:
+            print("wrongPassword")
+            self.showErrorAlert = true
+            self.errorType = "Password errata"
+        case .invalidEmail:
+            print("invalidMail")
+            self.showErrorAlert = true
+            self.errorType = "Email non valida"
+        default:
+            self.showErrorAlert = true
+            self.errorType = "Errore: non è presente alcun utente con questa mail"
+            print("Error: \(error.localizedDescription)")
+        }
+      } else {
+        print("User signs in successfully")
+        self.success = true
+        self.showErrorAlert = false
+        let userInfo = Auth.auth().currentUser
+        let email = userInfo?.email
+      }
+    }
   }
 }
 

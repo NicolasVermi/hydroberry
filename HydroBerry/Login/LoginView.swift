@@ -14,6 +14,7 @@ struct LoginView: View {
   @ObservedObject var viewModel: LoginViewModel
   let showForgotPassword: () -> Void
   let showRegistration: () -> Void
+  
     
 
   @State private var email = ""
@@ -119,19 +120,19 @@ struct LoginView: View {
                 .padding([.leading, .trailing], 16)
             
         }.navigationBarHidden(true)
-      
         
-
       Spacer()
 
         NavigationLink(destination: HomeView()) {
-        UIViewPreview(horizontalHugging: .defaultLow) {
-          let button = FullButton()
-          button.setTitle("Login", for: .normal)
-          button.titleLabel?.font = FontTheme.current.semibold.subhead
-            button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 1)
-          button.cornerRadius = .medium
-          return button
+            Button(action:{login()}){
+            UIViewPreview(horizontalHugging: .defaultLow) {
+              let button = FullButton()
+              button.setTitle("Login", for: .normal)
+              button.titleLabel?.font = FontTheme.current.semibold.subhead
+                button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 1)
+              button.cornerRadius = .medium
+              return button
+            }
         }
       }
       .padding([.leading, .trailing], 16)
@@ -156,12 +157,17 @@ struct LoginView: View {
 }
 
   var body: some View {
+    if viewModel.success{
+        HomeView()
+    }else{
+        
+        
     //LoadingView(isShowing: $viewModel.isLoading) {
-      self.loginView
+      loginView
         .alert(isPresented: self.$viewModel.showErrorAlert) {
           Alert(
             title: Text(""),
-            message: Text("error_generic"),
+            message: Text(viewModel.errorType),
             dismissButton: .default(Text("ok"))
           )
         }
@@ -169,13 +175,14 @@ struct LoginView: View {
         //.keyboardAdaptive()
         //.dismissOnTap()
     //}
-  
+    }
   }
 
   private func login() {
     //UIApplication.shared.endEditing()
     viewModel.submit(email: email, password: password)
   }
+
 }
 
 #if DEBUG && canImport(SwiftUI)

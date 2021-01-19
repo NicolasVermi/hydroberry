@@ -12,10 +12,8 @@ struct DetailsView: View {
     @State var titolo: String
     
     @Environment(\.presentationMode) var presentationMode
-
-
+    
     var barValues: [[Int]] =
-
         [
             [22,21,22,22,22,21,21,23,22,21,22,22,22,21,21,23,22,21,22,22,22,21,21,23],
             [22,21,22,22,22,21,21],

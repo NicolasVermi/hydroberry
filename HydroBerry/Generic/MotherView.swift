@@ -14,7 +14,10 @@ struct MotherView : View {
             if viewRouter.currentPage == "onboardingView" {
                 OnboardingView(style: .skip {}, items: OnboardingView_Previews.mocks)
             } else if viewRouter.currentPage == "homeView" {
-                HomeView()
+                LoginView(
+                  viewModel: LoginViewModel(),
+                  showForgotPassword: {},
+                  showRegistration: {})
             }
         }
     }

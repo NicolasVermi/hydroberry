@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E5C4FBF0D64DB2DF58B6568 /* Pods_HydroBerry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771E6524F6B825758999631E /* Pods_HydroBerry.framework */; };
 		8D12FF7225A85998006C30CE /* HydroBerryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12FF7125A85998006C30CE /* HydroBerryApp.swift */; };
 		8D12FF7425A85998006C30CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12FF7325A85998006C30CE /* ContentView.swift */; };
 		8D12FF7625A85999006C30CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D12FF7525A85999006C30CE /* Assets.xcassets */; };
@@ -25,6 +26,9 @@
 		8D55193E25AF111E002490C7 /* PasswordMeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55193D25AF111E002490C7 /* PasswordMeterView.swift */; };
 		8D55194325AF1174002490C7 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55194225AF1174002490C7 /* String.swift */; };
 		8D55194A25AF29D7002490C7 /* RegistrationStep2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55194825AF29D7002490C7 /* RegistrationStep2ViewModel.swift */; };
+		8D5A802B25B58F0D00663940 /* GrowthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A802A25B58F0D00663940 /* GrowthViewModel.swift */; };
+		8D5A805625B5C78C00663940 /* prova3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A805525B5C78C00663940 /* prova3View.swift */; };
+		8D5A805B25B5CF3B00663940 /* prova4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A805A25B5CF3B00663940 /* prova4View.swift */; };
 		8D6A4E7A25ADE6250090E0C6 /* AddCropStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E7925ADE6250090E0C6 /* AddCropStep2View.swift */; };
 		8D6A4E7F25ADEA460090E0C6 /* GrowStepCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E7E25ADEA460090E0C6 /* GrowStepCardView.swift */; };
 		8D6A4E8725AE015B0090E0C6 /* prova2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E8625AE015B0090E0C6 /* prova2View.swift */; };
@@ -33,7 +37,7 @@
 		8D70B56325AC8BBD00AC8377 /* AuthCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B56225AC8BBD00AC8377 /* AuthCardView.swift */; };
 		8D70B56925AC92AD00AC8377 /* AddCropStep1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B56825AC92AD00AC8377 /* AddCropStep1View.swift */; };
 		8D70B57125AC92FD00AC8377 /* CropCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B57025AC92FD00AC8377 /* CropCardView.swift */; };
-		8D70B57725ACAAA200AC8377 /* DuckMaUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8D70B57625ACAAA200AC8377 /* DuckMaUI */; };
+		8D70B57725ACAAA200AC8377 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 8D70B57625ACAAA200AC8377 /* SwiftPackageProductDependency */; };
 		8D70B58125ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B58025ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift */; };
 		8D70B58A25ACAF8800AC8377 /* PagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B58925ACAF8800AC8377 /* PagerView.swift */; };
 		8D70B59525ACB01600AC8377 /* FullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B59425ACB01600AC8377 /* FullImageViewController.swift */; };
@@ -46,6 +50,7 @@
 		8D7BC5D425B081BE00060817 /* RegistrationStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5D325B081BE00060817 /* RegistrationStep2View.swift */; };
 		8D7BC5DD25B1B44200060817 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5DC25B1B44200060817 /* EditProfileView.swift */; };
 		8D7BC5E525B1C92B00060817 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5E425B1C92B00060817 /* EditProfileViewModel.swift */; };
+		8D8238EB25B6D5A800EA268E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D8238EA25B6D5A800EA268E /* GoogleService-Info.plist */; };
 		8DABC9C625A85B2A0064B141 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9C525A85B2A0064B141 /* SplashScreenView.swift */; };
 		8DABC9CC25A868020064B141 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9CB25A868020064B141 /* DetailsView.swift */; };
 		8DABC9D125A86A8A0064B141 /* CardMinMaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9D025A86A8A0064B141 /* CardMinMaxView.swift */; };
@@ -59,6 +64,8 @@
 		8DB0B6D625AF46A00083AC57 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0B6D525AF46A00083AC57 /* LoginViewModel.swift */; };
 		8DB0B71325AF4D3D0083AC57 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0B71225AF4D3D0083AC57 /* ProfileView.swift */; };
 		8DB0B71825AF556A0083AC57 /* NewSystemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB0B71725AF556A0083AC57 /* NewSystemCardView.swift */; };
+		E97D7C2C2A3F303FE999958B /* Pods_HydroBerry_HydroBerryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C952C1DA73568E0CA6C969 /* Pods_HydroBerry_HydroBerryUITests.framework */; };
+		EB97E694E7B32717DFD153A2 /* Pods_HydroBerryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E14F282D03CA2928D8EC3BC /* Pods_HydroBerryTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +86,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E14F282D03CA2928D8EC3BC /* Pods_HydroBerryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HydroBerryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66DECDF48AE8AB2426EFE67D /* Pods-HydroBerry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HydroBerry.debug.xcconfig"; path = "Target Support Files/Pods-HydroBerry/Pods-HydroBerry.debug.xcconfig"; sourceTree = "<group>"; };
+		747A1CF69643B9CA4014F5C6 /* Pods-HydroBerry-HydroBerryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HydroBerry-HydroBerryUITests.debug.xcconfig"; path = "Target Support Files/Pods-HydroBerry-HydroBerryUITests/Pods-HydroBerry-HydroBerryUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		771E6524F6B825758999631E /* Pods_HydroBerry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HydroBerry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7890CFBF76E2A02E1126D21E /* Pods-HydroBerry-HydroBerryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HydroBerry-HydroBerryUITests.release.xcconfig"; path = "Target Support Files/Pods-HydroBerry-HydroBerryUITests/Pods-HydroBerry-HydroBerryUITests.release.xcconfig"; sourceTree = "<group>"; };
+		834E387E367B1843D0CC3878 /* Pods-HydroBerryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HydroBerryTests.release.xcconfig"; path = "Target Support Files/Pods-HydroBerryTests/Pods-HydroBerryTests.release.xcconfig"; sourceTree = "<group>"; };
 		8D12FF6E25A85998006C30CE /* HydroBerry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HydroBerry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D12FF7125A85998006C30CE /* HydroBerryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydroBerryApp.swift; sourceTree = "<group>"; };
 		8D12FF7325A85998006C30CE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +116,9 @@
 		8D55193D25AF111E002490C7 /* PasswordMeterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordMeterView.swift; sourceTree = "<group>"; };
 		8D55194225AF1174002490C7 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		8D55194825AF29D7002490C7 /* RegistrationStep2ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationStep2ViewModel.swift; sourceTree = "<group>"; };
+		8D5A802A25B58F0D00663940 /* GrowthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowthViewModel.swift; sourceTree = "<group>"; };
+		8D5A805525B5C78C00663940 /* prova3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prova3View.swift; sourceTree = "<group>"; };
+		8D5A805A25B5CF3B00663940 /* prova4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prova4View.swift; sourceTree = "<group>"; };
 		8D6A4E7925ADE6250090E0C6 /* AddCropStep2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCropStep2View.swift; sourceTree = "<group>"; };
 		8D6A4E7E25ADEA460090E0C6 /* GrowStepCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowStepCardView.swift; sourceTree = "<group>"; };
 		8D6A4E8625AE015B0090E0C6 /* prova2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prova2View.swift; sourceTree = "<group>"; };
@@ -123,6 +139,7 @@
 		8D7BC5D325B081BE00060817 /* RegistrationStep2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationStep2View.swift; sourceTree = "<group>"; };
 		8D7BC5DC25B1B44200060817 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		8D7BC5E425B1C92B00060817 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		8D8238EA25B6D5A800EA268E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8DABC9C525A85B2A0064B141 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		8DABC9CB25A868020064B141 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		8DABC9D025A86A8A0064B141 /* CardMinMaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMinMaxView.swift; sourceTree = "<group>"; };
@@ -136,6 +153,9 @@
 		8DB0B6D525AF46A00083AC57 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8DB0B71225AF4D3D0083AC57 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8DB0B71725AF556A0083AC57 /* NewSystemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSystemCardView.swift; sourceTree = "<group>"; };
+		CC3B3A4EDB8AD8379D3ACCD0 /* Pods-HydroBerry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HydroBerry.release.xcconfig"; path = "Target Support Files/Pods-HydroBerry/Pods-HydroBerry.release.xcconfig"; sourceTree = "<group>"; };
+		D036C22CDCC204A5D4415603 /* Pods-HydroBerryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HydroBerryTests.debug.xcconfig"; path = "Target Support Files/Pods-HydroBerryTests/Pods-HydroBerryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F5C952C1DA73568E0CA6C969 /* Pods_HydroBerry_HydroBerryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HydroBerry_HydroBerryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +163,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D70B57725ACAAA200AC8377 /* DuckMaUI in Frameworks */,
+				8D70B57725ACAAA200AC8377 /* BuildFile in Frameworks */,
+				6E5C4FBF0D64DB2DF58B6568 /* Pods_HydroBerry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB97E694E7B32717DFD153A2 /* Pods_HydroBerryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,12 +180,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E97D7C2C2A3F303FE999958B /* Pods_HydroBerry_HydroBerryUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09200C0E7BC5C88095B6248F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				66DECDF48AE8AB2426EFE67D /* Pods-HydroBerry.debug.xcconfig */,
+				CC3B3A4EDB8AD8379D3ACCD0 /* Pods-HydroBerry.release.xcconfig */,
+				747A1CF69643B9CA4014F5C6 /* Pods-HydroBerry-HydroBerryUITests.debug.xcconfig */,
+				7890CFBF76E2A02E1126D21E /* Pods-HydroBerry-HydroBerryUITests.release.xcconfig */,
+				D036C22CDCC204A5D4415603 /* Pods-HydroBerryTests.debug.xcconfig */,
+				834E387E367B1843D0CC3878 /* Pods-HydroBerryTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8D12FF6525A85998006C30CE = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +208,8 @@
 				8D12FF8225A85999006C30CE /* HydroBerryTests */,
 				8D12FF8D25A8599A006C30CE /* HydroBerryUITests */,
 				8D12FF6F25A85998006C30CE /* Products */,
+				09200C0E7BC5C88095B6248F /* Pods */,
+				BFA14E02A5B2394CE027F83A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,22 +226,23 @@
 		8D12FF7025A85998006C30CE /* HydroBerry */ = {
 			isa = PBXGroup;
 			children = (
-				8D7BC5C025B07B3B00060817 /* ForgotPassword */,
-				8DB0B6DA25AF4AC50083AC57 /* Profile */,
+				8D8238EA25B6D5A800EA268E /* GoogleService-Info.plist */,
 				8D70B56725AC928500AC8377 /* AddCrop */,
 				8D12FF7525A85999006C30CE /* Assets.xcassets */,
 				8D12FF7325A85998006C30CE /* ContentView.swift */,
 				8DABC9CA25A867BF0064B141 /* Details */,
 				8D70B57F25ACAEDA00AC8377 /* Extension */,
+				8D7BC5C025B07B3B00060817 /* ForgotPassword */,
 				8D70B58825ACAF7200AC8377 /* Generic */,
 				8D52EA2A25A9F6E300132694 /* Growth */,
 				8DABC9F025A89DED0064B141 /* Home */,
 				8D12FF7125A85998006C30CE /* HydroBerryApp.swift */,
 				8D12FF7A25A85999006C30CE /* Info.plist */,
+				8D53719E25AB5CC100446982 /* Information */,
 				8DB0B6CC25AF46690083AC57 /* Login */,
 				8DABC9D525A8948E0064B141 /* Onboarding */,
-				8D53719E25AB5CC100446982 /* Information */,
 				8D12FF7725A85999006C30CE /* Preview Content */,
+				8DB0B6DA25AF4AC50083AC57 /* Profile */,
 				8D55191A25AF09D5002490C7 /* Registration */,
 				8DABC9C425A85AE80064B141 /* Splash Screen */,
 				8D70B55925AC800400AC8377 /* System View */,
@@ -242,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				8D52EA2B25A9F73D00132694 /* GrowthView.swift */,
+				8D5A802A25B58F0D00663940 /* GrowthViewModel.swift */,
 			);
 			path = Growth;
 			sourceTree = "<group>";
@@ -261,6 +302,8 @@
 				8D53719625AB1B4C00446982 /* provaView.swift */,
 				8D5371AD25AB66CE00446982 /* SwiftUIView.swift */,
 				8D6A4E8625AE015B0090E0C6 /* prova2View.swift */,
+				8D5A805525B5C78C00663940 /* prova3View.swift */,
+				8D5A805A25B5CF3B00663940 /* prova4View.swift */,
 			);
 			path = Zprove;
 			sourceTree = "<group>";
@@ -387,6 +430,16 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		BFA14E02A5B2394CE027F83A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				771E6524F6B825758999631E /* Pods_HydroBerry.framework */,
+				F5C952C1DA73568E0CA6C969 /* Pods_HydroBerry_HydroBerryUITests.framework */,
+				2E14F282D03CA2928D8EC3BC /* Pods_HydroBerryTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -394,9 +447,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D12FF9325A8599A006C30CE /* Build configuration list for PBXNativeTarget "HydroBerry" */;
 			buildPhases = (
+				D4051C8333E6A819864DA784 /* [CP] Check Pods Manifest.lock */,
 				8D12FF6A25A85998006C30CE /* Sources */,
 				8D12FF6B25A85998006C30CE /* Frameworks */,
 				8D12FF6C25A85998006C30CE /* Resources */,
+				5C8B99B2A81A49178A48ED0A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -404,7 +459,7 @@
 			);
 			name = HydroBerry;
 			packageProductDependencies = (
-				8D70B57625ACAAA200AC8377 /* DuckMaUI */,
+				8D70B57625ACAAA200AC8377 /* SwiftPackageProductDependency */,
 			);
 			productName = HydroBerry;
 			productReference = 8D12FF6E25A85998006C30CE /* HydroBerry.app */;
@@ -414,6 +469,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D12FF9625A8599A006C30CE /* Build configuration list for PBXNativeTarget "HydroBerryTests" */;
 			buildPhases = (
+				C07582ABF50B16E26D4DCA7A /* [CP] Check Pods Manifest.lock */,
 				8D12FF7B25A85999006C30CE /* Sources */,
 				8D12FF7C25A85999006C30CE /* Frameworks */,
 				8D12FF7D25A85999006C30CE /* Resources */,
@@ -432,9 +488,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D12FF9925A8599A006C30CE /* Build configuration list for PBXNativeTarget "HydroBerryUITests" */;
 			buildPhases = (
+				1D02F85AABEF3478CE89555B /* [CP] Check Pods Manifest.lock */,
 				8D12FF8625A8599A006C30CE /* Sources */,
 				8D12FF8725A8599A006C30CE /* Frameworks */,
 				8D12FF8825A8599A006C30CE /* Resources */,
+				BBC6A8AD33116847E77BBB89 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -478,7 +536,7 @@
 			);
 			mainGroup = 8D12FF6525A85998006C30CE;
 			packageReferences = (
-				8D70B57525ACAAA200AC8377 /* XCRemoteSwiftPackageReference "ios-design-system" */,
+				8D70B57525ACAAA200AC8377 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 8D12FF6F25A85998006C30CE /* Products */;
 			projectDirPath = "";
@@ -498,6 +556,7 @@
 			files = (
 				8D12FF7925A85999006C30CE /* Preview Assets.xcassets in Resources */,
 				8D12FF7625A85999006C30CE /* Assets.xcassets in Resources */,
+				8D8238EB25B6D5A800EA268E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +575,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D02F85AABEF3478CE89555B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HydroBerry-HydroBerryUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C8B99B2A81A49178A48ED0A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HydroBerry/Pods-HydroBerry-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HydroBerry/Pods-HydroBerry-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HydroBerry/Pods-HydroBerry-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBC6A8AD33116847E77BBB89 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HydroBerry-HydroBerryUITests/Pods-HydroBerry-HydroBerryUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HydroBerry-HydroBerryUITests/Pods-HydroBerry-HydroBerryUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HydroBerry-HydroBerryUITests/Pods-HydroBerry-HydroBerryUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C07582ABF50B16E26D4DCA7A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HydroBerryTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4051C8333E6A819864DA784 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HydroBerry-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D12FF6A25A85998006C30CE /* Sources */ = {
@@ -548,6 +710,7 @@
 				8DABC9E925A8980B0064B141 /* TermsAndPrivacyView.swift in Sources */,
 				8D70B58A25ACAF8800AC8377 /* PagerView.swift in Sources */,
 				8D5371A025AB5CED00446982 /* InformationView.swift in Sources */,
+				8D5A805625B5C78C00663940 /* prova3View.swift in Sources */,
 				8D55191625AEE42B002490C7 /* AddCropStep3View.swift in Sources */,
 				8D6A4E8C25AE078D0090E0C6 /* UIViewRepresentable+CustomTextField.swift in Sources */,
 				8DABC9D725A894E10064B141 /* OnboardingView.swift in Sources */,
@@ -561,7 +724,9 @@
 				8D6A4E8725AE015B0090E0C6 /* prova2View.swift in Sources */,
 				8DABC9E425A895710064B141 /* OnboardingStyle.swift in Sources */,
 				8DB0B6D625AF46A00083AC57 /* LoginViewModel.swift in Sources */,
+				8D5A802B25B58F0D00663940 /* GrowthViewModel.swift in Sources */,
 				8D70B55B25AC802900AC8377 /* SystemView.swift in Sources */,
+				8D5A805B25B5CF3B00663940 /* prova4View.swift in Sources */,
 				8D7BC5B925B0390000060817 /* SystemCardView.swift in Sources */,
 				8DB0B6CE25AF467D0083AC57 /* LoginView.swift in Sources */,
 				8DABC9DF25A8954B0064B141 /* OnboardingItem.swift in Sources */,
@@ -722,6 +887,7 @@
 		};
 		8D12FF9425A8599A006C30CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66DECDF48AE8AB2426EFE67D /* Pods-HydroBerry.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -743,6 +909,7 @@
 		};
 		8D12FF9525A8599A006C30CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC3B3A4EDB8AD8379D3ACCD0 /* Pods-HydroBerry.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -764,6 +931,7 @@
 		};
 		8D12FF9725A8599A006C30CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D036C22CDCC204A5D4415603 /* Pods-HydroBerryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -785,6 +953,7 @@
 		};
 		8D12FF9825A8599A006C30CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 834E387E367B1843D0CC3878 /* Pods-HydroBerryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -806,6 +975,7 @@
 		};
 		8D12FF9A25A8599A006C30CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 747A1CF69643B9CA4014F5C6 /* Pods-HydroBerry-HydroBerryUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -825,6 +995,7 @@
 		};
 		8D12FF9B25A8599A006C30CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7890CFBF76E2A02E1126D21E /* Pods-HydroBerry-HydroBerryUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -884,7 +1055,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8D70B57525ACAAA200AC8377 /* XCRemoteSwiftPackageReference "ios-design-system" */ = {
+		8D70B57525ACAAA200AC8377 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:duckma/ios-design-system.git";
 			requirement = {
@@ -895,9 +1066,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8D70B57625ACAAA200AC8377 /* DuckMaUI */ = {
+		8D70B57625ACAAA200AC8377 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8D70B57525ACAAA200AC8377 /* XCRemoteSwiftPackageReference "ios-design-system" */;
+			package = 8D70B57525ACAAA200AC8377 /* RemoteSwiftPackageReference */;
 			productName = DuckMaUI;
 		};
 /* End XCSwiftPackageProductDependency section */

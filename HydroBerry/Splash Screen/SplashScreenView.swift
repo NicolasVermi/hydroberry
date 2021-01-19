@@ -14,10 +14,9 @@ struct SplashScreenView: View {
     
     var body: some View {
         if showLogin{
-            LoginView(
-              viewModel: LoginViewModel(),
-              showForgotPassword: {},
-              showRegistration: {})
+            
+            MotherView().environmentObject(ViewRouter())
+            
             
             //provaView()
             //OnboardingView(style: .skip {}, items: OnboardingView_Previews.mocks)

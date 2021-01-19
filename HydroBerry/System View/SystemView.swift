@@ -11,7 +11,8 @@ import DuckMaUI
 struct SystemView: View {
     @State var showingInfo = false
     @State var email = ""
-
+    @State var showingAlert = false
+    var mailVector = ["mariorossi@gmail.com","paolorossi@gmail.com","mariorosa@gmail.com","mariannarossi@gmail.com"]
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
@@ -56,6 +57,11 @@ struct SystemView: View {
                     .foregroundColor(.red)
                     .padding(.vertical)
                     .padding(.horizontal, 18)
+                    .onTapGesture {
+                        showingAlert = true
+                    }.alert(isPresented: $showingAlert) {
+                        Alert(title: Text("Messaggio Importante"), message: Text("Sei sicuro di voler eliminare il sistema?"), primaryButton: .default(Text("Elimina")), secondaryButton: .cancel())
+                    }
             }
             Image(systemName: "chevron.left")
                 .foregroundColor(Color(red: 117/255, green: 117/255, blue: 117/255))
@@ -127,10 +133,12 @@ struct SystemView: View {
     
     private var mailPart: some View{
         VStack{
-            AuthCardView(mail: "mariorossi@gmail.com")
-            AuthCardView(mail: "paolorossi@gmail.com")
-            AuthCardView(mail: "mariorosa@gmail.com")
-            AuthCardView(mail: "mariannarossi@gmail.com")
+            ForEach(mailVector, id: \.self) {
+                mail in
+                    AuthCardView(mail: mail)
+            }.onDelete
+            { _ in print("eliminato") }
+            
         }
     }
     

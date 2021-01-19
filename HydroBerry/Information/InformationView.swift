@@ -34,14 +34,14 @@ struct InformationView: View {
                     }.onTapGesture {
                         self.presentationMode.wrappedValue.dismiss()
                     }
-                    
                 }.padding(.top,10)
+                
             Text("Pomodoro")
                 .font(Font.system(size:28, weight: .bold))
                 .padding(.vertical, 20)
                 .padding(.leading,10)
                 
-                InformationCardView(leftString: "Nome:", rightString: "Lycopersicon esculentum")
+            InformationCardView(leftString: "Nome:", rightString: "Lycopersicon esculentum")
             InformationCardView(leftString: "Temperatura:", rightString: "22-25 °C")
             InformationCardView(leftString: "Umidità:", rightString: "60-80 %")
             InformationCardView(leftString: "PH:", rightString: "5,5-6,5")

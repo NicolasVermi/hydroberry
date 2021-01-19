@@ -12,6 +12,8 @@ import SwiftUI
 struct RegistrationStep2View: View {
   @State private var firstName = ""
   @State private var lastName = ""
+  @State private var showLogin = false
+
   @Environment(\.presentationMode) var presentationMode
 
 
@@ -105,42 +107,44 @@ struct RegistrationStep2View: View {
   }
 
   var registration: some View {
-    VStack(alignment: .leading) {
-        HStack{
-            NavigationLink(destination: RegistrationStep1View(viewModel: RegistrationStep1ViewModel(showPrivacy: {}, showTerms: {}, nextStep: {_,_ in }, showLogin: {}))){
-            Image(systemName: "chevron.left").foregroundColor(Color(red: 117/255, green: 117/255, blue: 117/255))
-                .contentShape(Rectangle())
-            }}
-      head
+    
+        VStack(alignment: .leading) {
+            HStack{
+                NavigationLink(destination: RegistrationStep1View(viewModel: RegistrationStep1ViewModel(showPrivacy: {}, showTerms: {}, nextStep: {_,_ in }, showLogin: {}))){
+                Image(systemName: "chevron.left").foregroundColor(Color(red: 117/255, green: 117/255, blue: 117/255))
+                    .contentShape(Rectangle())
+                }}
+          head
 
-      Spacer()
-        .frame(height: 30)
+          Spacer()
+            .frame(height: 30)
+          inputFields
+          Spacer()
+                Button(action:{signup(); showLogin = true}){
+                    UIViewPreview(horizontalHugging: .defaultLow) {
+                      let button = FullButton()
+                      button.setTitle("Registrati", for: .normal)
+                      button.titleLabel?.font = FontTheme.current.semibold.subhead
+                      button.cornerRadius = .medium
+                        button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 0)
+                      return button
+                    }
+                        .padding(.vertical, 5)
+                        .background(Color(red: 21/255, green: 132/255, blue: 103/255))
+                }.cornerRadius(5)
+                 .padding([.leading, .trailing], 16)
+            
 
-      inputFields
-
-      Spacer()
-
-        NavigationLink(destination: LoginView(viewModel: LoginViewModel(), showForgotPassword:{}, showRegistration: {})){
-        UIViewPreview(horizontalHugging: .defaultLow) {
-          let button = FullButton()
-          button.setTitle("Registrati", for: .normal)
-          button.titleLabel?.font = FontTheme.current.semibold.subhead
-          button.cornerRadius = .medium
-            button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 0)
-          return button
-        }.padding(.vertical, 5)
-        .background(Color(red: 21/255, green: 132/255, blue: 103/255))
-      }.cornerRadius(5)
-      .padding([.leading, .trailing], 16)
-
-
-
-      Spacer()
-    }
-
+          Spacer()
+        }
+    
   }
 
   var body: some View {
+    if showLogin{
+        LoginView(viewModel: LoginViewModel(), showForgotPassword: {}, showRegistration: {})
+    }else
+    {
     NavigationView{
     //LoadingView(isShowing: $viewModel.isLoading){
       self.registration
@@ -154,12 +158,12 @@ struct RegistrationStep2View: View {
     //}
         .navigationBarHidden(true)
     }.navigationBarHidden(true)
+    }
   }
-/*
+
   private func signup() {
-    UIApplication.shared.endEditing()
     viewModel.signup(firstName: firstName, lastName: lastName)
-  }*/
+  }
 }
 
 #if DEBUGF

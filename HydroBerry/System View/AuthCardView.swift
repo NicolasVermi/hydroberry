@@ -16,7 +16,9 @@ struct AuthCardView: View {
         HStack{
             Text(mail)
             Spacer()
-            Image("ic_exit")
+            Button(action:{print("Da eliminare")}){
+                Image("ic_exit")
+            }
         }.padding()
         Rectangle()
             .foregroundColor(Color(red: 229/255, green: 231/255, blue: 235/255))
