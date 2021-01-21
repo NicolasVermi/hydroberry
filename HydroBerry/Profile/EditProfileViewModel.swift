@@ -31,7 +31,7 @@ final public class EditProfileViewModel: ObservableObject {
     @Published var success = false
     @Published var showAlert = false
 
-    func updateData(firstName: String, lastName: String, password: String, email: String) {
+    func updateName(firstName: String, lastName: String) {
       cancellable?.cancel()
       error = nil
       
@@ -46,15 +46,12 @@ final public class EditProfileViewModel: ObservableObject {
         return
       }
         
-        func getPassword() -> String{
-            return password
-        }
-        
-        func getEmailAddress() -> String{
-            return email
-        }
-        
-        func updatePassword(){
+    }
+    
+
+    
+    func updatePassword(password: String){
+        if password != ""{
             Auth.auth().currentUser?.updatePassword(to: password, completion: { (error) in
               if let error = error as? NSError {
                 switch AuthErrorCode(rawValue: error.code) {
@@ -84,78 +81,70 @@ final public class EditProfileViewModel: ObservableObject {
                 self.successPassword = true
               }
             })
-                }
-        func updateEmail() {
-            Auth.auth().currentUser?.updateEmail(to: getEmailAddress(), completion: { (error) in
-              if let error = error as? NSError {
-                switch AuthErrorCode(rawValue: error.code) {
-                case .invalidRecipientEmail:
-                    self.successEmail = false
-                    self.emailError = "Indicates an invalid recipient email was sent in the request."
-                  print("Indicates an invalid recipient email was sent in the request.")
-                case .invalidSender:
-                    self.successEmail = false
-                    self.emailError = "Indicates an invalid sender email is set in the console for this action."
-                  print("Indicates an invalid sender email is set in the console for this action.")
-                case .invalidMessagePayload:
-                    self.successEmail = false
-                    self.emailError = "Indicates an invalid email template for sending update email."
-                  // Error: Indicates an invalid email template for sending update email.
-                  print("Indicates an invalid email template for sending update email.")
-                case .emailAlreadyInUse:
-                    self.successEmail = false
-                    self.emailError = "Email has been already used by another user."
-                  print("Email has been already used by another user.")
-                case .invalidEmail:
-                    self.successEmail = false
-                    self.emailError = "Email is not well formatted"
-                  print("Email is not well formatted")
-                case .requiresRecentLogin:
-                    self.successEmail = false
-                    self.emailError = "Problem no login"
-                  print("Updating a user’s password is a security sensitive operation that requires a recent login.")
-                default:
-                    self.emailError = "Error message: \(error.localizedDescription)"
-                    self.successEmail = false
-                  print("Error message: \(error.localizedDescription)")
-                }
-              } else {
-                self.emailError = "L'operazione si è conclusa con successo"
-                self.successEmail = true
-                //print(self.emailError)
-                print("Update email is successful")
-              }
-            })
-            print("Email error dentro è:")
-            print(self.emailError)
-        } //qua si conclude updatemail
-        
-        /*
-        if email != ""{
-            updateEmail()
-            print("Email error è:")
-            print(emailError)
+            
+        }else {
+            self.successPassword = true
+            self.passwordError = "Non cambiata"
         }
-        self.emailOrPasswordError = self.emailError
-        if self.successEmail{
-            self.emailOrPasswordError = self.emailError
-            if password != "" {
-                updatePassword()
-            }
-        }else{self.emailOrPasswordError = emailError}
-        if !successPassword{self.emailOrPasswordError = passwordError}
-        if successEmail && successPassword{
-            success = true
-            self.emailOrPasswordError = passwordError
-        }*/
-        
         showAlert = true
-
+            }
+    
+    
+    func updateEmail(email: String) {
+        if email != ""{
+        Auth.auth().currentUser?.updateEmail(to: email, completion: { (error) in
+          if let error = error as? NSError {
+            switch AuthErrorCode(rawValue: error.code) {
+            case .invalidRecipientEmail:
+                self.successEmail = false
+                self.emailError = "Indicates an invalid recipient email was sent in the request."
+              print("Indicates an invalid recipient email was sent in the request.")
+            case .invalidSender:
+                self.successEmail = false
+                self.emailError = "Email invalida"
+              print("Indicates an invalid sender email is set in the console for this action.")
+            case .invalidMessagePayload:
+                self.successEmail = false
+                self.emailError = "Error"
+              // Error: Indicates an invalid email template for sending update email.
+              print("Indicates an invalid email template for sending update email.")
+            case .emailAlreadyInUse:
+                self.successEmail = false
+                self.emailError = "Email già in uso"
+              print("Email has been already used by another user.")
+            case .invalidEmail:
+                self.successEmail = false
+                self.emailError = "Formato email errato"
+              print("Email is not well formatted")
+            case .requiresRecentLogin:
+                self.successEmail = false
+                self.emailError = "Prima fare login"
+              print("Updating a user’s password is a security sensitive operation that requires a recent login.")
+            default:
+                self.emailError = "Error message: \(error.localizedDescription)"
+                self.successEmail = false
+              print("Error message: \(error.localizedDescription)")
+            }
+          } else {
+            self.emailError = "Operazione eseguita con successo"
+            self.successEmail = true
+            //print(self.emailError)
+            print("Update email is successful")
+          }
+        })
+        }else{
+            self.successPassword = true
+            self.emailError = "Non cambiata"
         }
+        //print("Email error dentro è:")
+        //print(self.emailError)
+        showAlert = true
+    }
+    
+    
+    
     
 
-    
-   
     
 
     

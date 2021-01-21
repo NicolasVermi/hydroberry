@@ -22,7 +22,6 @@ struct HomeView: View {
     var body: some View {
             ZStack {
                 VStack {
-
                     TabView(selection: $selection) {
                         bodyView
                             .tabItem {
@@ -77,15 +76,10 @@ struct HomeView: View {
                 titleView.padding()
             }
                     VStack {
-                        //Spacer()
-                        //ScrollView {
-                            //Spacer()
                             griglia
-                        //}.frame()
                 }
         }
         }.navigationBarHidden(true)
-        
     }
     
     
@@ -103,7 +97,6 @@ struct HomeView: View {
                     .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
                 Spacer()
             }.padding(.horizontal,5)
-            
             Spacer()
         }
     }

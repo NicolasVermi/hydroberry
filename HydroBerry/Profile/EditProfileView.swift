@@ -32,33 +32,19 @@ struct EditProfileView: View {
         }.padding(16)
         .alert(isPresented: (self.$viewModel.showAlert)) {
             Alert(
-              title: Text(chooseAlert()),
+              title: Text("Aggiornamento"),
                 message: Text(chooseAlert()),
-                dismissButton: .default(Text("ok"),action: {if viewModel.success{self.presentationMode.wrappedValue.dismiss()}})
+                dismissButton: .default(Text("ok"),action: {if (viewModel.successEmail && viewModel.successPassword){self.presentationMode.wrappedValue.dismiss()}})
             )
           }
     }
     
     func chooseAlert() -> String{
-        var stringa: String = "afa"
-        if (viewModel.successEmail && viewModel.successPassword){
-            viewModel.success = true
-            stringa = viewModel.passwordError
-        }else{
-            if viewModel.successEmail && (password == ""){
-                stringa = viewModel.emailError
-            }
-            if viewModel.successPassword && (email == ""){
-                stringa = viewModel.passwordError
-            }
-            if !(viewModel.successEmail){
-                stringa = viewModel.emailError
-            }
-            if viewModel.successEmail && !(viewModel.successPassword){
-                stringa = viewModel.passwordError
-            }
+        var stringa: String = ""
+
+        stringa = "Email: " + viewModel.emailError + "\n Password: " + viewModel.passwordError
             
-        }
+        
         
         return stringa
     }
@@ -155,7 +141,9 @@ struct EditProfileView: View {
             
             
             Button(action: {
-                viewModel.updateData(firstName: firstName, lastName: lastName, password: password, email: email)
+                viewModel.updateName(firstName: firstName, lastName: lastName)
+                viewModel.updateEmail(email: email)
+                viewModel.updatePassword(password: password)
                     //self.presentationMode.wrappedValue.dismiss()
                 
             }) {

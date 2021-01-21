@@ -117,7 +117,7 @@ struct ProfileView: View {
 
                   Spacer().frame(height: 5)
 
-                    Button(action: { present(address: addressPrivacy) }) { // prima aveva self.showPrivacyPolicy
+                    Button(action: { present(address: addressPrivacy) }) {
                     TermPrivacyRowView(title: "Leggi privacy policy")
                       .foregroundColor(Color(ColorTheme.current.primary.dark))
                         
@@ -144,14 +144,6 @@ struct ProfileView: View {
                       }
                     }
                     }
-                    /*
-                    .onTapGesture {
-                        showingAlert = true
-                        
-                    }
-                    .alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Messaggio Importante"), message: Text("Sei sicuro di voler effettuare il logout?"), primaryButton: .default(Text("Logout")), secondaryButton: .cancel())
-                    }*/
                     .frame(minHeight: 63)
                   }
         }

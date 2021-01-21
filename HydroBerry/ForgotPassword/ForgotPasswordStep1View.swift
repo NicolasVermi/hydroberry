@@ -16,9 +16,9 @@ struct ForgotPasswordStep1View: View {
 
     
     var body: some View {
-        if viewModel.success{
+        /*if viewModel.success{
             LoginView(viewModel: LoginViewModel(), showForgotPassword: {true}, showRegistration: {})
-        }else{
+        }else{*/
             NavigationView{
             VStack(alignment:.leading){
                 HStack{
@@ -26,9 +26,7 @@ struct ForgotPasswordStep1View: View {
                         .contentShape(Rectangle())
                 .onTapGesture {
                     self.presentationMode.wrappedValue.dismiss()
-
                       }
-                
                     Spacer()
                 }
                 Text("Recupera la password")
@@ -42,9 +40,7 @@ struct ForgotPasswordStep1View: View {
 
                 Button(action:
                         {viewModel.passwordRecovery(email: email);
-
                         }){
-                    
                   UIViewPreview(horizontalHugging: .defaultLow) {
                     let button = FullButton()
                     button.setTitle("Recupera password", for: .normal)
@@ -52,12 +48,9 @@ struct ForgotPasswordStep1View: View {
                       button.themeColor = .init(red: 21/255, green: 132/255, blue: 103/255, alpha: 1)
                     button.cornerRadius = .medium
                     return button
-                  
                     }
-                        .padding(16)
-                    
+                    .padding(16)
                 }
-                
                 Spacer()
             }.padding(16)
             .navigationBarHidden(true)
@@ -65,17 +58,13 @@ struct ForgotPasswordStep1View: View {
                 Alert(
                   title: Text(""),
                   message: Text(viewModel.errorType),
-                  dismissButton: .default(Text("ok"))
+                    dismissButton: .default(Text("ok"),action: {if viewModel.success{self.presentationMode.wrappedValue.dismiss()}})
                 )
               }
             .navigationBarHidden(true)
-        }
+        //}
     }
-    private func delayText() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-            changeView = true
-        }
-      }
+
     var inputFields: some View {
       VStack {
           emailView
