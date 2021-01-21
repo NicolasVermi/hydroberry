@@ -110,7 +110,7 @@ struct LoginView: View {
 
         inputFields
         
-        NavigationLink(destination: ForgotPasswordStep1View(viewModel: LoginViewModel())) {
+        NavigationLink(destination: ForgotPasswordStep1View(viewModel: ForgotPasswordStep1ViewModel())) {
             
               Text("Hai dimenticato la password?")
                 .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
@@ -159,9 +159,7 @@ struct LoginView: View {
         HomeView()
     }else{
         
-        
-    //LoadingView(isShowing: $viewModel.isLoading) {
-      loginView
+     loginView
         .alert(isPresented: self.$viewModel.showErrorAlert) {
           Alert(
             title: Text(""),
@@ -169,10 +167,6 @@ struct LoginView: View {
             dismissButton: .default(Text("ok"))
           )
         }
-        //.horizantalPaddingMultiplying([.leading, .trailing], 16)
-        //.keyboardAdaptive()
-        //.dismissOnTap()
-    //}
     }
   }
 

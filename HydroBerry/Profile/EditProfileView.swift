@@ -18,6 +18,7 @@ struct EditProfileView: View {
     @State var firstName: String
     @State var email: String
     @State private var password = ""
+    @State private var goOut = false
 
     
     var body: some View {
@@ -29,7 +30,37 @@ struct EditProfileView: View {
             passwordStrenght.padding(.vertical, 15)
             Spacer()
         }.padding(16)
+        .alert(isPresented: (self.$viewModel.showAlert)) {
+            Alert(
+              title: Text(chooseAlert()),
+                message: Text(chooseAlert()),
+                dismissButton: .default(Text("ok"),action: {if viewModel.success{self.presentationMode.wrappedValue.dismiss()}})
+            )
+          }
+    }
+    
+    func chooseAlert() -> String{
+        var stringa: String = "afa"
+        if (viewModel.successEmail && viewModel.successPassword){
+            viewModel.success = true
+            stringa = viewModel.passwordError
+        }else{
+            if viewModel.successEmail && (password == ""){
+                stringa = viewModel.emailError
+            }
+            if viewModel.successPassword && (email == ""){
+                stringa = viewModel.passwordError
+            }
+            if !(viewModel.successEmail){
+                stringa = viewModel.emailError
+            }
+            if viewModel.successEmail && !(viewModel.successPassword){
+                stringa = viewModel.passwordError
+            }
+            
+        }
         
+        return stringa
     }
     
     var inputFields: some View {
@@ -121,19 +152,17 @@ struct EditProfileView: View {
                 .multilineTextAlignment(.center)
 
             Spacer()
+            
+            
             Button(action: {
-                
-                    self.presentationMode.wrappedValue.dismiss()
-                //fare salvataggio delle info
+                viewModel.updateData(firstName: firstName, lastName: lastName, password: password, email: email)
+                    //self.presentationMode.wrappedValue.dismiss()
                 
             }) {
-                
                 Text("Salva")
                     .padding(17)
                     .font(Font.system(size:17, weight: .semibold))
                     .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
-                
-                
             }    
         }
     }

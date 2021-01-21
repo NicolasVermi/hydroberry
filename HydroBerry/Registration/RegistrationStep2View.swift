@@ -18,7 +18,6 @@ struct RegistrationStep2View: View {
 
   @Environment(\.presentationMode) var presentationMode
 
-
   @ObservedObject var viewModel: RegistrationStep2ViewModel
 
   var head: some View {
@@ -179,7 +178,6 @@ struct RegistrationStep2View: View {
   struct RegistrationStep2View_Previews: PreviewProvider {
     static var previews: some View {
       RegistrationStep2View(viewModel: .mock)
-        //.previewAsScreen(colorSchemes: [.light])
     }
   }
 
