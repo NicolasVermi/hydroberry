@@ -24,10 +24,10 @@ struct RegistrationStep1View: View {
     var body: some View {
         if showStep2{
             RegistrationStep2View(viewModel: RegistrationStep2ViewModel(
+                
                 email: email,
                 password: password
-              ))
-            
+              )) 
         }
         else{
             registration
@@ -191,10 +191,7 @@ struct RegistrationStep1View: View {
 
         Spacer()
       }.navigationBarHidden(true)
-      //.horizantalPaddingMultiplying([.leading, .trailing], 16)
-      //.keyboardAdaptive()
-      //.dismissOnTap()
-      //.embedInScrollView()
+
     }
 }
 

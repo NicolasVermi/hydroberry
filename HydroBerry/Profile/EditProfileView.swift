@@ -10,7 +10,7 @@ import DuckMaUI
 
 struct EditProfileView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel = EditProfileViewModel()
+    @StateObject var viewModel = EditProfileViewModel()
     
 
     
@@ -144,6 +144,7 @@ struct EditProfileView: View {
                 viewModel.updateName(firstName: firstName, lastName: lastName)
                 viewModel.updateEmail(email: email)
                 viewModel.updatePassword(password: password)
+                viewModel.updateFirestore(email: email, firstName: firstName, lastName: lastName)
                     //self.presentationMode.wrappedValue.dismiss()
                 
             }) {

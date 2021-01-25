@@ -7,10 +7,78 @@
 
 import Foundation
 import Combine
-import Foundation
+import FirebaseFirestore
+import FirebaseAuth
 
 final class GrowthViewModel: ObservableObject {
-    let date1 = DateComponents(calendar: .current, year: 2014, month: 11, day: 28, hour: 5, minute: 9).date!
-    let date2 = DateComponents(calendar: .current, year: 2015, month: 8, day: 28, hour: 5, minute: 9).date!
+    private var cancellable: AnyCancellable?
+
+    @Published var nomePianta = ""
+    @Published var dataInizioStringa = ""
+    @Published var dataInizio = Data()
+    @Published var tempoCrescitaMinimo = 1
+    @Published var tempoCrescitaMassimo = 1
+    @Published var delta = 0
+    
+    private var db = Firestore.firestore()
+
+    func readData(){
+
+        findCrop{ [weak self] in
+            guard let self = self else{ return }
+            let piantaRef = self.db.collection("piante").document(self.nomePianta)
+            //print(nome)
+            piantaRef.getDocument { [self] (document, error) in
+                
+                if let document = document, document.exists {
+
+                    self.tempoCrescitaMinimo = document.get("tempoCrescitaMinimo")! as! Int
+                    self.tempoCrescitaMassimo = document.get("tempoCrescitaMassimo")! as! Int
+
+                    
+                } else {
+                    print("Document does not exist")
+                }
+            }
+
+        }
+    }
+
+    
+    func findCrop(completion: @escaping () -> Void){
+        let idUtente = String(Auth.auth().currentUser?.email ?? "nessuno")
+        let raccoltiRef = db.collection("raccolti")
+            .whereField("idUtente", isEqualTo: idUtente )
+            .whereField("selezionato", isEqualTo: true)
+        
+        raccoltiRef.addSnapshotListener { (snapshot, error) in
+            guard let snapshot = snapshot else {
+                print("Error retreving raccolti: \(error.debugDescription)")
+                return
+            }
+
+            guard let lastSnapshot = snapshot.documents.last else {
+                print ("The collection is empty.")
+                return
+            }
+ 
+            self.nomePianta = lastSnapshot.get("nomePianta") as! String
+            //self.dataInizioStringa = lastSnapshot.get("dataInizio") as! String
+            //self.dataInizio = Data(self.dataInizioStringa.utf8)
+            let ts = lastSnapshot.get("dataInizio") as! Timestamp
+            let aDate = ts.dateValue()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
+            //print("formatter " + String(aDate))
+            let formattedTimeZoneStr = formatter.string(from: aDate)
+            formatter.date(from: formattedTimeZoneStr)
+            self.delta = Int(round((Date().timeIntervalSinceReferenceDate - aDate.timeIntervalSinceReferenceDate)/86400))
+            print("delta " + String(self.delta))
+            print(self.nomePianta)
+            print(formattedTimeZoneStr)
+            completion()
+        }
+       
+    }
 
 }

@@ -11,6 +11,7 @@ struct AddCropStep3View: View {
     @Environment(\.presentationMode) var presentationMode
     @State var goHome:Bool = false
     @State var showingInfo = false
+    @State var selectedPlant: String
     
     var body: some View {
         
@@ -77,7 +78,7 @@ struct AddCropStep3View: View {
                 
                 
             }.sheet(isPresented: $showingInfo) {
-                InformationView()
+                InformationView(viewModel: InformationViewModel(nome: selectedPlant), selectedPlant: selectedPlant)
             }
             
                 
@@ -88,6 +89,6 @@ struct AddCropStep3View: View {
 
 struct AddCropStep3View_Previews: PreviewProvider {
     static var previews: some View {
-        AddCropStep3View()
+        AddCropStep3View(selectedPlant: "Pomodoro")
     }
 }

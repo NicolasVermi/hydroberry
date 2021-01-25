@@ -7,23 +7,36 @@
 
 import SwiftUI
 
+
 struct GrowthView: View {
     
-    //@ObservedObject var viewModel: GrowthViewModel
-
-    private var giorniPassati: CGFloat = 24
-    private var giorniTotali: CGFloat = 90
+    @StateObject var viewModel: GrowthViewModel
+    @State var giorniPassati: CGFloat = 24
+    @State var giorniTotali: CGFloat = 100
+    @State var giorniRaccolta:String = "0"
     
     //l'idea è quella di fare data di oggi - data di semina
     
     var body: some View {
+        
         VStack{
-            
-            titleView.padding(.top,50)
+            titleView
+                .padding(.top,50)
             descriptionView
-            imageView.padding(.bottom, 80)
+            imageView
+                
+                .padding(.bottom, 80)
             Spacer()
         }.navigationBarHidden(true)
+        .onAppear(perform: {
+            viewModel.readData()
+            giorniTotali = CGFloat(viewModel.tempoCrescitaMassimo)
+
+            
+            giorniPassati = CGFloat(viewModel.delta)
+        })
+        
+        
     }
 
     private var titleView: some View {
@@ -43,40 +56,13 @@ struct GrowthView: View {
         }
     }
     
+
+    
     private var descriptionView: some View{
-        VStack
-        {
-            Rectangle()
-                .foregroundColor(Color(red: 247/255, green: 247/255, blue: 247/255))
-                .cornerRadius(10)
-                .frame(height:51)
-                .overlay(
-                    HStack{
-                        Text("Tipologia Pianta")
-                            .font(Font.system(size:15, weight: .regular))
-                            .padding(17)
-                        Spacer()
-                        Text("Pomodoro")
-                            .font(Font.system(size:15, weight: .semibold))
-                            .padding(17)
-                    }
-                ).padding(.horizontal, 10)
-                .padding(.top,30)
-            Rectangle()
-                .foregroundColor(Color(red: 247/255, green: 247/255, blue: 247/255))
-                .cornerRadius(10)
-                .frame(height:51)
-                .overlay(
-                    HStack{
-                        Text("Raccolta")
-                            .font(Font.system(size:15, weight: .regular))
-                            .padding(17)
-                        Spacer()
-                        Text("50-90 giorni")
-                            .font(Font.system(size:15, weight: .semibold))
-                            .padding(17)
-                    }
-                ).padding(.horizontal, 10)
+        VStack{
+            descriptionCardView(titolo: "Tipologia pianta", descrizione: viewModel.nomePianta)
+            descriptionCardView(titolo: "Raccolta", descrizione: String(viewModel.tempoCrescitaMinimo) + "-" + String(viewModel.tempoCrescitaMassimo) + " giorni" )
+
         }
     }
     
@@ -144,6 +130,10 @@ struct GrowthView: View {
 
 struct GrowthView_Previews: PreviewProvider {
     static var previews: some View {
-        GrowthView()
+        Group{
+        GrowthView(viewModel: GrowthViewModel())
+        GrowthView(viewModel: GrowthViewModel())
+            
+        }
     }
 }

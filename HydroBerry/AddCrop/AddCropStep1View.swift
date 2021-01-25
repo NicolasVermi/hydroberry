@@ -10,14 +10,16 @@ import SwiftUI
 struct AddCropStep1View: View {
     @Environment(\.presentationMode) var presentationMode
     @State var showingStep2 = false
+    @State var showAlert = false
     @State var selected1:Bool = false
     @State var selected2:Bool = false
     @State var selected3:Bool = false
     @State var selected4:Bool = false
+    @State var selectedPlant: String = ""
     
     var body: some View {
         if showingStep2{
-            AddCropStep2View()
+            AddCropStep2View(selectedPlant: selectedPlant, viewModel: AddCropStep2ViewModel())
         }
         else{
         VStack{
@@ -57,7 +59,11 @@ struct AddCropStep1View: View {
 
             Spacer()
             Button(action: {
-                self.showingStep2.toggle()
+                if (selected1 || selected2 || selected3 || selected4){
+                    self.showingStep2.toggle()}
+                else{
+                    showAlert = true
+                }
             }) {
                 
                 Text("Avanti")
@@ -66,7 +72,13 @@ struct AddCropStep1View: View {
                     .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
                 
                 
-            }
+            }.alert(isPresented: (self.$showAlert)) {
+                Alert(
+                  title: Text("Attenzione"),
+                    message: Text("Scegli una pianta per proseguire"),
+                    dismissButton: .default(Text("ok"))
+                )
+              }
 
             
         }
@@ -91,6 +103,7 @@ struct AddCropStep1View: View {
                     selected2 = false
                     selected3 = false
                     selected4 = false
+                    selectedPlant = "Pomodoro"
                 }
                 )
                 
@@ -105,6 +118,7 @@ struct AddCropStep1View: View {
                     selected2 = true
                     selected3 = false
                     selected4 = false
+                    selectedPlant = "Insalata"
                 })}
 
             
@@ -117,6 +131,7 @@ struct AddCropStep1View: View {
                     selected2 = false
                     selected3 = true
                     selected4 = false
+                    selectedPlant = "Soia"
                 })}
             
             if selected4{
@@ -128,6 +143,7 @@ struct AddCropStep1View: View {
                     selected2 = false
                     selected3 = false
                     selected4 = true
+                    selectedPlant = "Peperoncino"
                 })}
         }
     }

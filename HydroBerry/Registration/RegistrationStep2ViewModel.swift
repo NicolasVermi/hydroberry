@@ -12,6 +12,7 @@ import Foundation
 import UIKit
 import FirebaseAnalytics
 import FirebaseAuth
+import FirebaseFirestore
 
 
 final class RegistrationStep2ViewModel: ObservableObject {
@@ -27,7 +28,8 @@ final class RegistrationStep2ViewModel: ObservableObject {
   @Published var errorType = ""
   @Published var success = false
   @Published var showAlert = false
-
+  private var db = Firestore.firestore()
+    
   init(
     email: String,
     password: String
@@ -39,6 +41,15 @@ final class RegistrationStep2ViewModel: ObservableObject {
   func signup(firstName: String, lastName: String) {
     cancellable?.cancel()
     error = nil
+    
+    let utentiRef = db.collection("utenti")
+
+    utentiRef.document(email).setData([
+        "firstName": firstName,
+        "lastName": lastName,
+        "email": email,
+        "raccolti": [],
+        ])
     
 
     guard firstName.isNotEmptyUserInput else {
@@ -62,17 +73,14 @@ final class RegistrationStep2ViewModel: ObservableObject {
             print("emailAlreadyInUse")
             self.errorType = "Email già in uso"
             self.showAlert = true
-          // Error: The email address is already in use by another account.
         case .invalidEmail:
             print("invalidMail")
             self.errorType = "Email non valida"
             self.showAlert = true
-          // Error: The email address is badly formatted.
         case .weakPassword:
             print("weakPassword")
             self.errorType = "Password debole"
             self.showAlert = true
-          // Error: The password must be 6 characters long or more.
         default:
             self.errorType = "Error: \(error.localizedDescription)"
             print("Error: \(error.localizedDescription)")

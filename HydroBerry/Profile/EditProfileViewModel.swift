@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import FirebaseAnalytics
 import FirebaseAuth
+import FirebaseFirestore
 
 final public class EditProfileViewModel: ObservableObject {
     //private let api: MechaRegistrationService
@@ -30,6 +31,7 @@ final public class EditProfileViewModel: ObservableObject {
     @Published var successPassword = false
     @Published var success = false
     @Published var showAlert = false
+    private var db = Firestore.firestore()
 
     func updateName(firstName: String, lastName: String) {
       cancellable?.cancel()
@@ -48,7 +50,11 @@ final public class EditProfileViewModel: ObservableObject {
         
     }
     
+    func updateFirestore(email: String, firstName: String, lastName: String){
+        
+        db.collection("utenti").document(email).setData([ "firstName": firstName, "lastName":lastName ], merge: true)
 
+    }
     
     func updatePassword(password: String){
         if password != ""{

@@ -77,7 +77,7 @@ struct Prova4View: View {
                             }
 
                             
-                            NavigationLink(destination: SystemView()) {
+                            NavigationLink(destination: SystemView(selectedPlant: "Pomodoro")) {
                                 SystemCardView()
                             }.navigationBarHidden(true)
                             

@@ -12,6 +12,7 @@ struct SystemView: View {
     @State var showingInfo = false
     @State var email = ""
     @State var showingAlert = false
+    @State var selectedPlant: String
     var mailVector = ["mariorossi@gmail.com","paolorossi@gmail.com","mariorosa@gmail.com","mariannarossi@gmail.com"]
     @Environment(\.presentationMode) var presentationMode
 
@@ -85,7 +86,7 @@ struct SystemView: View {
                         .font(Font.system(size:15, weight: .regular))
                         .padding(17)
                     Spacer()
-                    Text("Pomodoro")
+                    Text(selectedPlant)
                         .font(Font.system(size:15, weight: .semibold))
                     Button(action: {
                         self.showingInfo.toggle()
@@ -95,7 +96,7 @@ struct SystemView: View {
                         
                         
                     }.sheet(isPresented: $showingInfo) {
-                        InformationView()
+                        InformationView(viewModel: InformationViewModel(nome: selectedPlant), selectedPlant: selectedPlant)
                     }
                     
                 }
@@ -146,6 +147,6 @@ struct SystemView: View {
 
 struct SystemView_Previews: PreviewProvider {
     static var previews: some View {
-        SystemView()
+        SystemView(selectedPlant: "Pomodoro")
     }
 }

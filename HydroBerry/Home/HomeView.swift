@@ -11,19 +11,24 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var selection = 0
+    @ObservedObject var viewModel: HomeViewModel
+
     
     init() {
         
        UITabBar.appearance().barTintColor = UIColor.white
        UITabBar.appearance().shadowImage = UIImage()
        UITabBar.appearance().backgroundImage = UIImage()
+        self.viewModel = HomeViewModel()
     }
     
     var body: some View {
             ZStack {
                 VStack {
                     TabView(selection: $selection) {
-                        bodyView
+                        bodyView.onAppear(perform: {
+                            viewModel.readData()
+                        })
                             .tabItem {
                                 if selection == 0 {
                                     Image("ic_home_active")
@@ -33,7 +38,7 @@ struct HomeView: View {
                                 Text("Home")
                             }.tag(0)
 
-                        GrowthView()
+                        GrowthView(viewModel: GrowthViewModel())
                             .tabItem {
                                 if selection == 1 {
                                     Image("ic_leaf_active")
@@ -43,7 +48,7 @@ struct HomeView: View {
                                 Text("Crescita")
                             }.tag(1)
 
-                        ProfileView(showTerms: {}, showPrivacyPolicy: {})
+                        ProfileView()
                             .tabItem {
                                 if selection == 2 {
                                     Image("ic_profilo_active")
@@ -113,19 +118,19 @@ struct HomeView: View {
     }
 
     private var temperatureCard: some View {
-        CardHomeView(image: "temperature", mesure: "29.9", symbol: "°C", namedLabel: "Temperatura")
+        CardHomeView(image: "temperature", mesure: String(viewModel.temperatura), symbol: "°C", namedLabel: "Temperatura")
     }
 
     private var humidityCard: some View {
-        CardHomeView(image: "umidita", mesure: "49.9", symbol: "%", namedLabel: "Umidità")
+        CardHomeView(image: "umidita", mesure: String(viewModel.umidita), symbol: "%", namedLabel: "Umidità")
     }
 
     private var pHCard: some View {
-        CardHomeView(image: "ph", mesure: "4.6", symbol: "pH", namedLabel: "pH")
+        CardHomeView(image: "ph", mesure: String(viewModel.ph), symbol: "pH", namedLabel: "pH")
     }
 
     private var eCCard: some View {
-        CardHomeView(image: "EC", mesure: "1.3", symbol: "mS/cm", namedLabel: "EC")
+        CardHomeView(image: "EC", mesure: String(viewModel.ec), symbol: "mS/cm", namedLabel: "EC")
     }
 
     

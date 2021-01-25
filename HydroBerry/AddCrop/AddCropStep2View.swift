@@ -7,6 +7,7 @@
 
 import SwiftUI
 import DuckMaUI
+import FirebaseAuth
 
 struct AddCropStep2View: View {
     @Environment(\.presentationMode) var presentationMode
@@ -15,7 +16,13 @@ struct AddCropStep2View: View {
     @State var selected1:Bool = false
     @State var selected2:Bool = false
     @State var selected3:Bool = false
+    @State var plantDays = 0
     @State var systemName: String = ""
+    @State var selectedPlant:String
+    @State var showAlert = false
+    
+    @ObservedObject var viewModel: AddCropStep2ViewModel
+
     
     var nameField: some View {
         CustomTextField(verticalHugging: .defaultHigh, horizontalHugging: .defaultLow, text: $systemName) {
@@ -31,7 +38,7 @@ struct AddCropStep2View: View {
     
     var body: some View {
         if showingStep3{
-            AddCropStep3View()
+            AddCropStep3View(selectedPlant: selectedPlant)
         }
         else{
             if showingStep1{AddCropStep1View()
@@ -76,13 +83,26 @@ struct AddCropStep2View: View {
 
             Spacer()
             Button(action: {
-                self.showingStep3.toggle();
+                if ((selected1 || selected2 || selected3) && systemName != ""){
+                    viewModel.addCrop(idRaccolto: systemName + String(Auth.auth().currentUser?.email ?? "nessuno"), nomeSistema: systemName, dataInizio: Date(), etaPiantaInizio: plantDays, nomePianta: selectedPlant, idUtente: Auth.auth().currentUser?.email ?? "nessuno")
+                    self.showingStep3.toggle();
+                }else{
+                    showAlert = true
+                }
             }) {
             Text("Fine")
                 .padding(17)
                 .font(Font.system(size:17, weight: .semibold))
                 .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
             }
+            .alert(isPresented: (self.$showAlert)) {
+                Alert(
+                  title: Text("Attenzione"),
+                    message: Text("Inserisci il nome e scegli un livello di crescita per proseguire"),
+                    dismissButton: .default(Text("ok"))
+                )
+              }
+            
         }
     }
     
@@ -111,6 +131,7 @@ struct AddCropStep2View: View {
                     selected1 = true
                     selected2 = false
                     selected3 = false
+                    plantDays = 0
                     
                 }
                 )
@@ -125,6 +146,7 @@ struct AddCropStep2View: View {
                     selected1 = false
                     selected2 = true
                     selected3 = false
+                    plantDays = 20
                     
                 }
                 )
@@ -140,6 +162,7 @@ struct AddCropStep2View: View {
                     selected1 = false
                     selected2 = false
                     selected3 = true
+                    plantDays = 30
                     
                 })}
             
@@ -152,6 +175,6 @@ struct AddCropStep2View: View {
 
 struct AddCropStep2View_Previews: PreviewProvider {
     static var previews: some View {
-        AddCropStep2View()
+        AddCropStep2View( selectedPlant: "Pomodoro", viewModel: AddCropStep2ViewModel())
     }
 }

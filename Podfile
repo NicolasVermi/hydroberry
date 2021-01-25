@@ -11,6 +11,7 @@ target 'HydroBerry' do
     	pod 'Firebase/Core'
 	pod 'Firebase/Analytics'
 	pod 'Firebase/Auth'
+	pod 'Firebase/Firestore'
 
 
   target 'HydroBerryTests' do

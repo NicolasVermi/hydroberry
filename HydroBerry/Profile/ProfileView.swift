@@ -12,28 +12,27 @@ import FirebaseAnalytics
 import FirebaseAuth
 
 struct ProfileView: View {
-    let showTerms: () -> Void
-    let showPrivacyPolicy: () -> Void
-
     
     var body: some View {
         SafariButton()
+        
     }
     
     struct SafariButton: View {
         var body: some View {
-            RootView().hosting()
+            RootView(viewModel: ProfileViewModel(email: Auth.auth().currentUser?.email ?? "nil" )).hosting()
         }
         
+        
         struct RootView: View, Hostable {
-            
+            @StateObject var viewModel: ProfileViewModel
             @EnvironmentObject private var hostedObject: HostingObject<Self>
 
             var address = "https://duckma.com/condizioni-generali-contratto-2020"
             var addressPrivacy = "https://duckma.com/privacy-policy"
             @State var showingEditProfile = false
             @State var showingAddCrop = false
-            @State var Name = "Mario Rossi"
+            @State var Name = ""
             @State var showingAlert = false
             @State var showingLogin = false
             
@@ -61,6 +60,7 @@ struct ProfileView: View {
                         Spacer()
                     }.padding()
                 }.navigationBarHidden(true)
+                .onAppear(perform: {viewModel.readData()})
                 }
                 
             }
@@ -68,7 +68,7 @@ struct ProfileView: View {
             public var systemPart: some View{
                 VStack{
                     HStack{
-                        Text(Name)
+                        Text(viewModel.firstName + " " + viewModel.lastName)
                             .font(Font.system(size:22, weight: .semibold))
                         Spacer()
                     }.padding(.bottom,10)
@@ -86,7 +86,7 @@ struct ProfileView: View {
                             }.sheet(isPresented: $showingAddCrop) {
                                 AddCropStep1View()
                             }
-                            NavigationLink(destination: SystemView()) {
+                            NavigationLink(destination: SystemView( selectedPlant: "Pomodoro")) {
                                 SystemCardView()
                             }.navigationBarHidden(true)
                             SystemCardView()
@@ -104,7 +104,7 @@ struct ProfileView: View {
                         .foregroundColor(Color(ColorTheme.current.primary.dark))
                           
                     }.sheet(isPresented: $showingEditProfile) {
-                        EditProfileView(lastName: Name, firstName: Name, email: Auth.auth().currentUser?.email ?? "nessuno")
+                        EditProfileView(lastName: viewModel.lastName, firstName: viewModel.firstName, email: Auth.auth().currentUser?.email ?? "nessuno")
                     }
                     
                     Spacer().frame(height: 5)
@@ -175,6 +175,6 @@ private struct TermPrivacyRowView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(showTerms: {}, showPrivacyPolicy: {})
+        ProfileView()
     }
 }

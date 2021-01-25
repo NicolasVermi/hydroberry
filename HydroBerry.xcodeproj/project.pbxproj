@@ -26,6 +26,7 @@
 		8D55193E25AF111E002490C7 /* PasswordMeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55193D25AF111E002490C7 /* PasswordMeterView.swift */; };
 		8D55194325AF1174002490C7 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55194225AF1174002490C7 /* String.swift */; };
 		8D55194A25AF29D7002490C7 /* RegistrationStep2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55194825AF29D7002490C7 /* RegistrationStep2ViewModel.swift */; };
+		8D56F1B325BB076E00EAC40A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D56F1B225BB076E00EAC40A /* HomeViewModel.swift */; };
 		8D5A802B25B58F0D00663940 /* GrowthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A802A25B58F0D00663940 /* GrowthViewModel.swift */; };
 		8D5A805625B5C78C00663940 /* prova3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A805525B5C78C00663940 /* prova3View.swift */; };
 		8D5A805B25B5CF3B00663940 /* prova4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A805A25B5CF3B00663940 /* prova4View.swift */; };
@@ -41,6 +42,10 @@
 		8D70B58125ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B58025ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift */; };
 		8D70B58A25ACAF8800AC8377 /* PagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B58925ACAF8800AC8377 /* PagerView.swift */; };
 		8D70B59525ACB01600AC8377 /* FullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B59425ACB01600AC8377 /* FullImageViewController.swift */; };
+		8D736D3725B998F400CE98B2 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D736D3625B998F400CE98B2 /* ProfileViewModel.swift */; };
+		8D736D3F25B9D37700CE98B2 /* AddCropStep2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D736D3E25B9D37700CE98B2 /* AddCropStep2ViewModel.swift */; };
+		8D736D4425B9DAC300CE98B2 /* informationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D736D4325B9DAC300CE98B2 /* informationViewModel.swift */; };
+		8D73C14825BC89520077AB7D /* descriptionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73C14725BC89520077AB7D /* descriptionCardView.swift */; };
 		8D73EEC625B43FC300771477 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73EEC525B43FC300771477 /* ViewRouter.swift */; };
 		8D73EECE25B4401600771477 /* MotherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73EECD25B4401600771477 /* MotherView.swift */; };
 		8D7BC5B925B0390000060817 /* SystemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5B825B0390000060817 /* SystemCardView.swift */; };
@@ -115,6 +120,7 @@
 		8D55193D25AF111E002490C7 /* PasswordMeterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordMeterView.swift; sourceTree = "<group>"; };
 		8D55194225AF1174002490C7 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		8D55194825AF29D7002490C7 /* RegistrationStep2ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationStep2ViewModel.swift; sourceTree = "<group>"; };
+		8D56F1B225BB076E00EAC40A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8D5A802A25B58F0D00663940 /* GrowthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowthViewModel.swift; sourceTree = "<group>"; };
 		8D5A805525B5C78C00663940 /* prova3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prova3View.swift; sourceTree = "<group>"; };
 		8D5A805A25B5CF3B00663940 /* prova4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prova4View.swift; sourceTree = "<group>"; };
@@ -129,6 +135,10 @@
 		8D70B58025ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewRepresentable+UIViewPreview.swift"; sourceTree = "<group>"; };
 		8D70B58925ACAF8800AC8377 /* PagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerView.swift; sourceTree = "<group>"; };
 		8D70B59425ACB01600AC8377 /* FullImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewController.swift; sourceTree = "<group>"; };
+		8D736D3625B998F400CE98B2 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		8D736D3E25B9D37700CE98B2 /* AddCropStep2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCropStep2ViewModel.swift; sourceTree = "<group>"; };
+		8D736D4325B9DAC300CE98B2 /* informationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = informationViewModel.swift; sourceTree = "<group>"; };
+		8D73C14725BC89520077AB7D /* descriptionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = descriptionCardView.swift; sourceTree = "<group>"; };
 		8D73EEC525B43FC300771477 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		8D73EECD25B4401600771477 /* MotherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotherView.swift; sourceTree = "<group>"; };
 		8D7BC5B825B0390000060817 /* SystemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCardView.swift; sourceTree = "<group>"; };
@@ -280,6 +290,7 @@
 			children = (
 				8D52EA2B25A9F73D00132694 /* GrowthView.swift */,
 				8D5A802A25B58F0D00663940 /* GrowthViewModel.swift */,
+				8D73C14725BC89520077AB7D /* descriptionCardView.swift */,
 			);
 			path = Growth;
 			sourceTree = "<group>";
@@ -289,6 +300,7 @@
 			children = (
 				8D53719F25AB5CED00446982 /* InformationView.swift */,
 				8D5371A725AB60DD00446982 /* InformationCardView.swift */,
+				8D736D4325B9DAC300CE98B2 /* informationViewModel.swift */,
 			);
 			path = Information;
 			sourceTree = "<group>";
@@ -308,12 +320,12 @@
 		8D55191A25AF09D5002490C7 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				8D55193D25AF111E002490C7 /* PasswordMeterView.swift */,
+				8D55193825AF10FB002490C7 /* PasswordValidator.swift */,
 				8D55192E25AF0C59002490C7 /* RegistrationStep1View.swift */,
 				8D55193325AF0F2D002490C7 /* RegistrationStep1ViewModel.swift */,
-				8D55194825AF29D7002490C7 /* RegistrationStep2ViewModel.swift */,
-				8D55193825AF10FB002490C7 /* PasswordValidator.swift */,
-				8D55193D25AF111E002490C7 /* PasswordMeterView.swift */,
 				8D7BC5D325B081BE00060817 /* RegistrationStep2View.swift */,
+				8D55194825AF29D7002490C7 /* RegistrationStep2ViewModel.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -335,6 +347,7 @@
 				8D70B56825AC92AD00AC8377 /* AddCropStep1View.swift */,
 				8D6A4E7925ADE6250090E0C6 /* AddCropStep2View.swift */,
 				8D55191525AEE42B002490C7 /* AddCropStep3View.swift */,
+				8D736D3E25B9D37700CE98B2 /* AddCropStep2ViewModel.swift */,
 			);
 			path = AddCrop;
 			sourceTree = "<group>";
@@ -401,6 +414,7 @@
 			children = (
 				8DABC9F125A89E060064B141 /* HomeView.swift */,
 				8DABC9F625A89E8D0064B141 /* CardHomeView.swift */,
+				8D56F1B225BB076E00EAC40A /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -422,6 +436,7 @@
 				8D7BC5B825B0390000060817 /* SystemCardView.swift */,
 				8D7BC5DC25B1B44200060817 /* EditProfileView.swift */,
 				8D7BC5E425B1C92B00060817 /* EditProfileViewModel.swift */,
+				8D736D3625B998F400CE98B2 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -683,6 +698,7 @@
 				8D55193425AF0F2D002490C7 /* RegistrationStep1ViewModel.swift in Sources */,
 				8DABC9F725A89E8D0064B141 /* CardHomeView.swift in Sources */,
 				8D70B58125ACAEF300AC8377 /* UIViewRepresentable+UIViewPreview.swift in Sources */,
+				8D736D4425B9DAC300CE98B2 /* informationViewModel.swift in Sources */,
 				8D52EA2C25A9F73D00132694 /* GrowthView.swift in Sources */,
 				8D55194A25AF29D7002490C7 /* RegistrationStep2ViewModel.swift in Sources */,
 				8D6A4E7F25ADEA460090E0C6 /* GrowStepCardView.swift in Sources */,
@@ -694,6 +710,8 @@
 				8D55193925AF10FB002490C7 /* PasswordValidator.swift in Sources */,
 				8D5371A825AB60DD00446982 /* InformationCardView.swift in Sources */,
 				8D7BC5DD25B1B44200060817 /* EditProfileView.swift in Sources */,
+				8D736D3725B998F400CE98B2 /* ProfileViewModel.swift in Sources */,
+				8D56F1B325BB076E00EAC40A /* HomeViewModel.swift in Sources */,
 				8D6A4E7A25ADE6250090E0C6 /* AddCropStep2View.swift in Sources */,
 				8D55194325AF1174002490C7 /* String.swift in Sources */,
 				8DABC9CC25A868020064B141 /* DetailsView.swift in Sources */,
@@ -708,6 +726,7 @@
 				8D55191625AEE42B002490C7 /* AddCropStep3View.swift in Sources */,
 				8D6A4E8C25AE078D0090E0C6 /* UIViewRepresentable+CustomTextField.swift in Sources */,
 				8DABC9D725A894E10064B141 /* OnboardingView.swift in Sources */,
+				8D73C14825BC89520077AB7D /* descriptionCardView.swift in Sources */,
 				8D73EEC625B43FC300771477 /* ViewRouter.swift in Sources */,
 				8D53719725AB1B4C00446982 /* provaView.swift in Sources */,
 				8D73EECE25B4401600771477 /* MotherView.swift in Sources */,
@@ -729,6 +748,7 @@
 				8D7BC5E525B1C92B00060817 /* EditProfileViewModel.swift in Sources */,
 				8DABC9C625A85B2A0064B141 /* SplashScreenView.swift in Sources */,
 				8DABC9D125A86A8A0064B141 /* CardMinMaxView.swift in Sources */,
+				8D736D3F25B9D37700CE98B2 /* AddCropStep2ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
