@@ -19,31 +19,37 @@ final class GrowthViewModel: ObservableObject {
     @Published var tempoCrescitaMinimo = 1
     @Published var tempoCrescitaMassimo = 1
     @Published var delta = 0
+    @Published var isLoading = false
     
     private var db = Firestore.firestore()
 
     func readData(){
-
+        //isLoading = true
         findCrop{ [weak self] in
             guard let self = self else{ return }
-            let piantaRef = self.db.collection("piante").document(self.nomePianta)
-            //print(nome)
-            piantaRef.getDocument { [self] (document, error) in
-                
-                if let document = document, document.exists {
-
-                    self.tempoCrescitaMinimo = document.get("tempoCrescitaMinimo")! as! Int
-                    self.tempoCrescitaMassimo = document.get("tempoCrescitaMassimo")! as! Int
-
-                    
-                } else {
-                    print("Document does not exist")
-                }
+            self.findTime {
+                [weak self] in
+                  guard let self = self else{ return }
+                   // self.isLoading = false
             }
 
         }
     }
+    
+    func findTime(completion: @escaping () -> Void){
+        let piantaRef = self.db.collection("piante").document(self.nomePianta)
+        piantaRef.getDocument { [self] (document, error) in
+            
+            if let document = document, document.exists {
 
+                self.tempoCrescitaMinimo = document.get("tempoCrescitaMinimo")! as! Int
+                self.tempoCrescitaMassimo = document.get("tempoCrescitaMassimo")! as! Int
+            } else {
+                print("Document does not exist")
+            }
+        }
+        completion()
+    }
     
     func findCrop(completion: @escaping () -> Void){
         let idUtente = String(Auth.auth().currentUser?.email ?? "nessuno")
@@ -63,19 +69,18 @@ final class GrowthViewModel: ObservableObject {
             }
  
             self.nomePianta = lastSnapshot.get("nomePianta") as! String
-            //self.dataInizioStringa = lastSnapshot.get("dataInizio") as! String
-            //self.dataInizio = Data(self.dataInizioStringa.utf8)
             let ts = lastSnapshot.get("dataInizio") as! Timestamp
             let aDate = ts.dateValue()
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
-            //print("formatter " + String(aDate))
             let formattedTimeZoneStr = formatter.string(from: aDate)
-            formatter.date(from: formattedTimeZoneStr)
+            //formatter.date(from: formattedTimeZoneStr)
             self.delta = Int(round((Date().timeIntervalSinceReferenceDate - aDate.timeIntervalSinceReferenceDate)/86400))
+            
+            print(formattedTimeZoneStr)
             print("delta " + String(self.delta))
             print(self.nomePianta)
-            print(formattedTimeZoneStr)
+            
             completion()
         }
        

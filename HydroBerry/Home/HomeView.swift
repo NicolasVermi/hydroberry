@@ -38,7 +38,7 @@ struct HomeView: View {
                                 Text("Home")
                             }.tag(0)
 
-                        GrowthView(viewModel: GrowthViewModel())
+                        GrowthConteinerView()
                             .tabItem {
                                 if selection == 1 {
                                     Image("ic_leaf_active")

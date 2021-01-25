@@ -7,16 +7,24 @@
 
 import SwiftUI
 
+struct GrowthConteinerView: View {
+    @StateObject var viewModel = GrowthViewModel()
+
+    var body: some View {
+        GrowthView(viewModel: GrowthViewModel(), isLoading: viewModel.isLoading)
+            .onAppear { viewModel.readData() }
+    }
+}
 
 struct GrowthView: View {
     
     @StateObject var viewModel: GrowthViewModel
-    @State var giorniPassati: CGFloat = 24
+    @State var giorniPassati: CGFloat = 0.75
     @State var giorniTotali: CGFloat = 100
     @State var giorniRaccolta:String = "0"
-    
-    //l'idea è quella di fare data di oggi - data di semina
-    
+    @State var percCompletamento: CGFloat = 0.1
+    @State var isLoading: Bool
+
     var body: some View {
         
         VStack{
@@ -30,10 +38,10 @@ struct GrowthView: View {
         }.navigationBarHidden(true)
         .onAppear(perform: {
             viewModel.readData()
-            giorniTotali = CGFloat(viewModel.tempoCrescitaMassimo)
-
             
+            giorniTotali = CGFloat(viewModel.tempoCrescitaMassimo)
             giorniPassati = CGFloat(viewModel.delta)
+            percCompletamento = giorniPassati/giorniTotali
         })
         
         
@@ -56,7 +64,6 @@ struct GrowthView: View {
         }
     }
     
-
     
     private var descriptionView: some View{
         VStack{
@@ -67,6 +74,7 @@ struct GrowthView: View {
     }
     
     private var imageView: some View{
+        
         VStack{
             Spacer()
             Image("ic_foglia")
@@ -81,7 +89,6 @@ struct GrowthView: View {
                     .resizable()
                     .frame(width: 40, height: 40)
                     .padding(.trailing, -100)
-                    
                 circleBarView
                 Image("ic_albero")
                     .resizable()
@@ -102,10 +109,9 @@ struct GrowthView: View {
                                         lineCap: .round,
                                         lineJoin:.round))
                             .rotationEffect(.degrees(135))
-                            //.opacity(0.1)
                         
                        Circle()
-                        .trim(from: 0, to: 0.75 * (giorniPassati/giorniTotali))
+                        .trim(from: 0, to: 0.75 * percCompletamento)
                         .stroke(Color(red: 11/255, green: 132/255, blue: 103/255), style: StrokeStyle(
                                     lineWidth: 30,
                                     lineCap: .round,
@@ -113,7 +119,7 @@ struct GrowthView: View {
                             .rotationEffect(.degrees(135))
                         .overlay(
                             VStack{
-                                Text("\(Int((giorniPassati/giorniTotali)*100))")
+                                Text("\(Int(percCompletamento * 100))")
                                     .font(Font.system(size:41, weight: .bold))
                                     .foregroundColor(Color(red: 130/255, green: 136/255, blue: 148/255))
                                 Text("Giorni dalla semina")
@@ -131,9 +137,9 @@ struct GrowthView: View {
 struct GrowthView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-        GrowthView(viewModel: GrowthViewModel())
-        GrowthView(viewModel: GrowthViewModel())
+            GrowthView(viewModel: GrowthViewModel(), isLoading: true)
             
         }
     }
+    
 }
