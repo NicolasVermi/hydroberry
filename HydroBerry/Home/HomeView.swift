@@ -23,7 +23,7 @@ struct HomeView: View {
     }
     
     var body: some View {
-        VStack{
+       VStack{
             if viewModel.isLogged(){
                 ZStack {
                     VStack {
@@ -72,7 +72,6 @@ struct HomeView: View {
     private var bodyView: some View {
         VStack{
             VStack{
-            
                 Spacer()
                 ZStack{
                     HStack{

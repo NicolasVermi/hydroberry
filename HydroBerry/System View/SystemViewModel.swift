@@ -20,7 +20,8 @@ final class SystemViewModel: ObservableObject{
 
     @Published var idRaccolto = ""
     @Published var nomePianta = ""
-    @Published var utentiAutorizzati = []
+    @Published var utentiAutorizzati = [""]
+    @Published var error: SystemError?
     /*@Published var idMisurazione = ""
     @Published var ph = 0.0
     @Published var ec = 0.0
@@ -50,13 +51,6 @@ final class SystemViewModel: ObservableObject{
                 print ("The collection is empty.")
                 return
             }
- /*
-            self.idMisurazione = lastSnapshot.documentID
-            self.temperatura = lastSnapshot.get("temperatura") as! Double
-            self.ph = lastSnapshot.get("ph") as! Double
-            self.ec = lastSnapshot.get("ec") as! Double
-            self.umidita = lastSnapshot.get("umidita") as! Double
-            print(self.idMisurazione)*/
         }
         }
     }
@@ -91,5 +85,27 @@ final class SystemViewModel: ObservableObject{
             print(self.idRaccolto)
         }
        
+    }
+    
+    
+    func addAuthorizedPeople(email: String){
+        cancellable?.cancel()
+        error = nil
+
+        guard email.isNotEmptyUserInput, email.isValidEmail else {
+          error = .missingEmail
+          return
+        }
+        var lista = self.utentiAutorizzati
+        lista.append(email)
+        db.collection("raccolti").document(self.idRaccolto).setData([ "utentiAutorizzati": lista ], merge: true)
+
+    }
+    
+    enum SystemError: Error, Equatable {
+      case emailNotAvailable
+      case generic
+      case missingEmail
+
     }
 }

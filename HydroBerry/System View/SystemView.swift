@@ -15,29 +15,30 @@ struct SystemView: View {
     @State var selectedPlant: String
     @StateObject var viewModel = SystemViewModel()
     
-    var mailVector = ["mariorossi@gmail.com","paolorossi@gmail.com","mariorosa@gmail.com","mariannarossi@gmail.com"]
+    
+    // var mailVector = ["mariorossi@gmail.com","paolorossi@gmail.com","mariorosa@gmail.com","mariannarossi@gmail.com"]
+    var mailVector = [""]
     
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         VStack(alignment:.leading){
-                        titleBar.frame(maxHeight:50)
-                        cropBar
-                        Rectangle()
-                            .frame(height:16)
-                            .foregroundColor(Color(red: 247/255, green: 247/255, blue: 247/255))
-                        authorizePart
-                            
-                            .padding(.vertical, 20)
-                        mailPart
-                        Spacer()
-        }.navigationBarHidden(true)
-        
+            titleBar.frame(maxHeight:50)
+            cropBar
+            Rectangle()
+                .frame(height:16)
+                .foregroundColor(Color(red: 247/255, green: 247/255, blue: 247/255))
+            authorizePart
+                .padding(.vertical, 20)
+            mailPart
+            Spacer()
+        }.onAppear(perform: {
+            viewModel.readData()
+        })
+        .navigationBarHidden(true)
     }
     
-    
-    
-    
+
     var emailView: some View {
         HStack{
           CustomTextField(verticalHugging: .defaultHigh, horizontalHugging: .defaultLow, text: $email) {
@@ -52,7 +53,7 @@ struct SystemView: View {
             return textField
           }
             Spacer()
-            Button(action: {}) {
+            Button(action: {viewModel.addAuthorizedPeople(email: email)}) {
                 UIViewPreview(horizontalHugging: .defaultHigh) {
                     let button = FullButton()
                     button.setTitle("Invia", for: .normal)
@@ -67,9 +68,7 @@ struct SystemView: View {
             }.cornerRadius(5)
         }
     }
-    
-    
-    
+ 
     
     private var titleBar: some View{
         ZStack{
@@ -136,21 +135,49 @@ struct SystemView: View {
             Text("Autorizzazioni")
                 .font(Font.system(size:17, weight: .semibold))
                 .padding(.horizontal, 16)
-            emailView
-            .padding(.vertical)
-            .padding(.horizontal)
+            if viewModel.error == .missingEmail {
+              Group {
+                emailView
+                  .border(Color.red, width: 1)
+                    .padding(.vertical)
+                    .padding(.horizontal)
+                HStack {
+                    Text("Email mancante o non nel formato corretto")
+                        .padding(.horizontal)
+                    .foregroundColor(Color(ColorTheme.current.danger.p100))
+                  Spacer()
+                }
+              }
+            } else if viewModel.error == .emailNotAvailable {
+              emailView
+                .border(Color.red, width: 1)
+                .padding(.vertical)
+                .padding(.horizontal)
+                
+              HStack {
+                Text("Email già registrata")
+                  .foregroundColor(Color(ColorTheme.current.danger.p100))
+                Spacer()
+              }
+            } else {
+              emailView.padding(.vertical)
+                .padding(.horizontal)
+            }
+            
+ 
         }
         
     }
     
     private var mailPart: some View{
         VStack{
-            ForEach(mailVector, id: \.self) {
-                mail in
-                    AuthCardView(mail: mail)
-            }.onDelete
-            { _ in print("eliminato") }
-            
+            ScrollView{
+                ForEach(viewModel.utentiAutorizzati, id: \.self) {
+                    mail in
+                        AuthCardView(mail: mail)
+                }.onDelete
+                { _ in print("eliminato") }
+            }.padding(.bottom, 20)
         }
     }
     

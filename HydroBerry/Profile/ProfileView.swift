@@ -14,6 +14,7 @@ import FirebaseAuth
 struct ProfileView: View {
     
     var body: some View {
+        
         SafariButton()
         
     }
