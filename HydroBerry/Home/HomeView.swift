@@ -12,7 +12,7 @@ import SwiftUI
 struct HomeView: View {
     @State private var selection = 0
     @ObservedObject var viewModel: HomeViewModel
-
+    @State var showHome = true
     
     init() {
         
@@ -23,68 +23,77 @@ struct HomeView: View {
     }
     
     var body: some View {
-            ZStack {
-                VStack {
-                    TabView(selection: $selection) {
-                        bodyView.onAppear(perform: {
-                            viewModel.readData()
-                        })
-                            .tabItem {
-                                if selection == 0 {
-                                    Image("ic_home_active")
-                                } else {
-                                    Image("ic_home")
-                                }
-                                Text("Home")
-                            }.tag(0)
+        VStack{
+            if viewModel.isLogged(){
+                ZStack {
+                    VStack {
+                        TabView(selection: $selection) {
+                            bodyView.onAppear(perform: {
+                                viewModel.readData()
+                            })
+                                .tabItem {
+                                    if selection == 0 {
+                                        Image("ic_home_active")
+                                    } else {
+                                        Image("ic_home")
+                                    }
+                                    Text("Home")
+                                }.tag(0)
 
-                        GrowthConteinerView()
-                            .tabItem {
-                                if selection == 1 {
-                                    Image("ic_leaf_active")
-                                } else {
-                                    Image("ic_leaf")
-                                }
-                                Text("Crescita")
-                            }.tag(1)
+                            GrowthConteinerView()
+                                .tabItem {
+                                    if selection == 1 {
+                                        Image("ic_leaf_active")
+                                    } else {
+                                        Image("ic_leaf")
+                                    }
+                                    Text("Crescita")
+                                }.tag(1)
 
-                        ProfileView()
-                            .tabItem {
-                                if selection == 2 {
-                                    Image("ic_profilo_active")
-                                } else {
-                                    Image("ic_profilo")
-                                }
-                                Text("Profilo")
-                            }.tag(2)
-                    }
-                    .accentColor(Color(red: 21/255, green: 132/255, blue: 103/255))
+                            ProfileView()
+                                .tabItem {
+                                    if selection == 2 {
+                                        Image("ic_profilo_active")
+                                    } else {
+                                        Image("ic_profilo")
+                                    }
+                                    Text("Profilo")
+                                }.tag(2)
+                        }
+                        .accentColor(Color(red: 21/255, green: 132/255, blue: 103/255))
+                    }.navigationBarHidden(true)
                 }.navigationBarHidden(true)
-            }.navigationBarHidden(true)
+            }else{
+                LoginView(viewModel: LoginViewModel(), showForgotPassword: {}, showRegistration: {})
+            }
+        }
     }
     
     private var bodyView: some View {
         VStack{
-            Spacer()
-        ZStack{
-            HStack{
+            VStack{
+            
                 Spacer()
-                VStack{
-                Image("Pomodoro")
-                    .resizable()
-                    .frame(width:345, height: 345)
-                    .padding(.top,-100)
-                Spacer()
+                ZStack{
+                    HStack{
+                        Spacer()
+                        VStack{
+                        Image("Pomodoro")
+                            .resizable()
+                            .frame(width:345, height: 345)
+                            .padding(.top,-100)
+                        Spacer()
+                        }
+                        }
+                    HStack{
+                        titleView.padding()
+                    }
+                            VStack {
+                                    griglia
+                        }
                 }
-                }
-            HStack{
-                titleView.padding()
-            }
-                    VStack {
-                            griglia
-                }
+            }.navigationBarHidden(true)
         }
-        }.navigationBarHidden(true)
     }
     
     

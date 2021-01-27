@@ -10,7 +10,7 @@ import DuckMaUI
 
 struct EditProfileView: View {
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var viewModel = EditProfileViewModel()
+    @StateObject var viewModel = ProfileViewModel(email: "")
     
 
     
@@ -34,9 +34,10 @@ struct EditProfileView: View {
             Alert(
               title: Text("Aggiornamento"),
                 message: Text(chooseAlert()),
-                dismissButton: .default(Text("ok"),action: {if (viewModel.successEmail && viewModel.successPassword){self.presentationMode.wrappedValue.dismiss()}})
+                dismissButton: .default(Text("ok"),action: {if (viewModel.successEmail && viewModel.successPassword){
+                                            self.presentationMode.wrappedValue.dismiss()}})
             )
-          }
+        }
     }
     
     func chooseAlert() -> String{

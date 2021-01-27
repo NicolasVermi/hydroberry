@@ -20,20 +20,27 @@ final class GrowthViewModel: ObservableObject {
     @Published var tempoCrescitaMassimo = 1
     @Published var delta = 0
     @Published var isLoading = false
+    @Published var percCompletamento: CGFloat = 0.0
+
+
     
     private var db = Firestore.firestore()
 
     func readData(){
-        //isLoading = true
+        isLoading = true
         findCrop{ [weak self] in
             guard let self = self else{ return }
             self.findTime {
                 [weak self] in
                   guard let self = self else{ return }
-                   // self.isLoading = false
+                self.handleSuccess()
             }
 
         }
+    }
+    
+    func handleSuccess() {
+        self.isLoading = false
     }
     
     func findTime(completion: @escaping () -> Void){
@@ -44,6 +51,14 @@ final class GrowthViewModel: ObservableObject {
 
                 self.tempoCrescitaMinimo = document.get("tempoCrescitaMinimo")! as! Int
                 self.tempoCrescitaMassimo = document.get("tempoCrescitaMassimo")! as! Int
+               
+                print("delta " + String(self.delta))
+                print("tempo crescita massimo " + String(self.tempoCrescitaMassimo))
+                print("percentualecomp")
+                print(self.percCompletamento)
+                self.percCompletamento = CGFloat (self.delta * 100 / self.tempoCrescitaMassimo )
+                print(CGFloat (self.delta * 100 / self.tempoCrescitaMassimo ))
+                print(self.percCompletamento)
             } else {
                 print("Document does not exist")
             }
@@ -71,14 +86,11 @@ final class GrowthViewModel: ObservableObject {
             self.nomePianta = lastSnapshot.get("nomePianta") as! String
             let ts = lastSnapshot.get("dataInizio") as! Timestamp
             let aDate = ts.dateValue()
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
-            let formattedTimeZoneStr = formatter.string(from: aDate)
-            //formatter.date(from: formattedTimeZoneStr)
+
             self.delta = Int(round((Date().timeIntervalSinceReferenceDate - aDate.timeIntervalSinceReferenceDate)/86400))
             
-            print(formattedTimeZoneStr)
-            print("delta " + String(self.delta))
+            
+
             print(self.nomePianta)
             
             completion()

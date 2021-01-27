@@ -32,9 +32,7 @@ struct ProfileView: View {
             var addressPrivacy = "https://duckma.com/privacy-policy"
             @State var showingEditProfile = false
             @State var showingAddCrop = false
-            @State var Name = ""
             @State var showingAlert = false
-            @State var showingLogin = false
             
             
             func present(address: String) { // UIKit code
@@ -43,8 +41,9 @@ struct ProfileView: View {
             }
 
             var body: some View {
-                if showingLogin{LoginView(viewModel: LoginViewModel(), showForgotPassword: {}, showRegistration: {})
-                }else{
+                //if viewModel.showLogin{ LoginView(viewModel: LoginViewModel(), showForgotPassword: {}, showRegistration: {})
+                //}else{
+                
                 NavigationView{
                     VStack{
                         HStack{
@@ -55,13 +54,16 @@ struct ProfileView: View {
                         .padding(.bottom,20)
                         
                         systemPart
+                        
                         Spacer()
                         termsPart
                         Spacer()
                     }.padding()
                 }.navigationBarHidden(true)
                 .onAppear(perform: {viewModel.readData()})
-                }
+                
+
+                //}
                 
             }
             
@@ -122,30 +124,35 @@ struct ProfileView: View {
                       .foregroundColor(Color(ColorTheme.current.primary.dark))
                         
                   }
-                    Button(action: {do {
-                        try Auth.auth().signOut()
-                        showingLogin = true
-                        print("logout effettuato")
-                      } catch {
-                        print("Sign out error")
-                      }}){
-                    VStack(alignment: .leading) {
-                      HStack {
-                        Text("Logout")
-                          .foregroundColor(Color(ColorTheme.current.black))
-                          .fixedSize(horizontal: false, vertical: true)
-                          .font(Font.system(size:17, weight: .semibold))
-                            
-                          .multilineTextAlignment(.leading)
-                        Spacer()
-                        Text("V 1.0")
-                            .font(Font.system(size:12, weight: .regular))
-                            .foregroundColor(Color(red: 130/255, green: 136/255, blue: 148/255))
-                      }
-                    }
-                    }
-                    .frame(minHeight: 63)
-                  }
+                    Button(action:{showingAlert = true; }){
+                        VStack(alignment: .leading) {
+                          HStack {
+                            Text("Logout")
+                              .foregroundColor(Color(ColorTheme.current.black))
+                              .fixedSize(horizontal: false, vertical: true)
+                              .font(Font.system(size:17, weight: .semibold))
+                                
+                              .multilineTextAlignment(.leading)
+                            Spacer()
+                            Text("V 1.0")
+                                .font(Font.system(size:12, weight: .regular))
+                                .foregroundColor(Color(red: 130/255, green: 136/255, blue: 148/255))
+                          }
+                       
+                        }.alert(isPresented: $showingAlert) {
+                            Alert(title: Text("Messaggio Importante"), message: Text("Sei sicuro di voler uscire?"), primaryButton: .default(Text("Logout"),action: {
+                                do {
+                                    try Auth.auth().signOut()
+                                    viewModel.showLogin = true
+                                    
+                                    print("logout effettuato")
+                                  } catch {
+                                    print("Sign out error")
+                                  }
+                            }), secondaryButton: .cancel())
+                        }
+
+                    }}
         }
     }
     }

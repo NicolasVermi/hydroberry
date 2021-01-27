@@ -20,7 +20,6 @@ final class AddCropStep2ViewModel: ObservableObject{
     @Published var error: RegistrationStep2Error?
     @Published var errorType = ""
     @Published var success = false
-    @Published var showAlert = false
     private var db = Firestore.firestore()
       
 
@@ -36,7 +35,8 @@ final class AddCropStep2ViewModel: ObservableObject{
           "dataInizio": dataInizio,
           "etaPiantaInizio": etaPiantaInizio,
           "idUtente": idUtente,
-          "nomePianta": nomePianta
+          "nomePianta": nomePianta,
+          "utentiAutorizzati": [idUtente]
           ])
       
     

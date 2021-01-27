@@ -11,19 +11,13 @@ import FirebaseAnalytics
 import FirebaseAuth
 import FirebaseFirestore
 
+// non dovrebbe servire più a niente, ma meglio fare dei controlli
+
 final public class EditProfileViewModel: ObservableObject {
-    //private let api: MechaRegistrationService
-    //let showPrivacy: () -> Void
-    //let showTerms: () -> Void
-    //private let nextStep: (String, String) -> Void
-    //let showLogin: () -> Void
 
     private var cancellable: AnyCancellable?
-
-    //@Published var isLoading = false
+/*
     @Published var error: EditProfileError?
-    //@Published var showErrorAlert = false
-    //@Published var mustAcceptPolicy = false
     @Published var emailError = ""
     @Published var passwordError = ""
     @Published var emailOrPasswordError = ""
@@ -142,8 +136,6 @@ final public class EditProfileViewModel: ObservableObject {
             self.successPassword = true
             self.emailError = "Non cambiata"
         }
-        //print("Email error dentro è:")
-        //print(self.emailError)
         showAlert = true
     }
     
@@ -166,7 +158,7 @@ final public class EditProfileViewModel: ObservableObject {
       case missingFirstName
       case missingLastName
     
-}
+}*/
 
 
 }

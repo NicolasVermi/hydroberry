@@ -13,7 +13,10 @@ struct SystemView: View {
     @State var email = ""
     @State var showingAlert = false
     @State var selectedPlant: String
+    @StateObject var viewModel = SystemViewModel()
+    
     var mailVector = ["mariorossi@gmail.com","paolorossi@gmail.com","mariorosa@gmail.com","mariannarossi@gmail.com"]
+    
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
@@ -24,6 +27,7 @@ struct SystemView: View {
                             .frame(height:16)
                             .foregroundColor(Color(red: 247/255, green: 247/255, blue: 247/255))
                         authorizePart
+                            
                             .padding(.vertical, 20)
                         mailPart
                         Spacer()
@@ -31,19 +35,41 @@ struct SystemView: View {
         
     }
     
+    
+    
+    
     var emailView: some View {
-      CustomTextField(verticalHugging: .defaultHigh, horizontalHugging: .defaultLow, text: $email) {
-        let textField = DuckTextField()
-        textField.placeholder = "Inserisci mail"
-        textField.backgroundStyle = .color(ColorTheme.current.gray.p20)
-        textField.cornerRadius = .large
-        textField.keyboardType = .emailAddress
-        textField.autocapitalizationType = .none
-        textField.autocorrectionType = .no
-        textField.returnKeyType = .done
-        return textField
-      }
+        HStack{
+          CustomTextField(verticalHugging: .defaultHigh, horizontalHugging: .defaultLow, text: $email) {
+            let textField = DuckTextField()
+            textField.placeholder = "Inserisci mail"
+            textField.backgroundStyle = .color(ColorTheme.current.gray.p20)
+            textField.cornerRadius = .large
+            textField.keyboardType = .emailAddress
+            textField.autocapitalizationType = .none
+            textField.autocorrectionType = .no
+            textField.returnKeyType = .done
+            return textField
+          }
+            Spacer()
+            Button(action: {}) {
+                UIViewPreview(horizontalHugging: .defaultHigh) {
+                    let button = FullButton()
+                    button.setTitle("Invia", for: .normal)
+                button.titleLabel?.font = FontTheme.current.semibold.subhead
+                    button.cornerRadius = .medium
+                button.themeColor = .init(red: 1, green: 1, blue: 1, alpha: 0)
+                return button
+              }
+                .padding(.vertical, 4)
+                .padding(.horizontal, 15)
+                .background(Color(red: 21/255, green: 132/255, blue: 103/255))
+            }.cornerRadius(5)
+        }
     }
+    
+    
+    
     
     private var titleBar: some View{
         ZStack{
@@ -86,7 +112,7 @@ struct SystemView: View {
                         .font(Font.system(size:15, weight: .regular))
                         .padding(17)
                     Spacer()
-                    Text(selectedPlant)
+                    Text(viewModel.nomePianta)
                         .font(Font.system(size:15, weight: .semibold))
                     Button(action: {
                         self.showingInfo.toggle()
@@ -110,23 +136,8 @@ struct SystemView: View {
             Text("Autorizzazioni")
                 .font(Font.system(size:17, weight: .semibold))
                 .padding(.horizontal, 16)
-            HStack{
-                emailView
-                Spacer()
-                Button(action: {}) {
-                    UIViewPreview(horizontalHugging: .defaultHigh) {
-                        let button = FullButton()
-                        button.setTitle("Invia", for: .normal)
-                    button.titleLabel?.font = FontTheme.current.semibold.subhead
-                        button.cornerRadius = .medium
-                    button.themeColor = .init(red: 1, green: 1, blue: 1, alpha: 0)
-                    return button
-                  }
-                    .padding(.vertical, 4)
-                    .padding(.horizontal, 15)
-                    .background(Color(red: 21/255, green: 132/255, blue: 103/255))
-                }.cornerRadius(5)
-            }.padding(.vertical)
+            emailView
+            .padding(.vertical)
             .padding(.horizontal)
         }
         

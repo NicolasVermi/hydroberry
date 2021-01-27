@@ -1,9 +1,10 @@
 //
-//  HomeViewModel.swift
+//  SystemViewModel.swift
 //  HydroBerry
 //
-//  Created by Nicolas Vermi on 22/01/21.
+//  Created by Nicolas Vermi on 25/01/21.
 //
+
 
 import Foundation
 import Combine
@@ -13,29 +14,23 @@ import FirebaseAuth
 
 
 
-final class HomeViewModel: ObservableObject{
+final class SystemViewModel: ObservableObject{
 
     private var cancellable: AnyCancellable?
 
     @Published var idRaccolto = ""
-    @Published var idMisurazione = ""
+    @Published var nomePianta = ""
+    @Published var utentiAutorizzati = []
+    /*@Published var idMisurazione = ""
     @Published var ph = 0.0
     @Published var ec = 0.0
     @Published var temperatura = 0.0
-    @Published var umidita = 0.0
-    
+    @Published var umidita = 0.0*/
     
     
     private var db = Firestore.firestore()
 
-    func isLogged() -> Bool{
-        let idUtente = String(Auth.auth().currentUser?.email ?? "nessuno")
-        if idUtente == "nessuno"{
-            return false
-        }else{
-            return true
-        }
-    }
+    
     
     func readData(){
 
@@ -55,13 +50,13 @@ final class HomeViewModel: ObservableObject{
                 print ("The collection is empty.")
                 return
             }
- 
+ /*
             self.idMisurazione = lastSnapshot.documentID
             self.temperatura = lastSnapshot.get("temperatura") as! Double
             self.ph = lastSnapshot.get("ph") as! Double
             self.ec = lastSnapshot.get("ec") as! Double
             self.umidita = lastSnapshot.get("umidita") as! Double
-            print(self.idMisurazione)
+            print(self.idMisurazione)*/
         }
         }
     }
@@ -88,6 +83,10 @@ final class HomeViewModel: ObservableObject{
             }
  
             self.idRaccolto = lastSnapshot.documentID
+            self.utentiAutorizzati = lastSnapshot.get("utentiAutorizzati") as! [String]
+            self.nomePianta = lastSnapshot.get("nomePianta") as! String
+
+            
             completion()
             print(self.idRaccolto)
         }

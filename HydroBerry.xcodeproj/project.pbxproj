@@ -34,6 +34,7 @@
 		8D6A4E7F25ADEA460090E0C6 /* GrowStepCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E7E25ADEA460090E0C6 /* GrowStepCardView.swift */; };
 		8D6A4E8725AE015B0090E0C6 /* prova2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E8625AE015B0090E0C6 /* prova2View.swift */; };
 		8D6A4E8C25AE078D0090E0C6 /* UIViewRepresentable+CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6A4E8B25AE078D0090E0C6 /* UIViewRepresentable+CustomTextField.swift */; };
+		8D6FAB6525BF0C6500AD2477 /* SystemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6FAB6425BF0C6500AD2477 /* SystemViewModel.swift */; };
 		8D70B55B25AC802900AC8377 /* SystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B55A25AC802900AC8377 /* SystemView.swift */; };
 		8D70B56325AC8BBD00AC8377 /* AuthCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B56225AC8BBD00AC8377 /* AuthCardView.swift */; };
 		8D70B56925AC92AD00AC8377 /* AddCropStep1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D70B56825AC92AD00AC8377 /* AddCropStep1View.swift */; };
@@ -128,6 +129,7 @@
 		8D6A4E7E25ADEA460090E0C6 /* GrowStepCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowStepCardView.swift; sourceTree = "<group>"; };
 		8D6A4E8625AE015B0090E0C6 /* prova2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prova2View.swift; sourceTree = "<group>"; };
 		8D6A4E8B25AE078D0090E0C6 /* UIViewRepresentable+CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewRepresentable+CustomTextField.swift"; sourceTree = "<group>"; };
+		8D6FAB6425BF0C6500AD2477 /* SystemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemViewModel.swift; sourceTree = "<group>"; };
 		8D70B55A25AC802900AC8377 /* SystemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemView.swift; sourceTree = "<group>"; };
 		8D70B56225AC8BBD00AC8377 /* AuthCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCardView.swift; sourceTree = "<group>"; };
 		8D70B56825AC92AD00AC8377 /* AddCropStep1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCropStep1View.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 			children = (
 				8D70B55A25AC802900AC8377 /* SystemView.swift */,
 				8D70B56225AC8BBD00AC8377 /* AuthCardView.swift */,
+				8D6FAB6425BF0C6500AD2477 /* SystemViewModel.swift */,
 			);
 			path = "System View";
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				8D55194A25AF29D7002490C7 /* RegistrationStep2ViewModel.swift in Sources */,
 				8D6A4E7F25ADEA460090E0C6 /* GrowStepCardView.swift in Sources */,
 				8D5371AE25AB66CE00446982 /* SwiftUIView.swift in Sources */,
+				8D6FAB6525BF0C6500AD2477 /* SystemViewModel.swift in Sources */,
 				8D55192F25AF0C59002490C7 /* RegistrationStep1View.swift in Sources */,
 				8D12FF7425A85998006C30CE /* ContentView.swift in Sources */,
 				8D7BC5D425B081BE00060817 /* RegistrationStep2View.swift in Sources */,
