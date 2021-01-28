@@ -21,7 +21,7 @@ final class GrowthViewModel: ObservableObject {
     @Published var delta = 0
     @Published var isLoading = false
     @Published var percCompletamento: CGFloat = 0.0
-
+    @Published var raccoltoAttivo = ""
 
     
     private var db = Firestore.firestore()
@@ -44,6 +44,7 @@ final class GrowthViewModel: ObservableObject {
     }
     
     func findTime(completion: @escaping () -> Void){
+        print("sono in grwthview model")
         let piantaRef = self.db.collection("piante").document(self.nomePianta)
         piantaRef.getDocument { [self] (document, error) in
             
@@ -68,9 +69,8 @@ final class GrowthViewModel: ObservableObject {
     
     func findCrop(completion: @escaping () -> Void){
         let idUtente = String(Auth.auth().currentUser?.email ?? "nessuno")
-        let raccoltiRef = db.collection("raccolti")
-            .whereField("idUtente", isEqualTo: idUtente )
-            .whereField("selezionato", isEqualTo: true)
+        let raccoltiRef = db.collection("utenti")
+            .whereField("email", isEqualTo: idUtente )
         
         raccoltiRef.addSnapshotListener { (snapshot, error) in
             guard let snapshot = snapshot else {
@@ -82,9 +82,23 @@ final class GrowthViewModel: ObservableObject {
                 print ("The collection is empty.")
                 return
             }
- 
-            self.nomePianta = lastSnapshot.get("nomePianta") as! String
-            let ts = lastSnapshot.get("dataInizio") as! Timestamp
+            self.raccoltoAttivo = lastSnapshot.get("raccoltoAttivo") as! String
+        
+            print("Raccolto attivoo  " + self.raccoltoAttivo)
+            
+
+            
+            let raccoltiRef = self.db.collection("raccolti").document(self.raccoltoAttivo)
+            
+            raccoltiRef.addSnapshotListener { (snapshot, error) in
+                guard let snapshot = snapshot else {
+                    print("Error retreving raccolti: \(error.debugDescription)")
+                    return
+                }
+
+
+            self.nomePianta = snapshot.get("nomePianta") as! String
+            let ts = snapshot.get("dataInizio") as! Timestamp
             let aDate = ts.dateValue()
 
             self.delta = Int(round((Date().timeIntervalSinceReferenceDate - aDate.timeIntervalSinceReferenceDate)/86400))
@@ -95,7 +109,7 @@ final class GrowthViewModel: ObservableObject {
             
             completion()
         }
-       
+        }
     }
 
 }

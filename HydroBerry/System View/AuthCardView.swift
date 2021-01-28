@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct AuthCardView: View {
-    
+    @StateObject var viewModel = SystemViewModel()
+
     var mail: String
     
     var body: some View {
@@ -16,7 +17,7 @@ struct AuthCardView: View {
         HStack{
             Text(mail)
             Spacer()
-            Button(action:{print("Da eliminare")}){
+            Button(action:{ viewModel.deleteAuthPeople(email: mail) ; print("Da eliminare")}){
                 Image("ic_exit")
             }
         }.padding()

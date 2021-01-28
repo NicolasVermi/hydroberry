@@ -14,10 +14,7 @@ struct SystemView: View {
     @State var showingAlert = false
     @State var selectedPlant: String
     @StateObject var viewModel = SystemViewModel()
-    
-    
-    // var mailVector = ["mariorossi@gmail.com","paolorossi@gmail.com","mariorosa@gmail.com","mariannarossi@gmail.com"]
-    var mailVector = [""]
+
     
     @Environment(\.presentationMode) var presentationMode
 
@@ -33,7 +30,7 @@ struct SystemView: View {
             mailPart
             Spacer()
         }.onAppear(perform: {
-            viewModel.readData()
+            viewModel.readDataSystem()
         })
         .navigationBarHidden(true)
     }
@@ -85,6 +82,7 @@ struct SystemView: View {
                     .padding(.horizontal, 18)
                     .onTapGesture {
                         showingAlert = true
+                        //viewModel.elimina()
                     }.alert(isPresented: $showingAlert) {
                         Alert(title: Text("Messaggio Importante"), message: Text("Sei sicuro di voler eliminare il sistema?"), primaryButton: .default(Text("Elimina")), secondaryButton: .cancel())
                     }
@@ -177,7 +175,8 @@ struct SystemView: View {
                         AuthCardView(mail: mail)
                 }.onDelete
                 { _ in print("eliminato") }
-            }.padding(.bottom, 20)
+            }
+            .padding(.bottom, 20)
         }
     }
     

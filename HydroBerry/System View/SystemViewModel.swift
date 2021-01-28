@@ -22,84 +22,130 @@ final class SystemViewModel: ObservableObject{
     @Published var nomePianta = ""
     @Published var utentiAutorizzati = [""]
     @Published var error: SystemError?
-    /*@Published var idMisurazione = ""
-    @Published var ph = 0.0
-    @Published var ec = 0.0
-    @Published var temperatura = 0.0
-    @Published var umidita = 0.0*/
-    
+    @Published var raccoltoAttivo = ""
+    var lista = [""]
+ 
+
     
     private var db = Firestore.firestore()
 
     
     
-    func readData(){
-
-        findCrop{ [weak self] in
+    func readDataSystem(){
+        
+        findCropSystem { [weak self] in
             guard let self = self else{ return }
 
-            let misurazioneRef = self.db.collection("misurazioni")
-            .whereField("idRaccolto", isEqualTo: self.idRaccolto)
-        
-        misurazioneRef.addSnapshotListener { (snapshot, error) in
-            guard let snapshot = snapshot else {
-                print("Error retreving raccolti: \(error.debugDescription)")
-                return
-            }
-
-            guard let lastSnapshot = snapshot.documents.last else {
-                print ("The collection is empty.")
-                return
-            }
-        }
         }
     }
         
     
     
-    func findCrop(completion: @escaping () -> Void){
-        
-        
+    func findCropSystem(completion: @escaping () -> Void){
+ 
         let idUtente = String(Auth.auth().currentUser?.email ?? "nessuno")
-        let raccoltiRef = db.collection("raccolti")
-            .whereField("idUtente", isEqualTo: idUtente )
-            .whereField("selezionato", isEqualTo: true)
+        let utentiRef = db.collection("utenti")
+            .whereField("email", isEqualTo: idUtente )
         
-        raccoltiRef.addSnapshotListener { (snapshot, error) in
+        utentiRef.addSnapshotListener { (snapshot, error) in
+            
             guard let snapshot = snapshot else {
                 print("Error retreving raccolti: \(error.debugDescription)")
                 return
             }
-
+            
             guard let lastSnapshot = snapshot.documents.last else {
                 print ("The collection is empty.")
                 return
             }
- 
-            self.idRaccolto = lastSnapshot.documentID
-            self.utentiAutorizzati = lastSnapshot.get("utentiAutorizzati") as! [String]
-            self.nomePianta = lastSnapshot.get("nomePianta") as! String
-
             
+            self.raccoltoAttivo = lastSnapshot.get("raccoltoAttivo") as! String
+        
+            print("Raccolto attivoo  " + self.raccoltoAttivo)
+            self.idRaccolto = self.raccoltoAttivo
+                        
+            let raccoltiRef = self.db.collection("raccolti").document(self.raccoltoAttivo)
+            
+            raccoltiRef.addSnapshotListener { (snapshot, error) in
+                guard let snapshot = snapshot else {
+                    print("Error retreving raccolti: \(error.debugDescription)")
+                    return
+                }
+
+            self.nomePianta = snapshot.get("nomePianta") as! String
+            self.utentiAutorizzati = snapshot.get("utentiAutorizzati") as! [String]
+            //print(self.nomePianta)
+            print("sono dentro il findcropsystem e leggo tra le altre cose gli utenti")
             completion()
-            print(self.idRaccolto)
+            }
         }
-       
+    }
+    
+    func elimina(){
+        db.collection("raccolti").document(self.idRaccolto).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
     }
     
     
     func addAuthorizedPeople(email: String){
+    
         cancellable?.cancel()
+        
         error = nil
+       // problema potrebbe essere che sono dentro qui
+        
+        //self.readDataForAuth {
+            
+           /* [weak self] in
+                guard let self = self else{ return }*/
+                guard email.isNotEmptyUserInput, email.isValidEmail else {
+                    self.error = .missingEmail
+                  return
+                }
+                self.lista = self.utentiAutorizzati
+                print("lista pre add  ")
+                print(self.lista)
+                
+                guard !self.lista.contains(email) else {
+                    self.error = .emailNotAvailable
+                    return
+                }
+            
+                self.lista.append(email)
+                print("lista post add  ")
+                print(self.lista)
 
-        guard email.isNotEmptyUserInput, email.isValidEmail else {
-          error = .missingEmail
-          return
+                self.db.collection("raccolti").document(self.idRaccolto).setData([ "utentiAutorizzati": self.lista ], merge: true)
+                //self.lista = [""]
+        //}
+    }
+    
+    
+    func readDataForAuth(completion: @escaping () -> Void){
+        
+        findCropSystem { [weak self] in
+            guard let self = self else{ return }
+            completion()
         }
-        var lista = self.utentiAutorizzati
-        lista.append(email)
-        db.collection("raccolti").document(self.idRaccolto).setData([ "utentiAutorizzati": lista ], merge: true)
-
+    }
+    
+    func deleteAuthPeople(email: String){
+        self.readDataForAuth {
+            [weak self] in
+                guard let self = self else{ return }
+            //print("email: " + email)
+            var lista = self.utentiAutorizzati
+            lista.removeAll(where: { $0 == email })
+            //print("lista in delete:")
+            //print(lista)
+            self.db.collection("raccolti").document(self.idRaccolto).setData([ "utentiAutorizzati": lista ], merge: true)
+            
+        }
     }
     
     enum SystemError: Error, Equatable {
@@ -109,3 +155,5 @@ final class SystemViewModel: ObservableObject{
 
     }
 }
+
+

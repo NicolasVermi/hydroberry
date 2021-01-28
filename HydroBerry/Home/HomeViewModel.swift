@@ -72,9 +72,8 @@ final class HomeViewModel: ObservableObject{
         
         
         let idUtente = String(Auth.auth().currentUser?.email ?? "nessuno")
-        let raccoltiRef = db.collection("raccolti")
-            .whereField("idUtente", isEqualTo: idUtente )
-            .whereField("selezionato", isEqualTo: true)
+        let raccoltiRef = db.collection("utenti")
+            .whereField("email", isEqualTo: idUtente )
         
         raccoltiRef.addSnapshotListener { (snapshot, error) in
             guard let snapshot = snapshot else {
@@ -87,7 +86,7 @@ final class HomeViewModel: ObservableObject{
                 return
             }
  
-            self.idRaccolto = lastSnapshot.documentID
+            self.idRaccolto = lastSnapshot.get("raccoltoAttivo")! as! String
             completion()
             print(self.idRaccolto)
         }
