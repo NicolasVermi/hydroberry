@@ -20,6 +20,7 @@ struct AddCropStep2View: View {
     @State var systemName: String = ""
     @State var selectedPlant:String
     @State var showAlert = false
+    @State var buttonClicked = true
     
     @ObservedObject var viewModel: AddCropStep2ViewModel
 
@@ -83,8 +84,10 @@ struct AddCropStep2View: View {
 
             Spacer()
             Button(action: {
-                if ((selected1 || selected2 || selected3) && systemName != ""){
-                    viewModel.addCrop(idRaccolto: systemName + String(Auth.auth().currentUser?.email ?? "nessuno"), nomeSistema: systemName, dataInizio: Date(), etaPiantaInizio: plantDays, nomePianta: selectedPlant, idUtente: Auth.auth().currentUser?.email ?? "nessuno")
+                if ((selected1 || selected2 || selected3) && systemName != "" ){
+                    viewModel.addCrop(idRaccolto: systemName + String(Auth.auth().currentUser?.email ?? "nessuno"), nomeSistema: systemName, dataInizio: Date(), etaPiantaInizio: plantDays, nomePianta: selectedPlant, idUtente: Auth.auth().currentUser?.email ?? "nessuno");
+                    
+                    viewModel.addListaRaccolti(idUtente: Auth.auth().currentUser?.email ?? "nessuno")
                     self.showingStep3.toggle();
                 }else{
                     showAlert = true

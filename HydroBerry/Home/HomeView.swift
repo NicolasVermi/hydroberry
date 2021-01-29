@@ -24,7 +24,7 @@ struct HomeView: View {
     
     var body: some View {
        VStack{
-            if viewModel.isLogged(){
+            if viewModel.isLogged{
                 ZStack {
                     VStack {
                         TabView(selection: $selection) {

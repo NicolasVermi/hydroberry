@@ -23,19 +23,27 @@ final class HomeViewModel: ObservableObject{
     @Published var ec = 0.0
     @Published var temperatura = 0.0
     @Published var umidita = 0.0
+    @Published var isLogged: Bool = false
     
     
+    private var db: Firestore
     
-    private var db = Firestore.firestore()
-
-    func isLogged() -> Bool{
-        let idUtente = String(Auth.auth().currentUser?.email ?? "nessuno")
-        if idUtente == "nessuno"{
-            return false
-        }else{
-            return true
+    init() {
+        self.db =  Firestore.firestore()
+        
+        Auth.auth().addStateDidChangeListener { [weak self] (_, user) in
+            if user?.email == nil {
+                self?.isLogged = false
+            }else{
+                self?.isLogged = true
+            }
         }
     }
+
+//    func isLogged() -> Bool{
+//        let idUtente = String(Auth.auth().currentUser?.email ?? "nessuno")
+//
+//    }
     
     func readData(){
 
@@ -72,6 +80,7 @@ final class HomeViewModel: ObservableObject{
         
         
         let idUtente = String(Auth.auth().currentUser?.email ?? "nessuno")
+        print("utente "+idUtente)
         let raccoltiRef = db.collection("utenti")
             .whereField("email", isEqualTo: idUtente )
         
@@ -85,10 +94,9 @@ final class HomeViewModel: ObservableObject{
                 print ("The collection is empty.")
                 return
             }
- 
-            self.idRaccolto = lastSnapshot.get("raccoltoAttivo")! as! String
+            //self.idRaccolto = "Ufficioesempio@gmail.com"
+            self.idRaccolto = lastSnapshot.get("raccoltoAttivo") as! String
             completion()
-            print(self.idRaccolto)
         }
        
     }

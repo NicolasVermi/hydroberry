@@ -82,6 +82,7 @@ final class GrowthViewModel: ObservableObject {
                 print ("The collection is empty.")
                 return
             }
+            
             self.raccoltoAttivo = lastSnapshot.get("raccoltoAttivo") as! String
         
             print("Raccolto attivoo  " + self.raccoltoAttivo)

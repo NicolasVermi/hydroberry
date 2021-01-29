@@ -180,9 +180,9 @@ final class ProfileViewModel: ObservableObject{
         utenteRef.getDocument { [self] (document, error) in
 
             if let document = document, document.exists {
-                self.firstName = document.get("firstName")! as! String
-                self.lastName = document.get("lastName")! as! String
-                let raccolti = document.get("raccolti")! as! [Any]
+                self.firstName = document.get("firstName") as! String
+                self.lastName = document.get("lastName") as! String
+                let raccolti = document.get("raccolti") as! [Any]
                 print("Raccolti:")
                 print(raccolti)
             } else {

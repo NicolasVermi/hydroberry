@@ -49,6 +49,7 @@ final class RegistrationStep2ViewModel: ObservableObject {
         "lastName": lastName,
         "email": email,
         "raccolti": [],
+        "raccoltoAttivo": "",
         ])
     
 
