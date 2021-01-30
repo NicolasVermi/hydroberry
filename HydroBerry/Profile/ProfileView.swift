@@ -42,8 +42,7 @@ struct ProfileView: View {
             }
 
             var body: some View {
-                //if viewModel.showLogin{ LoginView(viewModel: LoginViewModel(), showForgotPassword: {}, showRegistration: {})
-                //}else{
+
                 
                 NavigationView{
                     VStack{
@@ -62,9 +61,6 @@ struct ProfileView: View {
                     }.padding()
                 }.navigationBarHidden(true)
                 .onAppear(perform: {viewModel.readData()})
-                
-
-                //}
                 
             }
             

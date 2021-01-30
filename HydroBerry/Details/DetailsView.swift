@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailsView: View {
     @State var pickerSelection = 0
     @State var titolo: String
+    @State var numero: Double = 0.0
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -35,7 +36,7 @@ struct DetailsView: View {
          ["1","2","3","4","5","6","7","8","9","10","11","12"]]
     
     
-    @State var numero: Int = 0
+   
     @State var dato: Int = 0
     
     var body: some View {    
@@ -79,7 +80,9 @@ struct DetailsView: View {
                         Spacer()
                     }.padding(.top,33)
                     }
-                    }
+                    }.onAppear(perform: {
+                        choseNumero(misura: titolo)
+                    })
 
     }
     
@@ -120,6 +123,28 @@ struct DetailsView: View {
         return lable
     }
     
+    func choseNumero(misura: String){
+        var lable: String = ""
+        switch misura {
+
+        case "Temperatura":
+           numero = 1
+
+        case "Umidità":
+           numero = 3
+            
+        case "pH":
+            numero = 0.22
+        
+        case "EC":
+            numero = 0.11
+
+        default:
+           numero = 1
+        }
+
+    }
+    
 
     private var maxCard: some View {
         CardMinMaxView(generalLabel: choseGeneralLable(misura: titolo)[0],measure: "24.9", symbol: choseSymbol(misura: titolo), measureName: titolo, color: Color(red: 158/255, green: 51/255, blue: 26/255))
@@ -147,7 +172,7 @@ struct DetailsView: View {
                         ForEach(barValues[pickerSelection], id: \.self) {
                             data in
                             VStack(alignment: .leading) {
-                                BarView(value: CGFloat(data), cornerRadius: 20).frame(width:dimensions[pickerSelection])
+                                BarView(value: CGFloat(data), cornerRadius: 20, etichetta:( CGFloat(data) * CGFloat(numero))).frame(width:dimensions[pickerSelection])
                             }
                         }
                         
@@ -174,7 +199,8 @@ struct DetailsView: View {
     struct BarView: View {
         var value: CGFloat
         var cornerRadius: CGFloat
-        //var etichetta: String
+        
+        var etichetta: CGFloat
 
         var body: some View {
             VStack {
@@ -182,7 +208,7 @@ struct DetailsView: View {
                     RoundedRectangle(cornerRadius: cornerRadius)
                         .frame(width: 15, height: 200).foregroundColor(.white)
                     VStack{
-                        Text(String(Int(value))).font(.footnote)
+                        Text(String(Int(etichetta ))).font(.footnote)
 
                         RoundedRectangle(cornerRadius: cornerRadius)
                             .frame(width: 15, height: value*5).foregroundColor(Color(red: 1, green: 163/255, blue: 108/255))

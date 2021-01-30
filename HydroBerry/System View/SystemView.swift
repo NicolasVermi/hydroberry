@@ -29,7 +29,8 @@ struct SystemView: View {
                 .padding(.vertical, 20)
             mailPart
             Spacer()
-        }.onAppear(perform: {
+        }
+        .onAppear(perform: {
             viewModel.readDataSystem()
         })
         .navigationBarHidden(true)
@@ -50,7 +51,10 @@ struct SystemView: View {
             return textField
           }
             Spacer()
-            Button(action: {viewModel.addAuthorizedPeople(email: email)}) {
+            Button(action: {viewModel.addAuthorizedPeople(email: email);
+                   viewModel.addListaRaccolti(idUtente: email)
+                
+            }) {
                 UIViewPreview(horizontalHugging: .defaultHigh) {
                     let button = FullButton()
                     button.setTitle("Invia", for: .normal)
@@ -64,6 +68,7 @@ struct SystemView: View {
                 .background(Color(red: 21/255, green: 132/255, blue: 103/255))
             }.cornerRadius(5)
         }
+        
     }
  
     
@@ -157,7 +162,18 @@ struct SystemView: View {
                   .foregroundColor(Color(ColorTheme.current.danger.p100))
                 Spacer()
               }
-            } else {
+            } else if  viewModel.error == .notRegisteredAccount {
+                 emailView
+                    .border(Color.red, width: 1)
+                    .padding(.vertical)
+                    .padding(.horizontal)
+                    
+                  HStack {
+                    Text("Account non registrato")
+                      .foregroundColor(Color(ColorTheme.current.danger.p100))
+                    Spacer()
+                  }
+            }else{
               emailView.padding(.vertical)
                 .padding(.horizontal)
             }

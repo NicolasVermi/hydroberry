@@ -53,7 +53,6 @@
 		8D7BC5C225B07B7300060817 /* ForgotPasswordStep1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5C125B07B7300060817 /* ForgotPasswordStep1View.swift */; };
 		8D7BC5D425B081BE00060817 /* RegistrationStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5D325B081BE00060817 /* RegistrationStep2View.swift */; };
 		8D7BC5DD25B1B44200060817 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5DC25B1B44200060817 /* EditProfileView.swift */; };
-		8D7BC5E525B1C92B00060817 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BC5E425B1C92B00060817 /* EditProfileViewModel.swift */; };
 		8D8238EB25B6D5A800EA268E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D8238EA25B6D5A800EA268E /* GoogleService-Info.plist */; };
 		8D82391425B72D4C00EA268E /* ForgotPasswordStep1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D82391325B72D4C00EA268E /* ForgotPasswordStep1ViewModel.swift */; };
 		8DABC9C625A85B2A0064B141 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DABC9C525A85B2A0064B141 /* SplashScreenView.swift */; };
@@ -147,7 +146,6 @@
 		8D7BC5C125B07B7300060817 /* ForgotPasswordStep1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordStep1View.swift; sourceTree = "<group>"; };
 		8D7BC5D325B081BE00060817 /* RegistrationStep2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationStep2View.swift; sourceTree = "<group>"; };
 		8D7BC5DC25B1B44200060817 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
-		8D7BC5E425B1C92B00060817 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		8D8238EA25B6D5A800EA268E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8D82391325B72D4C00EA268E /* ForgotPasswordStep1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordStep1ViewModel.swift; sourceTree = "<group>"; };
 		8DABC9C525A85B2A0064B141 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
@@ -438,7 +436,6 @@
 				8DB0B71725AF556A0083AC57 /* NewSystemCardView.swift */,
 				8D7BC5B825B0390000060817 /* SystemCardView.swift */,
 				8D7BC5DC25B1B44200060817 /* EditProfileView.swift */,
-				8D7BC5E425B1C92B00060817 /* EditProfileViewModel.swift */,
 				8D736D3625B998F400CE98B2 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
@@ -749,7 +746,6 @@
 				8DB0B6CE25AF467D0083AC57 /* LoginView.swift in Sources */,
 				8DABC9DF25A8954B0064B141 /* OnboardingItem.swift in Sources */,
 				8D55193E25AF111E002490C7 /* PasswordMeterView.swift in Sources */,
-				8D7BC5E525B1C92B00060817 /* EditProfileViewModel.swift in Sources */,
 				8DABC9C625A85B2A0064B141 /* SplashScreenView.swift in Sources */,
 				8DABC9D125A86A8A0064B141 /* CardMinMaxView.swift in Sources */,
 				8D736D3F25B9D37700CE98B2 /* AddCropStep2ViewModel.swift in Sources */,

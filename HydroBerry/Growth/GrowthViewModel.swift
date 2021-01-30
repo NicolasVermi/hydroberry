@@ -91,7 +91,7 @@ final class GrowthViewModel: ObservableObject {
             
             let raccoltiRef = self.db.collection("raccolti").document(self.raccoltoAttivo)
             
-            raccoltiRef.addSnapshotListener { (snapshot, error) in
+            raccoltiRef.getDocument { (snapshot, error) in
                 guard let snapshot = snapshot else {
                     print("Error retreving raccolti: \(error.debugDescription)")
                     return
@@ -104,8 +104,6 @@ final class GrowthViewModel: ObservableObject {
 
             self.delta = Int(round((Date().timeIntervalSinceReferenceDate - aDate.timeIntervalSinceReferenceDate)/86400))
             
-            
-
             print(self.nomePianta)
             
             completion()

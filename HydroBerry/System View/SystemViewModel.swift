@@ -21,8 +21,10 @@ final class SystemViewModel: ObservableObject{
     @Published var idRaccolto = ""
     @Published var nomePianta = ""
     @Published var utentiAutorizzati = [""]
+    @Published var raccolti = [""]
     @Published var error: SystemError?
     @Published var raccoltoAttivo = ""
+    @Published var raccoltoAttuale = ""
     var lista = [""]
  
 
@@ -38,8 +40,30 @@ final class SystemViewModel: ObservableObject{
 
         }
     }
-        
     
+    
+    
+    func deleteAuthPeople(email: String){
+        self.readDataForAuth {
+            [weak self] in
+                guard let self = self else{ return }
+            var lista = self.utentiAutorizzati
+            lista.removeAll(where: { $0 == email })
+            self.db.collection("raccolti").document(self.idRaccolto).setData([ "utentiAutorizzati": lista ], merge: true)
+            
+        }
+    }
+    
+    
+    func readDataForAuth(completion: @escaping () -> Void){
+        
+        findCropSystem { [weak self] in
+            guard let self = self else{ return }
+            completion()
+        }
+    }
+    
+    // non devo andare a modificare il raccolto attivo ma quello cliccato nella systema view
     
     func findCropSystem(completion: @escaping () -> Void){
  
@@ -59,8 +83,11 @@ final class SystemViewModel: ObservableObject{
                 return
             }
             
+            
             self.raccoltoAttivo = lastSnapshot.get("raccoltoAttivo") as! String
         
+            // potrei eliminare dal principio fino a qua probabilmente se passassi il valore
+            
             print("Raccolto attivoo  " + self.raccoltoAttivo)
             self.idRaccolto = self.raccoltoAttivo
                         
@@ -81,15 +108,7 @@ final class SystemViewModel: ObservableObject{
         }
     }
     
-    func elimina(){
-        db.collection("raccolti").document(self.idRaccolto).delete() { err in
-            if let err = err {
-                print("Error removing document: \(err)")
-            } else {
-                print("Document successfully removed!")
-            }
-        }
-    }
+
     
     
     func addAuthorizedPeople(email: String){
@@ -97,61 +116,102 @@ final class SystemViewModel: ObservableObject{
         cancellable?.cancel()
         
         error = nil
-       // problema potrebbe essere che sono dentro qui
+
+        guard email.isNotEmptyUserInput, email.isValidEmail else {
+            self.error = .missingEmail
+          return
+        }
         
-        //self.readDataForAuth {
+        self.lista = self.utentiAutorizzati
+        print("lista pre add  ")
+        print(self.lista)
+        
+        guard !self.lista.contains(email) else {
+            self.error = .emailNotAvailable
+            return
+        }
+    
+        
+        let utentiRef = db.collection("utenti").document(email)
+        
+        utentiRef.getDocument { (snapshot, error) in
+            guard let snapshot = snapshot else { return }
             
-           /* [weak self] in
-                guard let self = self else{ return }*/
-                guard email.isNotEmptyUserInput, email.isValidEmail else {
-                    self.error = .missingEmail
-                  return
-                }
-                self.lista = self.utentiAutorizzati
-                print("lista pre add  ")
+            if snapshot.get("email") != nil
+            {
+                self.lista.append(email)
+                self.db.collection("raccolti").document(self.idRaccolto).setData([ "utentiAutorizzati": self.lista ], merge: true)
+                
                 print(self.lista)
                 
-                guard !self.lista.contains(email) else {
-                    self.error = .emailNotAvailable
-                    return
-                }
-            
-                self.lista.append(email)
-                print("lista post add  ")
-                print(self.lista)
+            }else{
+                
+                print("utenteInesistente")
+                self.error = .notRegisteredAccount
 
-                self.db.collection("raccolti").document(self.idRaccolto).setData([ "utentiAutorizzati": self.lista ], merge: true)
-                //self.lista = [""]
-        //}
+            }
+            print("sono dentro")
+        }
+
+     
     }
     
     
-    func readDataForAuth(completion: @escaping () -> Void){
-        
-        findCropSystem { [weak self] in
+
+    
+
+    
+    
+    //---------------------------------------------------------------------------------------------------------
+    // da modificare
+    // cosa fare: praticamente bisogna andare ad eliminare il sistema che viene attualmente visualizzato che non è per forza quello attivo. Qualora fosse pure quello attivo bisogna andare a eliminare dagli attivi quello che è stato eliminato
+    // questo al momento non fa nulla ed è solo la copia di quello fatto di la
+    
+    func addListaRaccolti(idUtente: String)
+    {
+        findRaccolti(idUtente: idUtente){ [weak self] in
             guard let self = self else{ return }
+            if self.raccolti != [""]
+            {
+                self.db.collection("utenti").document(idUtente).setData(["raccolti": self.raccolti], merge: true)
+                print("ho aggiunto il raccolto all'utente")
+            }
+
+        }
+    }
+    
+    
+    func findRaccolti(idUtente: String ,completion: @escaping () -> Void) {
+        
+        let utentiRef = db.collection("utenti").document(idUtente)
+        
+        utentiRef.getDocument { (snapshot, error) in
+            guard let snapshot = snapshot else {
+                return
+                print("utenteInesistente")
+            }
+            
+            if snapshot.get("raccolti") != nil
+            {
+                
+                self.raccolti = snapshot.get("raccolti") as! [String]
+                self.raccolti.append(self.idRaccolto)
+            }else{
+                print("snap nullo")
+            }
+            
             completion()
         }
     }
     
-    func deleteAuthPeople(email: String){
-        self.readDataForAuth {
-            [weak self] in
-                guard let self = self else{ return }
-            //print("email: " + email)
-            var lista = self.utentiAutorizzati
-            lista.removeAll(where: { $0 == email })
-            //print("lista in delete:")
-            //print(lista)
-            self.db.collection("raccolti").document(self.idRaccolto).setData([ "utentiAutorizzati": lista ], merge: true)
-            
-        }
-    }
+    //---------------------------------------------------------------------------------------------------------------
+    // aggiungere funzionalità per aggiungere raccolto cliccando su invia alla lista raccolti dell'utente della mail inserita
     
     enum SystemError: Error, Equatable {
       case emailNotAvailable
       case generic
       case missingEmail
+      case notRegisteredAccount
 
     }
 }
