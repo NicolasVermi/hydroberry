@@ -165,7 +165,6 @@ final class ProfileViewModel: ObservableObject{
       case missingLastName
     
 }
-    //private var db = Firestore.firestore()
     
     init(email:String) {
         self.email = email
@@ -177,7 +176,7 @@ final class ProfileViewModel: ObservableObject{
     
     func readData(){
         let utenteRef = db.collection("utenti").document(email)
-        utenteRef.getDocument { [self] (document, error) in
+        utenteRef.addSnapshotListener { [self] (document, error) in
 
             if let document = document, document.exists {
                 self.firstName = document.get("firstName") as! String
