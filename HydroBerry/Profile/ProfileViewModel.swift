@@ -145,15 +145,6 @@ final class ProfileViewModel: ObservableObject{
         showAlert = true
     }
     
-    
-    
-    
-
-    
-
-    
-    
-    
 
     
     enum EditProfileError: Error, Equatable {

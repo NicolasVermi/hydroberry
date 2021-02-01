@@ -104,11 +104,12 @@ final class GrowthViewModel: ObservableObject {
                 self.delta = Int(round((Date().timeIntervalSinceReferenceDate - aDate.timeIntervalSinceReferenceDate)/86400))
                 
                 print(self.nomePianta)
+                completion()
             }
             
-            completion()
                 
-        }
+            }
+
         }
     }
 
