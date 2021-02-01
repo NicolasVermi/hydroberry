@@ -22,6 +22,7 @@ final class GrowthViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var percCompletamento: CGFloat = 0.0
     @Published var raccoltoAttivo = ""
+    @Published var etaPiantaInizio = 0
 
     
     private var db = Firestore.firestore()
@@ -44,7 +45,7 @@ final class GrowthViewModel: ObservableObject {
     }
     
     func findTime(completion: @escaping () -> Void){
-        print("sono in grwthview model")
+        print("sono in growthview model")
         let piantaRef = self.db.collection("piante").document(self.nomePianta)
         piantaRef.getDocument { [self] (document, error) in
             
@@ -89,7 +90,8 @@ final class GrowthViewModel: ObservableObject {
             
             if self.raccoltoAttivo != ""{
             
-                let raccoltiRef = self.db.collection("raccolti").document(self.raccoltoAttivo)
+            let raccoltiRef = self.db.collection("raccolti").document(self.raccoltoAttivo)
+
                 
                 raccoltiRef.getDocument { (snapshot, error) in
                     guard let snapshot = snapshot else {
@@ -98,10 +100,11 @@ final class GrowthViewModel: ObservableObject {
                     }
 
                 self.nomePianta = snapshot.get("nomePianta") as! String
+                self.etaPiantaInizio = snapshot.get("etaPiantaInizio") as! Int
                 let ts = snapshot.get("dataInizio") as! Timestamp
                 let aDate = ts.dateValue()
 
-                self.delta = Int(round((Date().timeIntervalSinceReferenceDate - aDate.timeIntervalSinceReferenceDate)/86400))
+                    self.delta = Int(round((Date().timeIntervalSinceReferenceDate - aDate.timeIntervalSinceReferenceDate)/86400)) + self.etaPiantaInizio
                 
                 print(self.nomePianta)
                 completion()
