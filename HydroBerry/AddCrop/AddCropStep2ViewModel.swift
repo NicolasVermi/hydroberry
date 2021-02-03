@@ -20,7 +20,7 @@ final class AddCropStep2ViewModel: ObservableObject{
     @Published var error: RegistrationStep2Error?
     @Published var errorType = ""
     @Published var success = false
-    @Published var raccolti = [""]
+    @Published var raccolti = []
     @Published var idUtente = ""
     @Published var idRaccolto = ""
 

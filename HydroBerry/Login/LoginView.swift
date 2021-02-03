@@ -12,8 +12,7 @@ import SwiftUI
 
 struct LoginView: View {
   @ObservedObject var viewModel: LoginViewModel
-  let showForgotPassword: () -> Void
-  let showRegistration: () -> Void
+
 
   @State private var email = ""
   @State private var password = ""
@@ -48,8 +47,10 @@ struct LoginView: View {
       textField.autocorrectionType = .no
       textField.returnKeyType = .done
       return textField
+
     }
   }
+    
 
   var passwordView: some View {
     CustomTextField(
@@ -58,7 +59,7 @@ struct LoginView: View {
       text: $password
     ) {
       let textField = DuckTextField()
-      textField.placeholder = "Inserisci password"
+        textField.placeholder = "Inserisci password"
       textField.backgroundStyle = .color(ColorTheme.current.gray.p20)
       textField.cornerRadius = .large
       textField.autocapitalizationType = .none
@@ -74,12 +75,13 @@ struct LoginView: View {
       if viewModel.error == .missingEmail {
         VStack(alignment: .leading) {
           emailView
+            
             .border(Color.red, width: 1)
           Text("Mail non corretta")
             .foregroundColor(Color(ColorTheme.current.danger.p100))
         }
       } else {
-        emailView
+            emailView
       }
 
       Spacer().frame(height: 22)
@@ -93,6 +95,7 @@ struct LoginView: View {
         }
       } else {
         passwordView
+            .frame(minWidth:100, maxWidth: 1000)
       }
 
       Spacer().frame(height: 22)
@@ -181,13 +184,8 @@ struct LoginView: View {
   struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
       LoginView(
-        viewModel: LoginViewModel(
-            //api: MockLoginService(),
-            //onLogin: {}
-        ),
-        showForgotPassword: {},
-        showRegistration: {}
-      )//.previewAsScreen(colorSchemes: [.light])
+        viewModel: LoginViewModel()
+      )
     }
   }
 #endif

@@ -64,7 +64,7 @@ struct HomeView: View {
                     }.navigationBarHidden(true)
                 }.navigationBarHidden(true)
             }else{
-                LoginView(viewModel: LoginViewModel(), showForgotPassword: {}, showRegistration: {})
+                LoginView(viewModel: LoginViewModel())
             }
         }
     }

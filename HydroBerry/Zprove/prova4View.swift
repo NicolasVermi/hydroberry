@@ -76,13 +76,13 @@ struct Prova4View: View {
                                 AddCropStep1View()
                             }
 
-                            
+                            /*
                             NavigationLink(destination: SystemView(selectedPlant: "Pomodoro")) {
                                 SystemCardView()
                             }.navigationBarHidden(true)
                             
                             SystemCardView()
-                            SystemCardView()
+                            SystemCardView()*/
                         }
                         
                     }

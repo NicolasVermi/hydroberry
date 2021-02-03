@@ -25,6 +25,7 @@ final class SystemViewModel: ObservableObject{
     @Published var error: SystemError?
     @Published var raccoltoAttivo = ""
     @Published var raccoltoAttuale = ""
+    @Published var active = false
     var lista = [""]
  
 
@@ -33,18 +34,19 @@ final class SystemViewModel: ObservableObject{
 
     
     
-    func readDataSystem(){
+    func readDataSystem(raccoltoID: String){
         
-        findCropSystem { [weak self] in
+        findCropSystem (raccoltoID: raccoltoID){ [weak self] in
             guard let self = self else{ return }
-
+            self.activeOrNot(raccoltoID: raccoltoID)
+            
         }
     }
     
     
     
-    func deleteAuthPeople(email: String){
-        self.readDataForAuth {
+    func deleteAuthPeople(email: String, raccoltoID: String){
+        self.readDataForAuth(raccoltoID: raccoltoID) {
             [weak self] in
                 guard let self = self else{ return }
             var lista = self.utentiAutorizzati
@@ -55,44 +57,23 @@ final class SystemViewModel: ObservableObject{
     }
     
     
-    func readDataForAuth(completion: @escaping () -> Void){
+    func readDataForAuth(raccoltoID: String, completion: @escaping () -> Void){
         
-        findCropSystem { [weak self] in
+        findCropSystem(raccoltoID: raccoltoID) { [weak self] in
             guard let self = self else{ return }
             completion()
         }
     }
     
-    // non devo andare a modificare il raccolto attivo ma quello cliccato nella systema view
     
-    func findCropSystem(completion: @escaping () -> Void){
- 
-        let idUtente = String(Auth.auth().currentUser?.email ?? "nessuno")
-        let utentiRef = db.collection("utenti")
-            .whereField("email", isEqualTo: idUtente )
-        
-        utentiRef.addSnapshotListener { (snapshot, error) in
-            
-            guard let snapshot = snapshot else {
-                print("Error retreving raccolti: \(error.debugDescription)")
-                return
-            }
-            
-            guard let lastSnapshot = snapshot.documents.last else {
-                print ("The collection is empty.")
-                return
-            }
-            
-            
-            self.raccoltoAttivo = lastSnapshot.get("raccoltoAttivo") as! String
-        
-            // potrei eliminare dal principio fino a qua probabilmente se passassi il valore
-            
-            print("Raccolto attivoo  " + self.raccoltoAttivo)
-            self.idRaccolto = self.raccoltoAttivo
-                        
-            let raccoltiRef = self.db.collection("raccolti").document(self.raccoltoAttivo)
-            
+    
+   
+    
+    func findCropSystem(raccoltoID: String, completion: @escaping () -> Void){
+
+            let raccoltiRef = self.db.collection("raccolti").document(raccoltoID)
+            print("raccolto ID")
+            print(raccoltoID)
             raccoltiRef.addSnapshotListener { (snapshot, error) in
                 guard let snapshot = snapshot else {
                     print("Error retreving raccolti: \(error.debugDescription)")
@@ -104,10 +85,9 @@ final class SystemViewModel: ObservableObject{
             //print(self.nomePianta)
             print("sono dentro il findcropsystem e leggo tra le altre cose gli utenti")
             completion()
-            }
+            
         }
     }
-    
 
     
     
@@ -157,15 +137,29 @@ final class SystemViewModel: ObservableObject{
     }
     
     
+    
+    func elimina(raccoltoID: String){
+        findCropSystem (raccoltoID: raccoltoID){ [weak self] in
+            guard let self = self else{ return }
+            let utente = Auth.auth().currentUser?.email ?? "nessuno"
+            let utenteRef = self.db.collection("utenti").document(utente)
+            utenteRef.addSnapshotListener { (snapshot, error) in
+                guard let snapshot = snapshot else {
+                    print("Error retreving raccolti: \(error.debugDescription)")
+                    return
+                }
+            self.raccolti = snapshot.get("raccolti") as! [String]
+            self.raccolti.removeAll(where: { $0 == raccoltoID })
+            self.db.collection("utenti").document(utente).setData([ "raccolti": self.raccolti ], merge: true)
 
+        }
+    }
+    }
+    
+    
+    
     
 
-    
-    
-    //---------------------------------------------------------------------------------------------------------
-    // da modificare
-    // cosa fare: praticamente bisogna andare ad eliminare il sistema che viene attualmente visualizzato che non è per forza quello attivo. Qualora fosse pure quello attivo bisogna andare a eliminare dagli attivi quello che è stato eliminato
-    // questo al momento non fa nulla ed è solo la copia di quello fatto di la
     
     func addListaRaccolti(idUtente: String)
     {
@@ -204,8 +198,30 @@ final class SystemViewModel: ObservableObject{
         }
     }
     
+
+    func activeOrNot(raccoltoID: String){
+        let utente = Auth.auth().currentUser?.email ?? "nessuno"
+        let utentiRef = self.db.collection("utenti").document(utente)
+
+        utentiRef.addSnapshotListener { (snapshot, error) in
+            guard let snapshot = snapshot else {
+                print("Error retreving raccolti: \(error.debugDescription)")
+                return
+            }
+        self.raccoltoAttuale = snapshot.get("raccoltoAttivo") as! String
+            if self.raccoltoAttuale == raccoltoID{
+                self.active = true
+            }
+        }
+    }
+    
+    func activeSystem(raccoltoID: String){
+        let utente = Auth.auth().currentUser?.email ?? "nessuno"
+        self.db.collection("utenti").document(utente).setData(["raccoltoAttivo":raccoltoID], merge: true)
+
+    }
+    
     //---------------------------------------------------------------------------------------------------------------
-    // aggiungere funzionalità per aggiungere raccolto cliccando su invia alla lista raccolti dell'utente della mail inserita
     
     enum SystemError: Error, Equatable {
       case emailNotAvailable

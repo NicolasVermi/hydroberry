@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AuthCardView: View {
     @StateObject var viewModel = SystemViewModel()
+    @State var raccoltoID: String
 
     var mail: String
     
@@ -17,7 +18,7 @@ struct AuthCardView: View {
         HStack{
             Text(mail)
             Spacer()
-            Button(action:{ viewModel.deleteAuthPeople(email: mail) ; print("Da eliminare")}){
+            Button(action:{ viewModel.deleteAuthPeople(email: mail, raccoltoID: raccoltoID) ; print("Da eliminare")}){
                 Image("ic_exit")
             }
         }.padding()
@@ -31,6 +32,6 @@ struct AuthCardView: View {
 
 struct AuthCardView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthCardView(mail: "mariorossi@gmail.com")
+        AuthCardView(raccoltoID: "", mail: "mariorossi@gmail.com")
     }
 }

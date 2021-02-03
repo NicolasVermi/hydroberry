@@ -13,6 +13,7 @@ struct AddCropStep3View: View {
     @State var showingInfo = false
     @State var selectedPlant: String
     
+    
     var body: some View {
         
             VStack{
@@ -23,9 +24,6 @@ struct AddCropStep3View: View {
                 bottomPart
                 Spacer()
             }
-        
-        
-        
     }
     
     private var titleBar: some View{

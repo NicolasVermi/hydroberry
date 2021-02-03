@@ -18,6 +18,12 @@ final class ProfileViewModel: ObservableObject{
     @Published var firstName = ""
     @Published var lastName = ""
     @Published var raccolti = [""]
+    @Published var nomePianta = ""
+    @Published var nomeRaccolto = ""
+    @Published var utentiAutorizzati = [""]
+    @Published var idRaccolto = ""
+    @Published var listaCrops = [Impianto]()
+
     @Published var showLogin = false
     
     @Published var error: EditProfileError?
@@ -166,20 +172,72 @@ final class ProfileViewModel: ObservableObject{
     }
     
     func readData(){
+        self.raccolti = [""]
+
+        findUserSystem { [weak self] in
+            guard let self = self else{ return }
+            self.listaCrops = []
+            for i in self.raccolti{
+                
+                self.findCrop(raccolto: i) { [weak self] in
+                    guard let self = self else{ return }
+                    
+                    var crop = Impianto(idRaccolto: self.idRaccolto, nomeRaccolto: self.nomeRaccolto, nomePianta: self.nomePianta, listaUtentiAutorizzati: self.utentiAutorizzati)
+                    
+                    self.listaCrops.append(crop)
+                }
+            }
+        }
+
+    }
+    
+    
+    func findUserSystem(completion: @escaping () -> Void){
         let utenteRef = db.collection("utenti").document(email)
         utenteRef.addSnapshotListener { [self] (document, error) in
 
             if let document = document, document.exists {
                 self.firstName = document.get("firstName") as! String
                 self.lastName = document.get("lastName") as! String
-                let raccolti = document.get("raccolti") as! [Any]
+                self.raccolti = document.get("raccolti") as! [String]
                 print("Raccolti:")
-                print(raccolti)
+                print(self.raccolti)
             } else {
                 print("Document does not exist")
             }
+            completion()
+
         }
     }
     
+    func findCrop(raccolto: String, completion: @escaping () -> Void){
+        
+        let raccoltoRef = db.collection("raccolti").document(raccolto)
+        raccoltoRef.addSnapshotListener { [self] (document, error) in
+
+            if let document = document, document.exists {
+                
+                self.nomePianta = document.get("nomePianta") as! String
+                self.nomeRaccolto = document.get("nomeSistema") as! String
+                self.utentiAutorizzati = document.get("utentiAutorizzati") as! [String]
+                self.idRaccolto = document.documentID
+                print(self.nomePianta)
+                print(self.nomeRaccolto)
+                print(self.utentiAutorizzati)
+            
+            } else {
+                print("Document does not exist")
+            }
+            completion()
+        }
+    }
     
+}
+
+struct Impianto{
+    let idRaccolto: String
+    let nomeRaccolto: String
+    let nomePianta: String
+    let listaUtentiAutorizzati: [String]
+
 }

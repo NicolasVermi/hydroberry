@@ -40,18 +40,16 @@ final class HomeViewModel: ObservableObject{
         }
     }
 
-//    func isLogged() -> Bool{
-//        let idUtente = String(Auth.auth().currentUser?.email ?? "nessuno")
-//
-//    }
     
     func readData(){
 
         findCrop{ [weak self] in
             guard let self = self else{ return }
-
-            let misurazioneRef = self.db.collection("misurazioni")
-            .whereField("idRaccolto", isEqualTo: self.idRaccolto)
+            
+            var misurazioneRef = self.db.collection("misurazioni")
+                .whereField("idRaccolto", isEqualTo: self.idRaccolto)
+                .order(by: "tempo")
+            
         
         misurazioneRef.addSnapshotListener { (snapshot, error) in
             guard let snapshot = snapshot else {

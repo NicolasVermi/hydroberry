@@ -179,7 +179,7 @@ struct RegistrationStep1View: View {
 
         HStack {
           Spacer()
-            NavigationLink(destination: LoginView(viewModel: LoginViewModel(), showForgotPassword: {}, showRegistration: {})) {
+            NavigationLink(destination: LoginView(viewModel: LoginViewModel())) {
             Text("Login")
               .foregroundColor(Color(ColorTheme.current.secondary.dark))
               .fixedSize(horizontal: false, vertical: true)

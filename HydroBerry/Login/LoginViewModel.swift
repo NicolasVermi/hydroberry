@@ -66,8 +66,7 @@ final class LoginViewModel: ObservableObject {
         print("User signs in successfully")
         self.success = true
         self.showErrorAlert = false
-        let userInfo = Auth.auth().currentUser
-        let email = userInfo?.email
+
       }
     }
   }

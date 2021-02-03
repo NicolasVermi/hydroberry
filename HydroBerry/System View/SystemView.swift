@@ -13,6 +13,7 @@ struct SystemView: View {
     @State var email = ""
     @State var showingAlert = false
     @State var selectedPlant: String
+    @State var raccoltoID: String
     @StateObject var viewModel = SystemViewModel()
 
     
@@ -22,6 +23,7 @@ struct SystemView: View {
         VStack(alignment:.leading){
             titleBar.frame(maxHeight:50)
             cropBar
+            activeSystemBar
             Rectangle()
                 .frame(height:16)
                 .foregroundColor(Color(red: 247/255, green: 247/255, blue: 247/255))
@@ -31,7 +33,7 @@ struct SystemView: View {
             Spacer()
         }
         .onAppear(perform: {
-            viewModel.readDataSystem()
+            viewModel.readDataSystem(raccoltoID: raccoltoID)
         })
         .navigationBarHidden(true)
     }
@@ -87,9 +89,8 @@ struct SystemView: View {
                     .padding(.horizontal, 18)
                     .onTapGesture {
                         showingAlert = true
-                        //viewModel.elimina()
                     }.alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Messaggio Importante"), message: Text("Sei sicuro di voler eliminare il sistema?"), primaryButton: .default(Text("Elimina")), secondaryButton: .cancel())
+                        Alert(title: Text("Messaggio Importante"), message: Text("Sei sicuro di voler eliminare il sistema?"), primaryButton: .default(Text("Elimina"), action: { self.presentationMode.wrappedValue.dismiss(); viewModel.elimina(raccoltoID: raccoltoID)}), secondaryButton: .cancel())
                     }
             }
             Image(systemName: "chevron.left")
@@ -114,7 +115,7 @@ struct SystemView: View {
                         .font(Font.system(size:15, weight: .regular))
                         .padding(17)
                     Spacer()
-                    Text(viewModel.nomePianta)
+                    Text(selectedPlant)
                         .font(Font.system(size:15, weight: .semibold))
                     Button(action: {
                         self.showingInfo.toggle()
@@ -126,10 +127,38 @@ struct SystemView: View {
                     }.sheet(isPresented: $showingInfo) {
                         InformationView(viewModel: InformationViewModel(nome: selectedPlant), selectedPlant: selectedPlant)
                     }
-                    
                 }
             ).padding(.horizontal, 15)
-            .padding(.vertical, 30)
+            .padding(.top, 30)
+    }
+    
+    private var activeSystemBar: some View{
+        Rectangle()
+            .foregroundColor(Color(red: 247/255, green: 247/255, blue: 247/255))
+            .cornerRadius(10)
+            .frame(height:51)
+            .overlay(
+                HStack{
+                    Text("Stato:")
+                        .font(Font.system(size:15, weight: .regular))
+                        .padding(17)
+                    Spacer()
+                    if viewModel.active{
+                    Text("Raccolto attivo")
+                        .font(Font.system(size:15, weight: .semibold))
+                        .padding()
+                        
+                    }else{
+                        Button(action: {viewModel.activeSystem(raccoltoID: raccoltoID)}) {
+                        Text("Attiva")
+                        .padding(.horizontal, 20)
+                    }
+                    }
+                    }
+                    
+                
+            ).padding(.horizontal, 15)
+            .padding(.bottom, 10)
     }
 
     
@@ -188,7 +217,7 @@ struct SystemView: View {
             ScrollView{
                 ForEach(viewModel.utentiAutorizzati, id: \.self) {
                     mail in
-                        AuthCardView(mail: mail)
+                    AuthCardView(raccoltoID: raccoltoID, mail: mail)
                 }.onDelete
                 { _ in print("eliminato") }
             }
@@ -200,6 +229,6 @@ struct SystemView: View {
 
 struct SystemView_Previews: PreviewProvider {
     static var previews: some View {
-        SystemView(selectedPlant: "Pomodoro")
+        SystemView(selectedPlant: "Pomodoro", raccoltoID: "Ufficioesempio@gmail.com")
     }
 }

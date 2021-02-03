@@ -43,16 +43,16 @@ struct ProfileView: View {
 
             var body: some View {
 
-                
                 NavigationView{
                     VStack{
+                        Spacer()
+
                         HStack{
                             Text("Profilo").multilineTextAlignment(.leading)
                                 .font(Font.system(size:34, weight: .bold))
                             Spacer()
                         }
                         .padding(.bottom,20)
-                        
                         systemPart
                         
                         Spacer()
@@ -71,25 +71,28 @@ struct ProfileView: View {
                             .font(Font.system(size:22, weight: .semibold))
                         Spacer()
                     }.padding(.bottom,10)
+                    
                     HStack{
                         Text("Sistemi:")
                         Spacer()
                     }
+                    
                     ScrollView(.horizontal){
                         HStack{
-                            Button(action: {
-                                self.showingAddCrop.toggle()
-                            }) {
-                                
+                            Button(action: { self.showingAddCrop.toggle() } ) {
                                 NewSystemCardView()
                             }.sheet(isPresented: $showingAddCrop) {
                                 AddCropStep1View()
                             }
-                            NavigationLink(destination: SystemView( selectedPlant: "Pomodoro")) {
-                                SystemCardView()
-                            }.navigationBarHidden(true)
-                            SystemCardView()
-                            SystemCardView()
+
+                            ForEach(Array(zip(self.viewModel.listaCrops.indices, self.viewModel.listaCrops)), id:\.0) { _, item in
+                            
+                                NavigationLink (destination: SystemView(selectedPlant: item.nomePianta, raccoltoID: item.idRaccolto)){
+
+                                    SystemCardView(pianta: item.nomePianta, nomeSistema: item.nomeRaccolto)
+
+                                }.navigationBarHidden(true)
+                          }
                         }
                     }
                 }
@@ -149,7 +152,8 @@ struct ProfileView: View {
                             }), secondaryButton: .cancel())
                         }
 
-                    }}
+                    }
+                }
         }
     }
     }

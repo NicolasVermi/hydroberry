@@ -71,7 +71,7 @@ struct TermsAndPrivacyView: View {
             
           var body: some View {
             if showLogin{
-                LoginView(viewModel: LoginViewModel(), showForgotPassword: {}, showRegistration: {})
+                LoginView(viewModel: LoginViewModel())
             }
             else{
                 VStack(alignment: .leading) {
