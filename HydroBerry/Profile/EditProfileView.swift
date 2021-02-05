@@ -142,10 +142,8 @@ struct EditProfileView: View {
             
             
             Button(action: {
-                viewModel.updateName(firstName: firstName, lastName: lastName)
-                viewModel.updateEmail(email: email)
-                viewModel.updatePassword(password: password)
-                viewModel.updateFirestore(email: email, firstName: firstName, lastName: lastName)
+                viewModel.updateUserData(firstName: firstName, lastName: lastName, password: password, email: email)
+
                     //self.presentationMode.wrappedValue.dismiss()
                 
             }) {

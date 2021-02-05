@@ -64,7 +64,10 @@ struct HomeView: View {
                     }.navigationBarHidden(true)
                 }.navigationBarHidden(true)
             }else{
-                LoginView(viewModel: LoginViewModel())
+               // LoginView(viewModel: LoginViewModel())
+                Text("Loading...")
+                    .font(Font.system(size:17, weight: .bold))
+                    .foregroundColor(Color(red: 21/255, green: 132/255, blue: 103/255))
             }
         }
     }

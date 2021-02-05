@@ -59,6 +59,11 @@ final class HomeViewModel: ObservableObject{
 
             guard let lastSnapshot = snapshot.documents.last else {
                 print ("The collection is empty.")
+                self.temperatura = 0.0
+                self.ph = 0.0
+                self.ec = 0.0
+                self.umidita = 0.0
+
                 return
             }
  

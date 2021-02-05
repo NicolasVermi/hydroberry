@@ -24,7 +24,7 @@ struct DetailsView: View {
     
     var titlesPart2: [String] = ["giornaliero", "settimanale", "mensile", "annuale"]
     
-    var dimensions: [CGFloat] = [18,40,18,18]
+    var dimensions: [CGFloat] = [20,40,20,20]
     var generalLableMax: [String] = ["massima rilevata", "massimo rilevato"]
     var generalLableMin: [String] = ["minima rilevata", "minimo rilevato"]
     var generalLableCons: [String] = ["consigliata", "consigliato"]
@@ -147,17 +147,19 @@ struct DetailsView: View {
     
 
     private var maxCard: some View {
-        CardMinMaxView(generalLabel: choseGeneralLable(misura: titolo)[0],measure: "24.9", symbol: choseSymbol(misura: titolo), measureName: titolo, color: Color(red: 158/255, green: 51/255, blue: 26/255))
-            .padding(-2.0)
+        CardMinMaxView(generalLabel: choseGeneralLable(misura: titolo)[0],measure: String(numero * 25), symbol: choseSymbol(misura: titolo), measureName: titolo, color: Color(red: 158/255, green: 51/255, blue: 26/255))
+
             
     }
 
     private var minCard: some View {
-        CardMinMaxView(generalLabel: choseGeneralLable(misura: titolo)[1],measure: "21.9", symbol: choseSymbol(misura: titolo), measureName: titolo, color: Color(red: 108/255, green: 223/255, blue: 239/255))
+        CardMinMaxView(generalLabel: choseGeneralLable(misura: titolo)[1],measure: String(numero * 22), symbol: choseSymbol(misura: titolo), measureName: titolo, color: Color(red: 108/255, green: 223/255, blue: 239/255))
+
     }
     
     private var recommendedValueCard: some View {
-        CardMinMaxView(generalLabel: choseGeneralLable(misura: titolo)[2],measure: "22-25", symbol: choseSymbol(misura: titolo), measureName: titolo, color: Color(red: 21/255, green: 132/255, blue: 103/255))
+        CardMinMaxView(generalLabel: choseGeneralLable(misura: titolo)[2],measure: String(format: "%.1f",numero * 22) + "-" + String(format: "%.1f",numero * 25), symbol: choseSymbol(misura: titolo), measureName: titolo, color: Color(red: 21/255, green: 132/255, blue: 103/255))
+
     }
 
     private var graphicPart: some View {
@@ -208,7 +210,8 @@ struct DetailsView: View {
                     RoundedRectangle(cornerRadius: cornerRadius)
                         .frame(width: 15, height: 200).foregroundColor(.white)
                     VStack{
-                        Text(String(Int(etichetta ))).font(.footnote)
+                        Text(String(format: "%.1f", etichetta))
+                                                    .font(Font.system(size:9))
 
                         RoundedRectangle(cornerRadius: cornerRadius)
                             .frame(width: 15, height: value*5).foregroundColor(Color(red: 1, green: 163/255, blue: 108/255))

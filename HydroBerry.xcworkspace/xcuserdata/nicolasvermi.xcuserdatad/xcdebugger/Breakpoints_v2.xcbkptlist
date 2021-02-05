@@ -14,8 +14,8 @@
             filePath = "HydroBerry/Home/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "findCrop(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -24,6 +24,22 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "08F87A71-AF4C-4E40-94F9-FB54CD007A93"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HydroBerry/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "findCrop(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A4DC00BB-748C-45C5-B606-2F9BEFBC5B25"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -39,22 +55,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A4DC00BB-748C-45C5-B606-2F9BEFBC5B25"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HydroBerry/Home/HomeViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "findCrop(completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "5052F162-36F0-4617-BDB4-15CAE5413EEC"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -62,9 +62,603 @@
             filePath = "HydroBerry/Profile/ProfileView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "systemPart"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "94238312-9E7A-45A3-AAFE-48A9A00BCA2A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HydroBerry/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9A4EC0A2-1B64-4210-B42F-B432FAC0EB6E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HydroBerry/TermsAndPrivacyView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "TermsAndPrivacyView"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "18750A70-D871-439B-BD3A-25892FC0CFCA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HydroBerry/TermsAndPrivacyView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "18750A70-D871-439B-BD3A-25892FC0CFCA - 98eb3a64dc281a04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Group&lt;SwiftUI.TupleView&lt;(SwiftUI.Spacer, SwiftUI.Image, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0)&gt;&gt;, &lt;&lt;opaque return type of HydroBerry.TermsAndPrivacyView.SafariButton.RootView.(firstBlock in _1FBD4FEA08252BA6899D4841E4DB99F3) : some&gt;&gt;.0, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of HydroBerry.TermsAndPrivacyView.SafariButton.RootView.(secondBlock in _1FBD4FEA08252BA6899D4841E4DB99F3) : some&gt;&gt;.0, SwiftUI.Spacer, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt; in HydroBerry.TermsAndPrivacyView.SafariButton.RootView.body.getter : some"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/TermsAndPrivacyView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "403">
+               </Location>
+               <Location
+                  uuid = "18750A70-D871-439B-BD3A-25892FC0CFCA - b83991d89423b9f4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Spacer, SwiftUI.Image, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Group&lt;SwiftUI.TupleView&lt;(SwiftUI.Spacer, SwiftUI.Image, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0)&gt;&gt;, &lt;&lt;opaque return type of HydroBerry.TermsAndPrivacyView.SafariButton.RootView.(firstBlock in _1FBD4FEA08252BA6899D4841E4DB99F3) : some&gt;&gt;.0, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of HydroBerry.TermsAndPrivacyView.SafariButton.RootView.(secondBlock in _1FBD4FEA08252BA6899D4841E4DB99F3) : some&gt;&gt;.0, SwiftUI.Spacer, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt; in HydroBerry.TermsAndPrivacyView.SafariButton.RootView.body.getter : some"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/TermsAndPrivacyView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "87">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B30DEA9F-F806-4D6A-9EB5-C85179BBC293"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HydroBerry/Generic/MotherView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "B30DEA9F-F806-4D6A-9EB5-C85179BBC293 - 530f70b91c50c0ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; Swift.Optional&lt;SwiftUI._ConditionalContent&lt;HydroBerry.OnboardingView, HydroBerry.LoginView&gt;&gt; in HydroBerry.MotherView.body.getter : some"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Generic/MotherView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "375">
+               </Location>
+               <Location
+                  uuid = "B30DEA9F-F806-4D6A-9EB5-C85179BBC293 - fdf04b7634176a05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; Swift.Optional&lt;SwiftUI._ConditionalContent&lt;HydroBerry.OnboardingView, HydroBerry.LoginView&gt;&gt; in HydroBerry.MotherView.body.getter : some"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Generic/MotherView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0F65FC37-AC58-410D-95C0-4F55DACAFD45"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HydroBerry/Generic/MotherView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B80BF353-63A5-4F98-8C22-1E9E9A06FA2C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HydroBerry/Onboarding/OnboardingView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "OnboardingView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "B80BF353-63A5-4F98-8C22-1E9E9A06FA2C - 14798b364ea70655"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of HydroBerry.OnboardingView.(showPrivacy in _A8F76AF74EC52B195CFADF3C7DC19266) : Swift.Bool"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Onboarding/OnboardingView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "B80BF353-63A5-4F98-8C22-1E9E9A06FA2C - 9a692065688db17f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.OnboardingView.init(style: HydroBerry.OnboardingStyle, items: Swift.Array&lt;HydroBerry.OnboardingItem&gt;) -&gt; HydroBerry.OnboardingView"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Onboarding/OnboardingView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6E69EB19-6953-4C8D-BA9E-C147CF4185CC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HydroBerry/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "LoginViewModel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "6E69EB19-6953-4C8D-BA9E-C147CF4185CC - 5988b901e51cec79"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of HydroBerry.LoginViewModel.success : Swift.Bool"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "6E69EB19-6953-4C8D-BA9E-C147CF4185CC - 9a61cbbf92628283"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.LoginViewModel.success.getter : Swift.Bool"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "6E69EB19-6953-4C8D-BA9E-C147CF4185CC - a6e874bd593fea8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.LoginViewModel.success.setter : Swift.Bool"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "106">
+               </Location>
+               <Location
+                  uuid = "6E69EB19-6953-4C8D-BA9E-C147CF4185CC - 65a2d4733262ea57"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.LoginViewModel.success.modify : Swift.Bool"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "6E69EB19-6953-4C8D-BA9E-C147CF4185CC - d77303d0245faa8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.LoginViewModel.success.modify : Swift.Bool with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  uuid = "6E69EB19-6953-4C8D-BA9E-C147CF4185CC - 6bca2f87e0d35ba6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.LoginViewModel.$success.getter : Combine.Published&lt;Swift.Bool&gt;.Publisher"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "110">
+               </Location>
+               <Location
+                  uuid = "6E69EB19-6953-4C8D-BA9E-C147CF4185CC - 5e463745c9cd07d2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.LoginViewModel.$success.setter : Combine.Published&lt;Swift.Bool&gt;.Publisher"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "233">
+               </Location>
+               <Location
+                  uuid = "6E69EB19-6953-4C8D-BA9E-C147CF4185CC - 739f72cbb5e37293"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.LoginViewModel.$success.modify : Combine.Published&lt;Swift.Bool&gt;.Publisher"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "53">
+               </Location>
+               <Location
+                  uuid = "6E69EB19-6953-4C8D-BA9E-C147CF4185CC - 83702bbce3440ad1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.LoginViewModel.$success.modify : Combine.Published&lt;Swift.Bool&gt;.Publisher with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "17">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1DB238D0-D9A3-47B2-B010-FCCE0F4FC100"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HydroBerry/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "findCrop(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2AAFA470-70C0-4A4B-918D-4CAC745DA44E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HydroBerry/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "HomeViewModel"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6B703761-0091-4384-9828-C54DA20FA2A7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HydroBerry/Home/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "HomeView"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6502E556-4DD6-48B6-815B-D2183C421F54"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HydroBerry/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "LoginViewModel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "6502E556-4DD6-48B6-815B-D2183C421F54 - f35feedd766bab49"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of HydroBerry.LoginViewModel.showErrorAlert : Swift.Bool"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "6502E556-4DD6-48B6-815B-D2183C421F54 - fc7ced6d59ce8c17"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.LoginViewModel.showErrorAlert.getter : Swift.Bool"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "6502E556-4DD6-48B6-815B-D2183C421F54 - b09e8e14421bd403"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.LoginViewModel.showErrorAlert.setter : Swift.Bool"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "106">
+               </Location>
+               <Location
+                  uuid = "6502E556-4DD6-48B6-815B-D2183C421F54 - d4da2595692ed0a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.LoginViewModel.showErrorAlert.modify : Swift.Bool"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "6502E556-4DD6-48B6-815B-D2183C421F54 - 52e4966a0cedc403"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.LoginViewModel.showErrorAlert.modify : Swift.Bool with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  uuid = "6502E556-4DD6-48B6-815B-D2183C421F54 - 44387c21fb2bc2f4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.LoginViewModel.$showErrorAlert.getter : Combine.Published&lt;Swift.Bool&gt;.Publisher"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "110">
+               </Location>
+               <Location
+                  uuid = "6502E556-4DD6-48B6-815B-D2183C421F54 - 105cc00674c58ee0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.LoginViewModel.$showErrorAlert.setter : Combine.Published&lt;Swift.Bool&gt;.Publisher"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "233">
+               </Location>
+               <Location
+                  uuid = "6502E556-4DD6-48B6-815B-D2183C421F54 - 4bc2db268762f5a4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.LoginViewModel.$showErrorAlert.modify : Combine.Published&lt;Swift.Bool&gt;.Publisher"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "53">
+               </Location>
+               <Location
+                  uuid = "6502E556-4DD6-48B6-815B-D2183C421F54 - 456288f479dc6791"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HydroBerry.LoginViewModel.$showErrorAlert.modify : Combine.Published&lt;Swift.Bool&gt;.Publisher with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "HydroBerry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolasvermi/Documents/HydroBerry/HydroBerry/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "17">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3144B288-FB32-45E4-9CF4-1D97F25A9DF4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HydroBerry/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "submit(email:password:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F2B1BFD2-3EED-428E-B1DC-714C00F82C87"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HydroBerry/Login/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "93F6CFE2-89A0-4B1D-974D-278DF2DC854F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HydroBerry/Login/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>

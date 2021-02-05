@@ -20,7 +20,13 @@ final class LoginViewModel: ObservableObject {
   @Published var showErrorAlert = false
   @Published var errorType = ""
 
-  init() {}
+    init() {
+  //    success = Auth.auth().currentUser != nil
+  //    Auth.auth().addStateDidChangeListener { [weak self] _, user in
+  //        self?.success = user != nil
+  //    }
+    }
+
 
   func submit(email: String, password: String) {
     cancellable?.cancel()
@@ -39,34 +45,36 @@ final class LoginViewModel: ObservableObject {
     //let password = "testtest"
     
     Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
-      if let error = error as? NSError {
-        switch AuthErrorCode(rawValue: error.code) {
-        case .operationNotAllowed:
-            print("operationNotAllowed")
-            self.showErrorAlert = true
-            self.errorType = "Operazione non permessa"
-        case .userDisabled:
-            print("userDisabled")
-            self.showErrorAlert = true
-            self.errorType = "Utente disabilitato"
-        case .wrongPassword:
-            print("wrongPassword")
-            self.showErrorAlert = true
-            self.errorType = "Password errata"
-        case .invalidEmail:
-            print("invalidMail")
-            self.showErrorAlert = true
-            self.errorType = "Email non valida"
-        default:
-            self.showErrorAlert = true
-            self.errorType = "Errore: non è presente alcun utente con questa mail"
-            print("Error: \(error.localizedDescription)")
-        }
-      } else {
-        print("User signs in successfully")
-        self.success = true
-        self.showErrorAlert = false
+        DispatchQueue.main.async {
+            if let error = error as? NSError {
+              switch AuthErrorCode(rawValue: error.code) {
+              case .operationNotAllowed:
+                  print("operationNotAllowed")
+                  self.showErrorAlert = true
+                  self.errorType = "Operazione non permessa"
+              case .userDisabled:
+                  print("userDisabled")
+                  self.showErrorAlert = true
+                  self.errorType = "Utente disabilitato"
+              case .wrongPassword:
+                  print("wrongPassword")
+                  self.showErrorAlert = true
+                  self.errorType = "Password errata"
+              case .invalidEmail:
+                  print("invalidMail")
+                  self.showErrorAlert = true
+                  self.errorType = "Email non valida"
+              default:
+                  self.showErrorAlert = true
+                  self.errorType = "Errore: non è presente alcun utente con questa mail"
+                  print("Error: \(error.localizedDescription)")
+              }
+            } else {
+              print("User signs in successfully")
+              self.success = true
+              self.showErrorAlert = false
 
+            }
       }
     }
   }

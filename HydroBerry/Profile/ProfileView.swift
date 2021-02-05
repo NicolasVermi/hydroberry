@@ -85,14 +85,21 @@ struct ProfileView: View {
                                 AddCropStep1View()
                             }
 
-                            ForEach(Array(zip(self.viewModel.listaCrops.indices, self.viewModel.listaCrops)), id:\.0) { _, item in
-                            
-                                NavigationLink (destination: SystemView(selectedPlant: item.nomePianta, raccoltoID: item.idRaccolto)){
+                            if self.viewModel.listaCrops.count == 0{
+                                HStack{
+                                    Spacer()
+                                }.navigationBarHidden(true)
+                            }else{
+                                ForEach(Array(zip(self.viewModel.listaCrops.indices, self.viewModel.listaCrops)), id:\.0) { _, item in
+                                
+                                    NavigationLink (destination: SystemView(selectedPlant: item.nomePianta, raccoltoID: item.idRaccolto)){
 
-                                    SystemCardView(pianta: item.nomePianta, nomeSistema: item.nomeRaccolto)
+
+                                        SystemCardView(pianta: item.nomePianta, nomeSistema: item.nomeRaccolto)
+
 
                                 }.navigationBarHidden(true)
-                          }
+                                }}
                         }
                     }
                 }

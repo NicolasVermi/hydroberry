@@ -11,7 +11,7 @@ import DuckMaUI
 import SwiftUI
 
 struct LoginView: View {
-  @ObservedObject var viewModel: LoginViewModel
+  @StateObject var viewModel: LoginViewModel
 
 
   @State private var email = ""
@@ -95,7 +95,6 @@ struct LoginView: View {
         }
       } else {
         passwordView
-            .frame(minWidth:100, maxWidth: 1000)
       }
 
       Spacer().frame(height: 22)
